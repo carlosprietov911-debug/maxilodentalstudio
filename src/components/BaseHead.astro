@@ -1,0 +1,55 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  descripcion?: string;
+  image?: string; // puede ser "/og.jpg" o una url completa
+}
+
+const {
+  title = "Maxilodental Studio",
+  descripcion = "Clínica odontológica. Agenda tu cita por WhatsApp.",
+  image = "/og.jpg",
+} = Astro.props as Props;
+
+// URL canónica absoluta (requiere Astro.site configurado)
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+// OG image absoluta
+const ogImageURL = new URL(image, Astro.site);
+---
+<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+	
+
+    <link rel="canonical" href={canonicalURL.href} />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#4db4bf" />
+
+    <title>{title}</title>
+    <meta name="description" content={descripcion} />
+
+    <!-- Open Graph (Instagram/Facebook usan esto) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_CO" />
+    <meta property="og:site_name" content="Maxilodental Studio" />
+    <meta property="og:url" content={canonicalURL.href} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={descripcion} />
+    <meta property="og:image" content={ogImageURL.href} />
+
+    <!-- Opcional pero recomendado -->
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter (mejora previews en varias apps) -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={descripcion} />
+    <meta name="twitter:image" content={ogImageURL.href} />
