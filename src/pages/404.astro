@@ -6,305 +6,503 @@ const imageSrc = "/img/404-logo.png";
 ---
 
 <Layout title="404 | Maxilodental Studio" descripcion="Página no encontrada">
-  <section class="wrap">
-    <div class="shell">
-      <div class="card enter">
-        <!-- Col izquierda -->
-        <div class="copy">
-          <div class="pill">
-            <span class="dot" aria-hidden="true"></span>
+  <section class="not-found">
+    <div class="bg-orb orb-1" aria-hidden="true"></div>
+    <div class="bg-orb orb-2" aria-hidden="true"></div>
+    <div class="bg-grid" aria-hidden="true"></div>
+
+    <div class="container">
+      <article class="card enter">
+        <div class="content">
+          <div class="badge">
+            <span class="badge-dot"></span>
             Error 404
           </div>
 
+          <p class="eyebrow">Maxilodental Studio</p>
+
           <h1 class="title">
-            <span class="code">404</span>
-            <span class="text">Página no encontrada</span>
+            <span class="title-code">404</span>
+            <span class="title-text">La página que buscas no existe</span>
           </h1>
 
-          <p class="desc">
-            La URL que buscaste no existe o fue movida. Puedes volver al inicio o
-            escribirnos y te ayudamos a agendar una cita.
+          <p class="description">
+            Puede que el enlace esté roto, la página haya sido movida o simplemente
+            la dirección no sea correcta. Puedes volver al inicio o escribirnos por
+            WhatsApp y te ayudamos de inmediato.
           </p>
 
           <div class="actions">
-            <a class="btn primary" href="/">Volver al inicio</a>
+            <a class="btn btn-primary" href="/">
+              <span>Volver al inicio</span>
+            </a>
 
             <a
-              class="btn ghost"
+              class="btn btn-secondary"
               href={WHATSAPP_URL}
               target="_blank"
               rel="noreferrer"
             >
-              Agendar por WhatsApp
+              <span>Agendar por WhatsApp</span>
             </a>
           </div>
 
-          <div class="links">
+          <nav class="quick-links" aria-label="Enlaces rápidos">
             <a href="/#servicios">Servicios</a>
             <span>•</span>
             <a href="/#reseñas">Reseñas</a>
             <span>•</span>
             <a href="/#contacto">Contacto</a>
-          </div>
+          </nav>
         </div>
 
-        <!-- Col derecha -->
-        <div class="art">
-          <div class="artFrame floaty">
+        <div class="visual">
+          <div class="visual-card floaty">
+            <div class="visual-glow" aria-hidden="true"></div>
+
             <img
               src={imageSrc}
-              alt="Ilustración de la clínica"
+              alt="Ilustración de la clínica Maxilodental Studio"
+              class="visual-image"
               loading="lazy"
-              class="artImg"
             />
-            <div class="shine" aria-hidden="true"></div>
           </div>
 
-          <div class="tag" aria-hidden="true">
-            <span class="tagStrong">Tip</span>
-            <span class="tagText">Si llegaste aquí por error, escríbenos 👍</span>
+          <div class="tip-box">
+            <span class="tip-label">Sugerencia</span>
+            <p class="tip-text">
+              Si llegaste aquí desde un enlace antiguo, escríbenos y te enviamos la
+              ruta correcta.
+            </p>
           </div>
         </div>
-      </div>
+      </article>
     </div>
   </section>
 </Layout>
 
 <style>
-  /* Layout base */
-  .wrap {
-    min-height: calc(100vh - 80px);
-    padding: 48px 16px;
-    display: grid;
-    place-items: center;
-    background:
-      radial-gradient(1200px 600px at 15% 25%, rgba(77, 180, 191, 0.35), transparent 55%),
-      radial-gradient(900px 500px at 85% 35%, rgba(219, 251, 255, 0.85), transparent 55%),
-      radial-gradient(900px 500px at 65% 85%, rgba(77, 180, 191, 0.18), transparent 55%),
-      #ffffff;
+  :root {
+    --bg: #f8fcfd;
+    --surface: rgba(255, 255, 255, 0.72);
+    --surface-strong: rgba(255, 255, 255, 0.88);
+    --stroke: rgba(12, 23, 31, 0.08);
+    --text: #10232b;
+    --text-soft: rgba(16, 35, 43, 0.72);
+    --text-muted: rgba(16, 35, 43, 0.58);
+    --brand: #4db4bf;
+    --brand-soft: #d8f7fa;
+    --dark: #0f1f27;
+    --shadow: 0 24px 70px rgba(15, 31, 39, 0.12);
+    --shadow-soft: 0 16px 34px rgba(15, 31, 39, 0.08);
+    --radius-xl: 32px;
+    --radius-lg: 22px;
+    --radius-md: 16px;
+    --radius-pill: 999px;
   }
 
-  .shell {
+  .not-found {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    padding: 40px 16px;
+    background:
+      radial-gradient(circle at top left, rgba(77, 180, 191, 0.18), transparent 32%),
+      radial-gradient(circle at 85% 20%, rgba(216, 247, 250, 0.95), transparent 28%),
+      linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+    isolation: isolate;
+  }
+
+  .container {
     width: 100%;
-    max-width: 1100px;
+    max-width: 1180px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .bg-orb {
+    position: absolute;
+    border-radius: 999px;
+    filter: blur(50px);
+    opacity: 0.75;
+    z-index: 0;
+  }
+
+  .orb-1 {
+    width: 320px;
+    height: 320px;
+    background: rgba(77, 180, 191, 0.26);
+    top: 6%;
+    left: -80px;
+  }
+
+  .orb-2 {
+    width: 280px;
+    height: 280px;
+    background: rgba(216, 247, 250, 0.95);
+    right: -60px;
+    bottom: 8%;
+  }
+
+  .bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(16, 35, 43, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(16, 35, 43, 0.03) 1px, transparent 1px);
+    background-size: 34px 34px;
+    mask-image: radial-gradient(circle at center, black 45%, transparent 85%);
+    z-index: 0;
+    pointer-events: none;
   }
 
   .card {
     position: relative;
-    overflow: hidden;
-    border-radius: 28px;
-    padding: 28px;
-    background: linear-gradient(140deg, rgba(77, 180, 191, 0.35), rgba(219, 251, 255, 0.55));
-    box-shadow: 0 18px 45px rgba(2, 20, 25, 0.10);
-    border: 1px solid rgba(2, 20, 25, 0.08);
     display: grid;
-    gap: 26px;
+    gap: 28px;
+    padding: 24px;
+    border: 1px solid var(--stroke);
+    border-radius: var(--radius-xl);
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.70));
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(16px);
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(135deg, rgba(77, 180, 191, 0.14), transparent 35%),
+      linear-gradient(300deg, rgba(216, 247, 250, 0.55), transparent 40%);
+    pointer-events: none;
   }
 
   @media (min-width: 980px) {
     .card {
-      grid-template-columns: 1.15fr 0.85fr;
-      padding: 40px;
-      gap: 34px;
+      grid-template-columns: 1.1fr 0.9fr;
       align-items: center;
+      padding: 42px;
+      gap: 42px;
     }
   }
 
-  /* Col izquierda */
-  .copy {
-    color: rgba(12, 23, 31, 0.92);
+  .content,
+  .visual {
+    position: relative;
+    z-index: 1;
   }
 
-  .pill {
+  .badge {
+    width: fit-content;
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: rgba(255, 255, 255, 0.65);
-    border: 1px solid rgba(2, 20, 25, 0.10);
-    border-radius: 999px;
-    padding: 8px 12px;
+    padding: 9px 14px;
+    border-radius: var(--radius-pill);
+    background: var(--surface-strong);
+    border: 1px solid rgba(16, 35, 43, 0.08);
+    box-shadow: 0 10px 24px rgba(15, 31, 39, 0.06);
     font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.02em;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text);
   }
 
-  .dot {
-    width: 8px;
-    height: 8px;
+  .badge-dot {
+    width: 9px;
+    height: 9px;
     border-radius: 999px;
-    background: rgba(12, 23, 31, 0.85);
-    box-shadow: 0 0 0 4px rgba(12, 23, 31, 0.10);
+    background: var(--brand);
+    box-shadow: 0 0 0 6px rgba(77, 180, 191, 0.18);
+  }
+
+  .eyebrow {
+    margin: 18px 0 0;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-muted);
   }
 
   .title {
     margin: 14px 0 0;
-    line-height: 1.05;
     display: grid;
     gap: 10px;
+    line-height: 1;
   }
 
-  .code {
-    font-size: clamp(44px, 6vw, 72px);
+  .title-code {
+    font-size: clamp(56px, 8vw, 104px);
     font-weight: 900;
+    letter-spacing: -0.05em;
+    color: var(--dark);
+    text-shadow: 0 10px 25px rgba(15, 31, 39, 0.08);
+  }
+
+  .title-text {
+    max-width: 12ch;
+    font-size: clamp(28px, 3.4vw, 46px);
+    line-height: 1.08;
+    font-weight: 850;
     letter-spacing: -0.03em;
-    color: rgba(12, 23, 31, 0.92);
+    color: var(--text);
   }
 
-  .text {
-    font-size: clamp(26px, 3.2vw, 40px);
-    font-weight: 800;
-    letter-spacing: -0.02em;
-  }
-
-  .desc {
-    margin: 14px 0 0;
-    font-size: 16px;
-    line-height: 1.7;
+  .description {
+    margin: 18px 0 0;
     max-width: 58ch;
-    color: rgba(12, 23, 31, 0.78);
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text-soft);
   }
 
   .actions {
-    margin-top: 20px;
+    margin-top: 26px;
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 14px;
   }
 
   .btn {
+    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 12px 16px;
-    border-radius: 14px;
-    font-weight: 800;
+    min-height: 50px;
+    padding: 0 18px;
+    border-radius: 16px;
     font-size: 14px;
+    font-weight: 800;
     text-decoration: none;
-    border: 1px solid rgba(2, 20, 25, 0.12);
-    transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, opacity 180ms ease;
-    will-change: transform;
+    transition:
+      transform 180ms ease,
+      box-shadow 180ms ease,
+      border-color 180ms ease,
+      background 180ms ease,
+      color 180ms ease;
+    border: 1px solid transparent;
+    box-shadow: var(--shadow-soft);
   }
 
   .btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 14px 25px rgba(2, 20, 25, 0.12);
   }
 
-  .primary {
-    background: rgba(12, 23, 31, 0.95);
+  .btn-primary {
+    background: linear-gradient(135deg, #11232c 0%, #1c3640 100%);
     color: white;
-    border-color: rgba(12, 23, 31, 0.2);
+    border-color: rgba(15, 31, 39, 0.18);
   }
 
-  .ghost {
-    background: rgba(255, 255, 255, 0.65);
-    color: rgba(12, 23, 31, 0.92);
+  .btn-primary:hover {
+    box-shadow: 0 18px 34px rgba(15, 31, 39, 0.18);
   }
 
-  .links {
-    margin-top: 18px;
+  .btn-secondary {
+    background: rgba(255, 255, 255, 0.78);
+    color: var(--text);
+    border-color: rgba(16, 35, 43, 0.1);
+  }
+
+  .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 18px 34px rgba(15, 31, 39, 0.10);
+  }
+
+  .quick-links {
+    margin-top: 22px;
     display: flex;
-    gap: 10px;
     flex-wrap: wrap;
+    gap: 10px;
     align-items: center;
+    color: var(--text-muted);
     font-size: 14px;
-    color: rgba(12, 23, 31, 0.72);
   }
 
-  .links a {
+  .quick-links a {
     color: inherit;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    transition: opacity 160ms ease;
-  }
-
-  .links a:hover {
-    opacity: 0.8;
-  }
-
-  .links span {
-    opacity: 0.45;
-  }
-
-  /* Col derecha */
-  .art {
-    display: grid;
-    justify-items: center;
-    gap: 14px;
-  }
-
-  .artFrame {
+    text-decoration: none;
+    font-weight: 600;
     position: relative;
-    width: min(380px, 100%);
-    border-radius: 24px;
-    background: rgba(255, 255, 255, 0.7);
-    border: 1px solid rgba(2, 20, 25, 0.12);
-    box-shadow: 0 18px 35px rgba(2, 20, 25, 0.10);
-    padding: 18px;
-    overflow: hidden;
   }
 
-  /* ✅ Imagen más chica y sin recorte */
-  .artImg {
+  .quick-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
     width: 100%;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.45;
+    transition: opacity 160ms ease, transform 160ms ease;
+    transform: scaleX(0.95);
+    transform-origin: left;
+  }
+
+  .quick-links a:hover::after {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+
+  .quick-links span {
+    opacity: 0.4;
+  }
+
+  .visual {
+    display: grid;
+    gap: 16px;
+    justify-items: center;
+  }
+
+  .visual-card {
+    position: relative;
+    width: min(420px, 100%);
+    min-height: 320px;
+    display: grid;
+    place-items: center;
+    border-radius: 28px;
+    border: 1px solid rgba(16, 35, 43, 0.08);
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.72));
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
+    padding: 24px;
+  }
+
+  .visual-glow {
+    position: absolute;
+    inset: auto;
+    width: 240px;
+    height: 240px;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(77, 180, 191, 0.28), transparent 70%);
+    filter: blur(20px);
+    z-index: 0;
+  }
+
+  .visual-image {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 290px;
     height: auto;
-    max-height: 260px;
+    max-height: 280px;
     object-fit: contain;
     display: block;
-    filter: drop-shadow(0 10px 14px rgba(2, 20, 25, 0.12));
+    filter: drop-shadow(0 18px 28px rgba(15, 31, 39, 0.14));
   }
 
-  .shine {
-    pointer-events: none;
-    position: absolute;
-    inset: -40%;
-    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.75), transparent 55%);
-    opacity: 0.65;
-    transform: rotate(12deg);
+  .tip-box {
+    width: min(420px, 100%);
+    padding: 16px 18px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.76);
+    border: 1px solid rgba(16, 35, 43, 0.08);
+    box-shadow: var(--shadow-soft);
   }
 
-  .tag {
-    width: min(380px, 100%);
-    border-radius: 16px;
-    padding: 12px 14px;
-    background: rgba(12, 23, 31, 0.06);
-    border: 1px solid rgba(2, 20, 25, 0.10);
-    color: rgba(12, 23, 31, 0.78);
-    display: flex;
-    gap: 10px;
-    align-items: baseline;
+  .tip-label {
+    display: inline-block;
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--brand);
   }
 
-  .tagStrong {
-    font-weight: 900;
-  }
-
-  .tagText {
+  .tip-text {
+    margin: 0;
+    color: var(--text-soft);
+    font-size: 14px;
+    line-height: 1.65;
     font-weight: 600;
   }
 
-  /* Animaciones */
   .enter {
-    animation: enter 520ms ease-out both;
-  }
-
-  @keyframes enter {
-    from { opacity: 0; transform: translateY(10px); }
-    to   { opacity: 1; transform: translateY(0); }
+    animation: enter 0.65s ease-out both;
   }
 
   .floaty {
-    animation: float 6.5s ease-in-out infinite;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes enter {
+    from {
+      opacity: 0;
+      transform: translateY(18px) scale(0.985);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
   }
 
   @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50%      { transform: translateY(-10px); }
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
   }
 
-  /* Reduce motion */
+  @media (max-width: 640px) {
+    .not-found {
+      padding: 20px 12px;
+    }
+
+    .card {
+      padding: 18px;
+      border-radius: 24px;
+    }
+
+    .title-text {
+      max-width: 100%;
+    }
+
+    .description {
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .actions {
+      flex-direction: column;
+    }
+
+    .actions .btn {
+      width: 100%;
+    }
+
+    .visual-card {
+      min-height: 260px;
+      padding: 18px;
+    }
+
+    .visual-image {
+      max-width: 230px;
+      max-height: 220px;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    .enter, .floaty, .btn { animation: none !important; transition: none !important; }
-    .btn:hover { transform: none; box-shadow: none; }
+    .enter,
+    .floaty,
+    .btn {
+      animation: none !important;
+      transition: none !important;
+    }
+
+    .btn:hover {
+      transform: none;
+    }
   }
 </style>

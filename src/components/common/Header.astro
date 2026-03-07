@@ -1,0 +1,112 @@
+---
+import logo from "../../assets/Logotipo.svg?url";
+---
+
+<header class="mx-auto max-w-7xl px-6 py-12 sm:px-8 lg:px-15">
+  <div class="flex min-h-22 items-center justify-between gap-6 md:min-h-25 lg:min-h-27.5">
+    
+    <!-- Logo -->
+    <a href="/" class="flex shrink-0 items-center">
+      <img
+        src={logo}
+        alt="Maxilodental Studio"
+        width="280"
+        height="140"
+        class="h-20 w-auto sm:h-24 md:h-28 lg:h-35"
+      />
+    </a>
+
+    <!-- Menú escritorio -->
+    <nav class="hidden lg:flex items-center gap-10 text-[#111] font-semibold">
+      <a
+        href="/#inicio"
+        class="inline-flex h-10 items-center underline-offset-4 transition hover:text-[#2AA7B0] hover:underline"
+      >
+        Inicio
+      </a>
+
+      <a
+        href="/#nosotros"
+        class="inline-flex h-10 items-center underline-offset-4 transition hover:text-[#2AA7B0] hover:underline"
+      >
+        Nosotros
+      </a>
+
+      <a
+        href="/servicios"
+        class="inline-flex h-10 items-center underline-offset-4 transition hover:text-[#2AA7B0] hover:underline"
+      >
+        Servicios
+      </a>
+
+      <a
+        href="/pacientes"
+        class="inline-flex h-10 items-center underline-offset-4 transition hover:text-[#2AA7B0] hover:underline"
+      >
+        Pacientes
+      </a>
+
+      <a
+        href="/contacto"
+        class="ml-2 inline-flex h-10 items-center justify-center  text-[#2AA7B0] t hover:text-white"
+      >
+        Contacto
+      </a>
+    </nav>
+
+    <!-- Menú móvil -->
+    <details class="relative lg:hidden">
+      <summary class="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-xl bg-white text-[#111] shadow-sm marker:content-none">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </summary>
+
+      <div class="absolute right-0 top-14 z-50 w-64 rounded-2xl bg-white p-4 shadow-xl ring-1 ring-black/5">
+        <nav class="flex flex-col gap-2 text-[#111] font-semibold">
+          <a
+            href="/#inicio"
+            class="rounded-xl px-4 py-3 transition hover:bg-[#f6f6f6] hover:text-[#2AA7B0]"
+          >
+            Inicio
+          </a>
+
+          <a
+            href="/#nosotros"
+            class="rounded-xl px-4 py-3 transition hover:bg-[#f6f6f6] hover:text-[#2AA7B0]"
+          >
+            Nosotros
+          </a>
+
+          <a
+            href="/servicios"
+            class="rounded-xl px-4 py-3 transition hover:bg-[#f6f6f6] hover:text-[#2AA7B0]"
+          >
+            Servicios
+          </a>
+
+          <a
+            href="/pacientes"
+            class="rounded-xl px-4 py-3 transition hover:bg-[#f6f6f6] hover:text-[#2AA7B0]"
+          >
+            Pacientes
+          </a>
+
+          <a
+            href="/contacto"
+            class="mt-2 inline-flex items-center justify-center rounded-full bg-[#2AA7B0] px-5 py-3 text-white transition hover:brightness-110"
+          >
+            Contacto
+          </a>
+        </nav>
+      </div>
+    </details>
+  </div>
+</header>

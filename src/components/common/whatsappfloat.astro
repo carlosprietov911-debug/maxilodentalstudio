@@ -1,0 +1,61 @@
+---
+import whatsappIcon from "../../assets/whatsapp.png?url"; // si es src/assets, cambia a "../assets/whatsapp.png?url"
+
+type Props = {
+  href?: string;     // por defecto usa tu wa.link
+  label?: string;
+  text?: string;     // texto que aparece en desktop
+};
+
+const {
+  href = "https://wa.link/u29whe",
+  label = "Abrir WhatsApp para agendar cita",
+  text = "Agenda por WhatsApp",
+} = Astro.props as Props;
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label={label}
+  class="group fixed right-5 z-50 flex items-center gap-3
+         bottom-[calc(1.25rem+env(safe-area-inset-bottom))]"
+>
+  <!-- Texto (solo en desktop) -->
+  <span
+    class="hidden md:inline-flex items-center rounded-full border border-black/10 bg-white/85 px-4 py-2
+           text-sm font-semibold text-[#111] shadow-lg backdrop-blur
+           opacity-0 translate-x-2 pointer-events-none
+           transition-all duration-300
+           group-hover:opacity-100 group-hover:translate-x-0"
+  >
+    {text}
+  </span>
+
+  <!-- Botón -->
+  <span class="relative">
+    <!-- Halo animado -->
+    <span
+      aria-hidden="true"
+      class="absolute inset-0 rounded-full bg-[#25D366]/25 blur-sm
+             motion-safe:animate-pulse"
+    ></span>
+
+    <span
+      class="relative inline-flex h-14 w-14 items-center justify-center rounded-full
+             bg-[#25D366] shadow-xl ring-1 ring-black/10
+             transition duration-300
+             hover:-translate-y-1 hover:scale-105 hover:shadow-2xl
+             active:scale-95"
+    >
+      <img
+        src={whatsappIcon}
+        alt=""
+        aria-hidden="true"
+        class="h-8 w-8 object-contain"
+        loading="lazy"
+      />
+    </span>
+  </span>
+</a>

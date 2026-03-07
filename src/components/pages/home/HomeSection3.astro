@@ -1,0 +1,213 @@
+---
+import dentalShape1 from "../../../assets/dental.svg?url";
+import dentalShape2 from "../../../assets/dental1.svg?url";
+
+/* Reemplaza estas rutas por tus imágenes reales */
+import draImg from "../../../assets/Yessica.png?url";
+import drImg from "../../../assets/Artur.jpeg?url";
+
+/* Si todavía no tienes estos archivos, déjalos comentados o cámbialos */
+const draInstagram = "https://www.instagram.com/yessicafmaxilo?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==";
+const drInstagram = "https://www.instagram.com/dr_carlosprieto?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==";
+---
+
+<section id="nosotros-equipo" class="relative overflow-hidden bg-[#f7efef] px-6 py-18 md:px-10 lg:px-12 lg:py-24">
+  <!-- Decoraciones de fondo -->
+  <img
+    src={dentalShape1}
+    alt=""
+    aria-hidden="true"
+    class="pointer-events-none absolute left-[14%] top-[38%] hidden w-44 opacity-10 md:block lg:w-56"
+  />
+  <img
+    src={dentalShape2}
+    alt=""
+    aria-hidden="true"
+    class="pointer-events-none absolute bottom-[10%] left-[34%] hidden w-40 opacity-10 md:block lg:w-52"
+  />
+
+  <div class="mx-auto max-w-7xl">
+    <!-- Título -->
+    <div class="mb-14 text-center lg:mb-18">
+      <p class="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-[#b68f8f]">
+        Nuestro equipo
+      </p>
+      <h2 class="text-4xl font-extrabold tracking-tight text-[#241717] md:text-5xl">
+        Nosotros
+      </h2>
+    </div>
+
+    <div class="space-y-20 lg:space-y-28">
+      <!-- BLOQUE 1 -->
+      <article class="grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
+        <!-- Col izquierda -->
+        <div class="order-2 lg:order-1">
+          <div class="mb-6 flex flex-col items-center gap-4 lg:items-start">
+            <h3 class="font-allura text-center text-[3.2rem] font-normal leading-none text-[#241717] md:text-[4.3rem] lg:text-left">
+  Dra. Yessica Alvarado
+</h3>
+
+            <a
+              href={draInstagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-3 rounded-full bg-white px-4 py-2.5 text-sm font-medium text-[#4d3f3f] shadow-[0_10px_24px_rgba(0,0,0,0.08)] ring-1 ring-black/5 transition hover:-translate-y-1"
+            >
+              <span class="flex h-10 w-10 items-center justify-center rounded-full bg-[linear-gradient(135deg,#feda75_0%,#fa7e1e_32%,#d62976_60%,#962fbf_82%,#4f5bd5_100%)] text-white">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="h-5 w-5"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5Zm8.88 1.62a1.13 1.13 0 1 1 0 2.26 1.13 1.13 0 0 1 0-2.26ZM12 6.5A5.5 5.5 0 1 1 6.5 12 5.5 5.5 0 0 1 12 6.5Zm0 1.5A4 4 0 1 0 16 12a4 4 0 0 0-4-4Z"
+                  />
+                </svg>
+              </span>
+
+              <span>@yessicafmxilo</span>
+            </a>
+          </div>
+
+          <div class="relative mx-auto w-full max-w-[360px] lg:mx-0">
+            <div class="absolute inset-0 translate-x-4 translate-y-4 rounded-[30px] bg-[#dbcfcf] opacity-50 blur-[2px]"></div>
+
+            <div class="relative overflow-hidden rounded-[30px] bg-[#eadede] shadow-[0_22px_50px_rgba(62,40,40,0.18)]">
+              <img
+                src={draImg}
+                alt="Dra. Yessica Alvarado"
+                class="h-[420px] w-full object-cover object-center md:h-[500px]"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Col derecha -->
+        <div class="order-1 lg:order-2">
+          <p class="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-[#b68f8f]">
+            Sobre mí
+          </p>
+
+          <h3 class="mb-6 text-3xl font-bold leading-tight text-[#241717] md:text-4xl">
+            Cirugía maxilofacial con enfoque estético, funcional y humano
+          </h3>
+
+          <div class="space-y-5 text-[1.05rem] leading-relaxed text-[#4d3f3f]">
+            <p>
+              La Dra. Yessica Alvarado acompaña a pacientes que buscan mejorar su
+              estética y bienestar facial mediante una atención cercana, ética y
+              personalizada.
+            </p>
+
+            <p>
+              Su práctica integra procedimientos quirúrgicos y tratamientos
+              especializados, siempre desde un enfoque seguro, natural y adaptado
+              a las necesidades de cada caso.
+            </p>
+
+            <p>
+              Su objetivo es que cada paciente se sienta escuchado, comprendido y
+              acompañado durante todo el proceso clínico.
+            </p>
+          </div>
+
+          <div class="mt-8 rounded-[24px] border border-[#e8dede] bg-white/60 px-6 py-5 shadow-[0_14px_28px_rgba(0,0,0,0.04)]">
+            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-[#9f7c7c]">
+              Formación
+            </p>
+            <p class="mt-2 text-lg font-semibold text-[#241717]">
+              Universidad Nacional de Colombia
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- BLOQUE 2 -->
+      <article class="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+        <!-- Col izquierda -->
+        <div>
+          <p class="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-[#b68f8f]">
+            Sobre mí
+          </p>
+
+          <h3 class="mb-6 text-3xl font-bold leading-tight text-[#241717] md:text-4xl">
+            Odontología estética y rehabilitación con experiencia clínica
+          </h3>
+
+          <div class="space-y-5 text-[1.05rem] leading-relaxed text-[#4d3f3f]">
+            <p>
+              El Dr. Carlos Prieto enfoca su práctica en odontología estética,
+              rehabilitación y atención integral orientada a devolver función,
+              armonía y confianza al paciente.
+            </p>
+
+            <p>
+              Su trabajo combina criterio clínico, cercanía humana y una atención
+              detallada para diseñar tratamientos acordes con cada necesidad.
+            </p>
+
+            <p>
+              Busca que cada persona viva una experiencia clara, tranquila y bien
+              acompañada desde la valoración hasta el resultado final.
+            </p>
+          </div>
+
+          <div class="mt-8 rounded-[24px] border border-[#e8dede] bg-white/60 px-6 py-5 shadow-[0_14px_28px_rgba(0,0,0,0.04)]">
+            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-[#9f7c7c]">
+              Formación
+            </p>
+            <p class="mt-2 text-lg font-semibold text-[#241717]">
+              Colegio Odontológico Colombiano
+            </p>
+          </div>
+        </div>
+
+        <!-- Col derecha -->
+        <div>
+          <div class="mb-6 flex flex-col items-center gap-4 lg:items-start">
+            <h3 class="text-center text-3xl font-semibold italic text-[#241717] md:text-4xl lg:text-left">
+              Dr. Carlos Prieto
+            </h3>
+
+            <a
+              href={drInstagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-3 rounded-full bg-white px-4 py-2.5 text-sm font-medium text-[#4d3f3f] shadow-[0_10px_24px_rgba(0,0,0,0.08)] ring-1 ring-black/5 transition hover:-translate-y-1"
+            >
+              <span class="flex h-10 w-10 items-center justify-center rounded-full bg-[linear-gradient(135deg,#feda75_0%,#fa7e1e_32%,#d62976_60%,#962fbf_82%,#4f5bd5_100%)] text-white">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="h-5 w-5"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5Zm8.88 1.62a1.13 1.13 0 1 1 0 2.26 1.13 1.13 0 0 1 0-2.26ZM12 6.5A5.5 5.5 0 1 1 6.5 12 5.5 5.5 0 0 1 12 6.5Zm0 1.5A4 4 0 1 0 16 12a4 4 0 0 0-4-4Z"
+                  />
+                </svg>
+              </span>
+
+              <span>@dr_carlosprieto</span>
+            </a>
+          </div>
+
+          <div class="relative mx-auto w-full max-w-[360px] lg:mx-0">
+            <div class="absolute inset-0 translate-x-4 translate-y-4 rounded-[30px] bg-[#dbcfcf] opacity-50 blur-[2px]"></div>
+
+            <div class="relative overflow-hidden rounded-[30px] bg-[#eadede] shadow-[0_22px_50px_rgba(62,40,40,0.18)]">
+              <img
+                src={drImg}
+                alt="Dr. Carlos Prieto"
+                class="h-[420px] w-full object-cover object-center md:h-[500px]"
+              />
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

@@ -1,1 +1,44 @@
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Allura&display=swap");
+
+.font-allura {
+  font-family: "Allura", cursive;
+}
+
+@layer base {
+  :root {
+    --font-body: "Lato", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    --font-title: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: var(--font-body);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-title);
+  }
+}
+@layer utilities {
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes softFloat {
+    0%,100% { transform: translateY(0); }
+    50%     { transform: translateY(-6px); }
+  }
+  @keyframes shine {
+    0%   { transform: translateX(-120%) skewX(-12deg); opacity: 0; }
+    20%  { opacity: .35; }
+    60%  { opacity: 0; }
+    100% { transform: translateX(140%) skewX(-12deg); opacity: 0; }
+  }
+}
