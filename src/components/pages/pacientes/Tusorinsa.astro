@@ -1,0 +1,218 @@
+---
+const pilares = [
+  {
+    numero: "01",
+    titulo: "Diagnóstico y plan personalizado",
+    descripcion:
+      "Estudiamos tu caso con detalle para definir un tratamiento claro, realista y adaptado a tus necesidades.",
+  },
+  {
+    numero: "02",
+    titulo: "Resultados armónicos y naturales",
+    descripcion:
+      "Integramos criterio clínico y herramientas digitales para lograr precisión, estética y equilibrio.",
+  },
+  {
+    numero: "03",
+    titulo: "Calidad clínica y protocolos",
+    descripcion:
+      "Trabajamos con procesos organizados, materiales confiables y altos estándares de bioseguridad.",
+  },
+];
+
+const indicadores = [
+  "Atención cercana",
+  "Tecnología digital",
+  "Bioseguridad",
+  "Acompañamiento real",
+];
+---
+
+<section
+  id="pacientes-confianza"
+  class="relative overflow-hidden bg-[#f8f2f0] px-6 py-14 md:py-18 lg:px-10 lg:py-24"
+>
+  <!-- fondo -->
+  <div class="pointer-events-none absolute inset-0 -z-10">
+    <div class="absolute inset-0 bg-[#f8f2f0]"></div>
+    <div class="absolute left-[-8%] top-[-10%] h-72 w-72 rounded-full bg-[#4DB4BF]/12 blur-3xl animate-pulse"></div>
+    <div class="absolute bottom-[-12%] right-[-6%] h-80 w-80 rounded-full bg-[#efd8d1]/40 blur-3xl animate-pulse"></div>
+    <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.40)_0%,rgba(255,255,255,0.08)_38%,rgba(255,255,255,0.28)_100%)]"></div>
+  </div>
+
+  <div class="mx-auto max-w-7xl">
+    <!-- breadcrumb -->
+    <div class="flex flex-wrap items-center gap-3 text-[0.78rem] font-medium uppercase tracking-[0.16em] text-[#7d6c66]">
+      <a href="/" class="transition hover:text-[#111111]">Inicio</a>
+      <span class="text-[#b79f97]">/</span>
+      <span class="text-[#111111]">Pacientes</span>
+    </div>
+
+    <div class="mt-8 grid items-center gap-12 lg:grid-cols-[1.02fr_.98fr] lg:gap-16">
+      <!-- texto -->
+      <div>
+        <span class="inline-flex items-center gap-2 rounded-full border border-[#eaded9] bg-white/70 px-4 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-[#8a756e] backdrop-blur-sm">
+          Confianza en cada paso
+        </span>
+
+        <h2
+          class="mt-5 max-w-3xl text-4xl font-light leading-[1.04] tracking-[-0.03em] text-[#171312] md:text-5xl lg:text-[4.1rem]"
+        >
+          Tu sonrisa, en buenas manos
+        </h2>
+
+        <p
+          class="mt-5 max-w-2xl text-[1.05rem] leading-relaxed text-[#544946] md:text-[1.15rem]"
+        >
+          Combinamos experiencia clínica, tecnología digital y un trato cercano
+          para que vivas tu tratamiento con tranquilidad, claridad y seguridad
+          desde el primer día.
+        </p>
+
+        <!-- etiquetas -->
+        <div class="mt-7 flex flex-wrap gap-3">
+          {indicadores.map((item) => (
+            <span
+              class="rounded-full border border-white/80 bg-white/80 px-4 py-2 text-sm text-[#3d3431] shadow-[0_8px_24px_rgba(17,17,17,0.04)] ring-1 ring-black/5 backdrop-blur-sm transition duration-300 hover:-translate-y-0.5"
+            >
+              {item}
+            </span>
+          ))}
+        </div>
+
+        <!-- cards -->
+        <div class="mt-10 space-y-4">
+          {pilares.map((item) => (
+            <article
+              class="group rounded-[1.55rem] border border-white/70 bg-white/78 p-5 shadow-[0_14px_35px_rgba(17,17,17,0.06)] ring-1 ring-black/4 backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_45px_rgba(17,17,17,0.08)] md:p-6"
+            >
+              <div class="flex items-start gap-4 md:gap-5">
+                <div
+                  class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#dff4f6] text-sm font-semibold text-[#26454b] md:h-14 md:w-14 md:text-base"
+                >
+                  {item.numero}
+                </div>
+
+                <div>
+                  <h3 class="text-lg font-semibold leading-snug text-[#201a18] md:text-[1.1rem]">
+                    {item.titulo}
+                  </h3>
+                  <p class="mt-2 max-w-xl text-[0.98rem] leading-relaxed text-[#5f5350] md:text-[1.02rem]">
+                    {item.descripcion}
+                  </p>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      <!-- bloque visual abstracto -->
+      <div class="relative mx-auto w-full max-w-[36rem]">
+        <div
+          class="relative isolate overflow-hidden rounded-[2rem] border border-white/70 bg-white/55 p-6 shadow-[0_24px_70px_rgba(17,17,17,0.08)] ring-1 ring-black/5 backdrop-blur-md md:p-8"
+        >
+          <!-- capas decorativas -->
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(77,180,191,0.18),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(240,214,206,0.5),transparent_34%)]"></div>
+
+          <div class="relative flex min-h-[420px] items-center justify-center md:min-h-[470px]">
+            <!-- círculos -->
+            <div class="absolute h-80 w-80 rounded-full border border-[#4DB4BF]/20"></div>
+            <div class="absolute h-64 w-64 rounded-full border border-[#e6c8c0]/40"></div>
+            <div class="absolute h-52 w-52 rounded-full border border-[#4DB4BF]/25 motion-safe:animate-[spin_18s_linear_infinite]"></div>
+            <div class="absolute h-36 w-36 rounded-full bg-white/75 shadow-[0_10px_30px_rgba(17,17,17,0.05)] backdrop-blur-sm"></div>
+
+            <!-- núcleo -->
+            <div class="relative z-10 max-w-[16rem] text-center">
+              <div class="mx-auto flex h-20 w-20 items-center justify-center rounded-[1.7rem] bg-[#dff4f6] shadow-[0_14px_35px_rgba(77,180,191,0.20)]">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.65"
+                  class="h-9 w-9 text-[#24444a]"
+                >
+                  <path d="M12 21s-6.5-4.35-8.5-8.2C1.7 9.2 3.8 5 8.3 5c1.8 0 3 .9 3.7 2 .7-1.1 1.9-2 3.7-2 4.5 0 6.6 4.2 4.8 7.8C18.5 16.65 12 21 12 21Z" />
+                </svg>
+              </div>
+
+              <h3 class="mt-5 text-2xl font-light tracking-tight text-[#1a1413] md:text-[1.9rem]">
+                Cuidamos tu proceso
+              </h3>
+              <p class="mt-3 text-[0.98rem] leading-relaxed text-[#5c514e]">
+                No solo buscamos un buen resultado, también queremos que te
+                sientas acompañado, informado y tranquilo en cada etapa.
+              </p>
+            </div>
+
+            <!-- badges flotantes -->
+            <div
+              class="absolute left-2 top-8 rounded-2xl border border-white/80 bg-white/90 px-4 py-3 shadow-[0_12px_28px_rgba(17,17,17,0.07)] backdrop-blur-sm motion-safe:animate-[pulse_4s_ease-in-out_infinite] md:left-4"
+            >
+              <p class="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[#8d7770]">
+                Precisión
+              </p>
+              <p class="mt-1 text-sm text-[#3e3532]">Diagnóstico claro</p>
+            </div>
+
+            <div
+              class="absolute right-2 top-18 rounded-2xl border border-white/80 bg-white/90 px-4 py-3 shadow-[0_12px_28px_rgba(17,17,17,0.07)] backdrop-blur-sm motion-safe:animate-[pulse_5s_ease-in-out_infinite] md:right-4"
+            >
+              <p class="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[#8d7770]">
+                Confianza
+              </p>
+              <p class="mt-1 text-sm text-[#3e3532]">Acompañamiento real</p>
+            </div>
+
+            <div
+              class="absolute bottom-10 left-6 rounded-2xl border border-white/80 bg-white/90 px-4 py-3 shadow-[0_12px_28px_rgba(17,17,17,0.07)] backdrop-blur-sm motion-safe:animate-[pulse_4.8s_ease-in-out_infinite]"
+            >
+              <p class="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[#8d7770]">
+                Cuidado
+              </p>
+              <p class="mt-1 text-sm text-[#3e3532]">Protocolos seguros</p>
+            </div>
+
+            <div
+              class="absolute bottom-6 right-6 rounded-2xl border border-white/80 bg-white/90 px-4 py-3 shadow-[0_12px_28px_rgba(17,17,17,0.07)] backdrop-blur-sm motion-safe:animate-[pulse_5.4s_ease-in-out_infinite]"
+            >
+              <p class="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[#8d7770]">
+                Estética
+              </p>
+              <p class="mt-1 text-sm text-[#3e3532]">Resultados naturales</p>
+            </div>
+          </div>
+
+          <!-- indicadores inferiores -->
+          <div class="relative z-10 mt-2 grid grid-cols-3 gap-3">
+            <div class="rounded-2xl border border-white/75 bg-white/80 px-4 py-4 text-center backdrop-blur-sm">
+              <p class="text-[0.7rem] uppercase tracking-[0.16em] text-[#8e7871]">
+                Enfoque
+              </p>
+              <p class="mt-1 text-sm font-medium text-[#231d1b] md:text-base">
+                Personalizado
+              </p>
+            </div>
+            <div class="rounded-2xl border border-white/75 bg-white/80 px-4 py-4 text-center backdrop-blur-sm">
+              <p class="text-[0.7rem] uppercase tracking-[0.16em] text-[#8e7871]">
+                Atención
+              </p>
+              <p class="mt-1 text-sm font-medium text-[#231d1b] md:text-base">
+                Cercana
+              </p>
+            </div>
+            <div class="rounded-2xl border border-white/75 bg-white/80 px-4 py-4 text-center backdrop-blur-sm">
+              <p class="text-[0.7rem] uppercase tracking-[0.16em] text-[#8e7871]">
+                Objetivo
+              </p>
+              <p class="mt-1 text-sm font-medium text-[#231d1b] md:text-base">
+                Bienestar
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

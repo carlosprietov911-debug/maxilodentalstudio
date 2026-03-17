@@ -1,0 +1,505 @@
+---
+import { contactoData } from "../../../data/contacto";
+
+import igClinicaPreviewImg from "../../../assets/ig_clinica_perfil.png?url";
+import igYessicaImg from "../../../assets/ig_yessica.png?url";
+import igCarlosImg from "../../../assets/ig_carlos.png?url";
+---
+
+<section
+  id="redes"
+  class="relative overflow-hidden px-6 py-14 md:py-18 lg:px-10 lg:py-24"
+>
+  <div class="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+    <div class="absolute left-[-10%] top-[6%] h-72 w-72 rounded-full bg-[#4DB4BF]/8 blur-3xl"></div>
+    <div class="absolute right-[-8%] top-[12%] h-80 w-80 rounded-full bg-[#ead7d0]/55 blur-3xl"></div>
+    <div class="absolute bottom-[-12%] left-[18%] h-72 w-72 rounded-full bg-white/40 blur-3xl"></div>
+  </div>
+
+  <div class="mx-auto max-w-7xl">
+    <!-- encabezado -->
+    <div class="max-w-3xl">
+      <p class="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#a28780]">
+        Redes sociales
+      </p>
+
+      <h2 class="mt-3 text-3xl font-light tracking-tight text-[#171717] md:text-4xl lg:text-[3.5rem]">
+        Una presencia digital más
+        <span class="italic text-[#8b736b]">cercana, sólida y coherente</span>
+      </h2>
+
+      <p class="mt-4 text-base leading-relaxed text-[#5f5652] md:text-lg">
+        En nuestras redes compartimos tratamientos, casos clínicos, resultados y
+        momentos del día a día en consulta. Un espacio pensado para acercarte a
+        MaxiloDental Studio con una imagen clara, profesional y alineada con
+        nuestra forma de trabajar.
+      </p>
+    </div>
+
+    <!-- bloque principal -->
+    <div class="mt-10 grid gap-6 xl:grid-cols-[1.12fr_0.88fr]">
+      <!-- instagram principal -->
+      <a
+        href={contactoData.instagramClinica}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group relative overflow-hidden rounded-[38px] border border-[#171717] bg-[#171717] text-white shadow-[0_24px_70px_rgba(0,0,0,0.14)] transition duration-300 hover:-translate-y-1"
+      >
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.12),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.06),transparent_26%),linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0))]"></div>
+        <div class="absolute inset-x-0 top-0 h-px bg-white/10"></div>
+        <div class="absolute left-[-4%] top-[-10%] h-44 w-44 rounded-full bg-white/5 blur-3xl"></div>
+        <div class="absolute right-[-8%] bottom-[-10%] h-56 w-56 rounded-full bg-white/4 blur-3xl"></div>
+
+        <div class="relative p-6 md:p-8 lg:p-9">
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="rounded-full border border-white/12 bg-white/8 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/80">
+                Canal principal
+              </span>
+              <span class="rounded-full border border-white/12 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/58">
+                Instagram
+              </span>
+            </div>
+
+            <span class="rounded-full border border-white/10 bg-white/6 px-3 py-1 text-[10px] uppercase tracking-[0.16em] text-white/58">
+              @maxilodentalstudio
+            </span>
+          </div>
+
+          <div class="mt-8 grid items-end gap-8 lg:grid-cols-[1.08fr_0.92fr]">
+            <!-- izquierda mejorada -->
+            <div>
+              <div class="flex items-start gap-4 md:gap-5">
+                <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-[20px] border border-white/10 bg-white/8 text-white shadow-[0_12px_30px_rgba(0,0,0,0.18)]">
+                  <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    class="h-7 w-7 fill-none stroke-current"
+                    stroke-width="1.8"
+                  >
+                    <rect x="3.5" y="3.5" width="17" height="17" rx="5.2"></rect>
+                    <circle cx="12" cy="12" r="3.9"></circle>
+                    <circle
+                      cx="17.4"
+                      cy="6.8"
+                      r="0.9"
+                      fill="currentColor"
+                      stroke="none"
+                    ></circle>
+                  </svg>
+                </div>
+
+                <div class="max-w-xl">
+                  <p class="text-[11px] font-semibold uppercase tracking-[0.24em] text-white/38">
+                    Presencia visual de la clínica
+                  </p>
+
+                  <h3 class="mt-3 text-3xl font-light leading-[1.04] tracking-tight text-white md:text-4xl lg:text-[2.9rem]">
+                    Síguenos en Instagram
+                  </h3>
+
+                  <p class="mt-5 text-sm leading-relaxed text-white/72 md:text-base">
+                    Descubre tratamientos, casos reales, avances clínicos y una
+                    mirada más cercana al trabajo que realizamos en odontología
+                    estética, implantes y cirugía maxilofacial.
+                  </p>
+                </div>
+              </div>
+
+              <div class="mt-7 rounded-[26px] border border-white/10 bg-white/[0.045] p-5 backdrop-blur">
+                <p class="text-[10px] uppercase tracking-[0.16em] text-white/36">
+                  Qué compartimos
+                </p>
+
+                <div class="mt-4 flex flex-wrap gap-2.5">
+                  <span class="rounded-full border border-white/10 bg-white/6 px-3 py-2 text-[11px] font-medium text-white/78">
+                    Diseño de sonrisa
+                  </span>
+                  <span class="rounded-full border border-white/10 bg-white/6 px-3 py-2 text-[11px] font-medium text-white/78">
+                    Implantes dentales
+                  </span>
+                  <span class="rounded-full border border-white/10 bg-white/6 px-3 py-2 text-[11px] font-medium text-white/78">
+                    Cirugía maxilofacial
+                  </span>
+                  <span class="rounded-full border border-white/10 bg-white/6 px-3 py-2 text-[11px] font-medium text-white/78">
+                    Casos clínicos
+                  </span>
+                </div>
+              </div>
+
+              <div class="mt-7 flex flex-wrap items-center gap-4">
+                <span class="inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-[#171717] transition duration-300 group-hover:opacity-90">
+                  Ver Instagram
+                  <svg
+                    viewBox="0 0 20 20"
+                    aria-hidden="true"
+                    class="h-4 w-4"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                  >
+                    <path d="M4.5 10h11"></path>
+                    <path d="M10.5 4.5 16 10l-5.5 5.5"></path>
+                  </svg>
+                </span>
+
+                <span class="text-xs uppercase tracking-[0.16em] text-white/34">
+                  Contenido actualizado
+                </span>
+              </div>
+            </div>
+
+            <!-- derecha -->
+            <div class="grid gap-4">
+              <div class="rounded-[28px] border border-white/10 bg-white/7 p-5 backdrop-blur">
+                <p class="text-[10px] uppercase tracking-[0.16em] text-white/38">
+                  Nuestra presencia digital
+                </p>
+                <p class="mt-3 text-sm leading-relaxed text-white/74">
+                  Un contenido pensado para transmitir confianza, detalle,
+                  naturalidad y el nivel de cuidado que define cada tratamiento.
+                </p>
+              </div>
+
+              <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+                <div class="rounded-[24px] border border-white/10 bg-white/6 p-5">
+                  <p class="text-[10px] uppercase tracking-[0.16em] text-white/38">
+                    Lo que encontrarás
+                  </p>
+                  <p class="mt-3 text-sm font-medium text-white">
+                    Tratamientos, resultados y marca
+                  </p>
+                </div>
+
+                <div class="rounded-[24px] border border-white/10 bg-white/6 p-5">
+                  <p class="text-[10px] uppercase tracking-[0.16em] text-white/38">
+                    Experiencia
+                  </p>
+                  <p class="mt-3 text-sm font-medium text-white">
+                    Una imagen más clara y consistente
+                  </p>
+                </div>
+              </div>
+
+              <div class="rounded-[24px] border border-white/10 bg-gradient-to-r from-white/10 to-white/[0.03] p-5">
+                <p class="text-[10px] uppercase tracking-[0.16em] text-white/38">
+                  Identidad
+                </p>
+                <p class="mt-3 text-sm leading-relaxed text-white/74">
+                  Cada publicación refleja la visión de una clínica enfocada en
+                  estética, funcionalidad y atención personalizada.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 grid gap-3 sm:grid-cols-3">
+            <div class="rounded-[22px] border border-white/10 bg-white/6 px-4 py-4">
+              <p class="text-[10px] uppercase tracking-[0.16em] text-white/40">
+                Rol
+              </p>
+              <p class="mt-2 text-sm font-medium text-white">
+                Red principal
+              </p>
+            </div>
+
+            <div class="rounded-[22px] border border-white/10 bg-white/6 px-4 py-4">
+              <p class="text-[10px] uppercase tracking-[0.16em] text-white/40">
+                Contenido
+              </p>
+              <p class="mt-2 text-sm font-medium text-white">
+                Clínica y tratamientos
+              </p>
+            </div>
+
+            <div class="rounded-[22px] border border-white/10 bg-white/6 px-4 py-4">
+              <p class="text-[10px] uppercase tracking-[0.16em] text-white/40">
+                Imagen
+              </p>
+              <p class="mt-2 text-sm font-medium text-white">
+                Cercana y profesional
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- columna secundaria -->
+      <div class="grid gap-6">
+        <!-- instagram preview -->
+        <a
+          href={contactoData.instagramClinica}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group overflow-hidden rounded-[34px] border border-white/80 bg-white/86 shadow-[0_14px_35px_rgba(20,20,20,0.06)] backdrop-blur transition hover:-translate-y-1"
+        >
+          <div class="relative overflow-hidden rounded-t-[34px] bg-[#0f1115]">
+            <div class="absolute left-5 top-5 z-10">
+              <span class="rounded-full border border-white/14 bg-black/18 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/82 backdrop-blur">
+                Instagram
+              </span>
+            </div>
+
+            <img
+              src={igClinicaPreviewImg}
+              alt="Vista previa del Instagram de MaxiloDental Studio"
+              class="h-[320px] w-full object-cover object-top transition duration-500 group-hover:scale-[1.02] md:h-[340px]"
+              loading="lazy"
+            />
+
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/78 via-black/30 to-transparent px-5 pb-5 pt-12">
+              <p class="text-xl font-medium tracking-tight text-white md:text-2xl">
+                Preview visual
+              </p>
+              <p class="mt-2 max-w-sm text-sm leading-relaxed text-white/78">
+                Una muestra del estilo del contenido
+              </p>
+            </div>
+          </div>
+
+          <div class="p-6 md:p-7">
+            <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#a28780]">
+              Presentación visual
+            </p>
+
+            <h3 class="mt-3 text-2xl font-medium tracking-tight text-[#171717] md:text-[2rem]">
+              Instagram con mayor protagonismo
+            </h3>
+
+            <p class="mt-4 text-sm leading-relaxed text-[#5f5652] md:text-base">
+              Un espacio donde compartimos tratamientos, resultados y contenido visual
+              que refleja la identidad de MaxiloDental Studio con una imagen más
+              cuidada, reconocible y coherente.
+            </p>
+
+            <div class="mt-5 flex flex-wrap gap-2">
+              <span class="rounded-full border border-[#efe6e2] bg-[#fcfbfb] px-3 py-2 text-[11px] font-medium text-[#6d5d57]">
+                Casos clínicos
+              </span>
+              <span class="rounded-full border border-[#efe6e2] bg-[#fcfbfb] px-3 py-2 text-[11px] font-medium text-[#6d5d57]">
+                Estética dental
+              </span>
+              <span class="rounded-full border border-[#efe6e2] bg-[#fcfbfb] px-3 py-2 text-[11px] font-medium text-[#6d5d57]">
+                Marca
+              </span>
+            </div>
+
+            <span class="mt-6 inline-flex rounded-full border border-[#171717] px-4 py-2 text-sm font-semibold text-[#171717] transition group-hover:bg-[#171717] group-hover:text-white">
+              Ir a Instagram
+            </span>
+          </div>
+        </a>
+
+        <!-- facebook -->
+        <a
+          href={contactoData.facebook}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group rounded-[34px] border border-[#ece3df] bg-white/84 p-6 shadow-[0_14px_35px_rgba(20,20,20,0.06)] backdrop-blur transition hover:-translate-y-1 md:p-7"
+        >
+          <div class="flex items-start justify-between gap-4">
+            <div class="flex items-start gap-4">
+              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#1877F2]/10 text-[#1877F2]">
+                <svg
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  class="h-6 w-6 fill-current"
+                >
+                  <path d="M22 12.07C22 6.5 17.52 2 12 2S2 6.5 2 12.07c0 5.03 3.66 9.2 8.44 9.93v-7.03H7.9v-2.9h2.54V9.85c0-2.52 1.49-3.91 3.78-3.91 1.1 0 2.24.2 2.24.2v2.47H15.2c-1.24 0-1.63.78-1.63 1.57v1.89h2.77l-.44 2.9h-2.33V22c4.78-.73 8.43-4.9 8.43-9.93Z"></path>
+                </svg>
+              </div>
+
+              <div>
+                <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#a28780]">
+                  Canal complementario
+                </p>
+                <h3 class="mt-2 text-2xl font-medium text-[#171717]">
+                  Facebook
+                </h3>
+                <p class="mt-2 text-sm text-[#7b6760]">
+                  Información y presencia institucional
+                </p>
+              </div>
+            </div>
+
+            <span class="rounded-full border border-[#eadfdb] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#7a6660]">
+              Secundario
+            </span>
+          </div>
+
+          <p class="mt-5 text-sm leading-relaxed text-[#5f5652] md:text-base">
+            Un canal de apoyo para compartir novedades, fortalecer la presencia
+            digital de la clínica y mantener una comunicación complementaria con
+            nuestra comunidad.
+          </p>
+
+          <div class="mt-6 flex items-center gap-3">
+            <span class="inline-flex rounded-full border border-[#171717] px-4 py-2 text-sm font-semibold text-[#171717] transition group-hover:bg-[#171717] group-hover:text-white">
+              Ver Facebook
+            </span>
+
+            <span class="text-xs uppercase tracking-[0.16em] text-[#99847d]">
+              Presencia institucional
+            </span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- equipo -->
+    <div class="mt-8">
+      <div class="rounded-[38px] border border-white/80 bg-white/84 p-6 shadow-[0_14px_35px_rgba(20,20,20,0.06)] backdrop-blur md:p-8">
+        <div class="grid gap-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-end">
+          <div class="max-w-2xl">
+            <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#a28780]">
+              Equipo profesional
+            </p>
+
+            <h3 class="mt-3 text-2xl font-medium text-[#171717] md:text-3xl">
+              Profesionales que acompañan la experiencia de la clínica
+            </h3>
+
+            <p class="mt-3 text-sm leading-relaxed text-[#5f5652] md:text-base">
+              Los perfiles del equipo amplían la presencia digital de
+              MaxiloDental Studio y permiten conocer más de cerca el enfoque,
+              la trayectoria y el trabajo de cada profesional.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap gap-3 lg:justify-end">
+            <a
+              href={contactoData.instagramClinica}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center rounded-full border border-[#171717] px-5 py-3 text-sm font-semibold text-[#171717] transition hover:bg-[#171717] hover:text-white"
+            >
+              Ir a la cuenta principal
+            </a>
+          </div>
+        </div>
+
+        <div class="mt-8 grid gap-6 lg:grid-cols-2">
+          <!-- yessica -->
+          <a
+            href={contactoData.instagramYessica}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group overflow-hidden rounded-[32px] border border-[#efe6e2] bg-[#fcfbfb] transition hover:-translate-y-1 hover:bg-white"
+          >
+            <div class="grid gap-0 md:grid-cols-[0.95fr_1.05fr]">
+              <div class="relative min-h-[260px] overflow-hidden">
+                <img
+                  src={igYessicaImg}
+                  alt="Vista previa del Instagram de la Dra. Yessica"
+                  class="h-full w-full object-cover object-center transition duration-500 group-hover:scale-[1.02]"
+                  loading="lazy"
+                />
+              </div>
+
+              <div class="p-5 md:p-6">
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#a28780]">
+                      Perfil profesional
+                    </p>
+                    <h4 class="mt-3 text-xl font-medium text-[#171717]">
+                      Dra. Yessica
+                    </h4>
+                    <p class="mt-1 text-sm text-[#7b6760]">
+                      @yessicafmaxilo
+                    </p>
+                  </div>
+
+                  <span class="rounded-full border border-[#eadfdb] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#7a6660]">
+                    Instagram
+                  </span>
+                </div>
+
+                <div class="mt-5 space-y-3">
+                  <div class="rounded-[20px] border border-[#efe6e2] bg-white px-4 py-4">
+                    <p class="text-[11px] uppercase tracking-[0.18em] text-[#a28780]">
+                      Área
+                    </p>
+                    <p class="mt-2 text-sm font-medium text-[#171717]">
+                      Cirugía oral y maxilofacial
+                    </p>
+                  </div>
+
+                  <p class="text-sm leading-relaxed text-[#5f5652]">
+                    Un perfil que refleja experiencia clínica, criterio
+                    profesional y una atención cercana, alineada con la visión
+                    de la clínica.
+                  </p>
+                </div>
+
+                <span class="mt-6 inline-flex rounded-full border border-[#171717] px-4 py-2 text-sm font-semibold text-[#171717] transition group-hover:bg-[#171717] group-hover:text-white">
+                  Ver perfil
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <!-- carlos -->
+          <a
+            href={contactoData.instagramCarlos}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group overflow-hidden rounded-[32px] border border-[#efe6e2] bg-[#fcfbfb] transition hover:-translate-y-1 hover:bg-white"
+          >
+            <div class="grid gap-0 md:grid-cols-[0.95fr_1.05fr]">
+              <div class="relative min-h-[260px] overflow-hidden">
+                <img
+                  src={igCarlosImg}
+                  alt="Vista previa del Instagram del Dr. Carlos Prieto"
+                  class="h-full w-full object-cover object-center transition duration-500 group-hover:scale-[1.02]"
+                  loading="lazy"
+                />
+              </div>
+
+              <div class="p-5 md:p-6">
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#a28780]">
+                      Perfil profesional
+                    </p>
+                    <h4 class="mt-3 text-xl font-medium text-[#171717]">
+                      Dr. Carlos Prieto
+                    </h4>
+                    <p class="mt-1 text-sm text-[#7b6760]">
+                      @dr_carlosprieto
+                    </p>
+                  </div>
+
+                  <span class="rounded-full border border-[#eadfdb] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#7a6660]">
+                    Instagram
+                  </span>
+                </div>
+
+                <div class="mt-5 space-y-3">
+                  <div class="rounded-[20px] border border-[#efe6e2] bg-white px-4 py-4">
+                    <p class="text-[11px] uppercase tracking-[0.18em] text-[#a28780]">
+                      Área
+                    </p>
+                    <p class="mt-2 text-sm font-medium text-[#171717]">
+                      Odontología estética e implantes
+                    </p>
+                  </div>
+
+                  <p class="text-sm leading-relaxed text-[#5f5652]">
+                    Un perfil enfocado en comunicar tratamientos, detalle
+                    estético y una práctica profesional que acompaña la identidad
+                    general de MaxiloDental Studio.
+                  </p>
+                </div>
+
+                <span class="mt-6 inline-flex rounded-full border border-[#171717] px-4 py-2 text-sm font-semibold text-[#171717] transition group-hover:bg-[#171717] group-hover:text-white">
+                  Ver perfil
+                </span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>  

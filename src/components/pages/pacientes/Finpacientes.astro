@@ -1,0 +1,221 @@
+---
+import equipoImg from "../../../assets/equipo.png?url";
+
+const WHATSAPP_URL = "https://wa.link/u29whe";
+
+const puntos = [
+  "Orientación clara",
+  "Respuesta rápida",
+  "Trato cercano",
+  "Resultados naturales",
+];
+---
+
+<section
+  id="cta-whatsapp"
+  class="px-6 py-18 md:py-22 lg:px-10 lg:py-28"
+>
+  <div class="mx-auto max-w-7xl">
+    <div class="grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+      <!-- Texto -->
+      <div class="order-2 lg:order-1">
+        <span class="inline-flex items-center gap-2 rounded-full border border-[#e8dfda] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#8a7670]">
+          <span class="h-1.5 w-1.5 rounded-full bg-[#25d366]"></span>
+          Contacto inmediato
+        </span>
+
+        <h2 class="mt-5 max-w-[10ch] text-[2.75rem] font-light leading-[0.92] tracking-[-0.06em] text-[#171414] md:text-[4.2rem] lg:text-[5rem]">
+          Tu sonrisa
+          <span class="block font-medium text-[#2b201e]">
+            empieza con un mensaje
+          </span>
+        </h2>
+
+        <p class="mt-7 max-w-xl text-[1.05rem] leading-relaxed text-[#5a4c48] md:text-[1.14rem] lg:text-[1.2rem]">
+          Escríbenos por WhatsApp y te ayudamos a entender qué sigue, qué opción
+          puede ir mejor contigo y cómo sería tu proceso de forma simple y cercana.
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          {puntos.map((item) => (
+            <span class="inline-flex rounded-full border border-[#ece4e0] px-4 py-2 text-sm font-medium text-[#2a2220] transition duration-300 hover:-translate-y-0.5 hover:border-[#d9ccc6] hover:shadow-[0_10px_22px_rgba(0,0,0,0.05)]">
+              {item}
+            </span>
+          ))}
+        </div>
+
+        <div class="mt-10 max-w-lg border-l border-[#e9dfda] pl-5">
+          <p class="text-[0.98rem] leading-relaxed text-[#786964] md:text-[1rem]">
+            Sin vueltas raras, sin presión y sin hacerte sentir como un paciente más.
+            Solo una conversación clara para ayudarte a dar el primer paso.
+          </p>
+        </div>
+      </div>
+
+      <!-- Imagen -->
+      <div class="order-1 lg:order-2">
+        <div class="scene relative mx-auto w-full max-w-[470px] sm:max-w-[620px] lg:max-w-[760px]">
+          <!-- halo -->
+          <div class="pointer-events-none absolute inset-x-[10%] top-[10%] -z-20 h-[76%] rounded-full bg-[radial-gradient(circle,rgba(77,180,191,0.14)_0%,rgba(77,180,191,0.05)_46%,transparent_76%)] blur-[54px]"></div>
+
+          <!-- sombra -->
+          <div class="pointer-events-none absolute inset-x-[15%] bottom-4 -z-10 h-12 rounded-full bg-black/10 blur-2xl"></div>
+
+          <!-- note -->
+          <div class="floating-note absolute -left-2 top-6 z-20 hidden rounded-[1.25rem] border border-[#ece5e1] bg-white/96 px-4 py-3 shadow-[0_16px_34px_rgba(0,0,0,0.08)] md:block">
+            <p class="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#9b847c]">
+              Primer contacto
+            </p>
+            <p class="mt-1 text-sm font-medium text-[#241b19]">
+              Te orientamos según tu caso
+            </p>
+          </div>
+
+          <!-- imagen -->
+          <img
+            src={equipoImg}
+            alt="Equipo médico de Maxilodental Studio"
+            class="team-image relative z-10 h-auto w-full object-contain [filter:drop-shadow(0_24px_36px_rgba(0,0,0,0.12))_drop-shadow(0_46px_76px_rgba(0,0,0,0.08))]"
+            loading="lazy"
+          />
+
+          <!-- WhatsApp dock -->
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="wa-dock absolute bottom-[4%] left-1/2 z-30 flex w-[94%] max-w-[460px] -translate-x-1/2 items-center gap-4 rounded-[1.9rem] border border-[#efe8e4] bg-white px-4 py-4 shadow-[0_24px_60px_rgba(0,0,0,0.14)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_32px_72px_rgba(0,0,0,0.18)] md:px-5 md:py-5 lg:left-10 lg:translate-x-0"
+          >
+            <span class="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-[1.15rem] bg-[#25d366] text-white shadow-[0_14px_30px_rgba(37,211,102,0.28)] md:h-16 md:w-16">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 32 32"
+                fill="currentColor"
+                class="h-7 w-7 md:h-8 md:w-8"
+                aria-hidden="true"
+              >
+                <path
+                  d="M19.11 17.34c-.27-.13-1.6-.79-1.85-.88-.25-.09-.43-.13-.62.13-.18.27-.71.88-.87 1.06-.16.18-.32.2-.59.07-.27-.13-1.15-.42-2.19-1.33-.81-.72-1.36-1.6-1.52-1.87-.16-.27-.02-.41.12-.54.12-.12.27-.32.4-.48.13-.16.18-.27.27-.45.09-.18.04-.34-.02-.48-.07-.13-.62-1.5-.85-2.06-.22-.53-.44-.46-.62-.47h-.53c-.18 0-.48.07-.73.34s-.96.94-.96 2.28.99 2.63 1.13 2.81c.13.18 1.94 2.96 4.7 4.15.66.29 1.18.46 1.58.59.66.21 1.26.18 1.73.11.53-.08 1.6-.65 1.83-1.28.22-.63.22-1.17.16-1.28-.07-.11-.25-.18-.52-.32Z"
+                />
+                <path
+                  d="M16.02 3.2c-7.05 0-12.76 5.71-12.76 12.76 0 2.24.58 4.42 1.69 6.34L3.2 28.8l6.7-1.71a12.73 12.73 0 0 0 6.11 1.56h.01c7.04 0 12.78-5.71 12.78-12.76 0-3.41-1.33-6.61-3.75-9.02A12.67 12.67 0 0 0 16.02 3.2Zm0 23.29h-.01a10.5 10.5 0 0 1-5.35-1.47l-.38-.22-3.98 1.02 1.06-3.88-.25-.4a10.53 10.53 0 1 1 8.91 4.95Z"
+                />
+              </svg>
+            </span>
+
+            <span class="min-w-0 flex-1">
+              <span class="block text-[10px] font-semibold uppercase tracking-[0.22em] text-[#8f7e78] md:text-[11px]">
+                WhatsApp directo
+              </span>
+              <span class="mt-1 block text-[1.05rem] font-semibold leading-tight text-[#1f1715] md:text-[1.3rem]">
+                Agenda tu valoración
+              </span>
+              <span class="mt-1 block text-sm leading-relaxed text-[#726661]">
+                Respuesta rápida y orientación clara.
+              </span>
+            </span>
+
+            <span class="wa-open inline-flex shrink-0 items-center rounded-full bg-[#171414] px-4 py-2.5 text-sm font-medium text-white transition duration-300 md:px-5">
+              Abrir
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .scene {
+    animation: sceneEnter 0.9s ease both;
+  }
+
+  .team-image {
+    animation: floatSoft 8s ease-in-out infinite;
+    transition: transform 0.45s ease;
+  }
+
+  .scene:hover .team-image {
+    transform: translateY(-4px) scale(1.01);
+  }
+
+  .floating-note {
+    animation: noteIn 1s ease both;
+  }
+
+  .wa-dock {
+    animation: dockIn 1.05s ease both;
+  }
+
+  .wa-dock:hover .wa-open {
+    background: #25d366;
+    transform: translateX(2px);
+  }
+
+  @keyframes sceneEnter {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes dockIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px) translateX(-50%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) translateX(-50%);
+    }
+  }
+
+  @keyframes noteIn {
+    from {
+      opacity: 0;
+      transform: translateY(12px) rotate(-3deg);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) rotate(-3deg);
+    }
+  }
+
+  @keyframes floatSoft {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-7px);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    @keyframes dockIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scene,
+    .team-image,
+    .floating-note,
+    .wa-dock,
+    .wa-open {
+      animation: none !important;
+      transition: none !important;
+      transform: none !important;
+    }
+  }
+</style>

@@ -1,0 +1,247 @@
+---
+import { contactoData } from "../../../data/contacto";
+---
+
+<section
+  class="relative overflow-hidden px-6 pb-14 pt-10 md:pb-18 md:pt-14 lg:px-10 lg:pb-24"
+>
+  <!-- fondo -->
+  <div class="pointer-events-none absolute inset-0 -z-10">
+    <div class="absolute inset-0 bg-[#f6f1ef]"></div>
+    <div class="absolute left-[-10%] top-[-16%] h-80 w-80 rounded-full bg-[#4DB4BF]/10 blur-3xl"></div>
+    <div class="absolute right-[-10%] top-[8%] h-72 w-72 rounded-full bg-[#ead6cf]/70 blur-3xl"></div>
+    <div class="absolute bottom-[-10%] left-[18%] h-72 w-72 rounded-full bg-white/70 blur-3xl"></div>
+    <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.68)_0%,rgba(255,255,255,0.14)_45%,rgba(255,255,255,0.48)_100%)]"></div>
+  </div>
+
+  <div class="mx-auto max-w-7xl">
+    <div class="grid items-start gap-8 xl:grid-cols-[1.06fr_0.94fr] xl:gap-12">
+      <!-- columna izquierda -->
+      <div>
+        <div class="inline-flex items-center gap-2 rounded-full border border-[#ddd0cb] bg-white/80 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#8a726a] backdrop-blur">
+          <span class="h-1.5 w-1.5 rounded-full bg-[#8a726a]"></span>
+          Contacto · redes · ubicación
+        </div>
+
+        <h1 class="mt-5 max-w-4xl text-4xl font-light leading-[0.94] tracking-tight text-[#141414] md:text-6xl lg:text-[5.25rem]">
+          Una página pensada para
+          <span class="italic text-[#8a726a]">encontrarnos mejor</span>
+        </h1>
+
+        <p class="mt-6 max-w-2xl text-base leading-relaxed text-[#5f5652] md:text-lg">
+          Agenda por WhatsApp, revisa nuestra ubicación, descubre los canales
+          oficiales de la clínica y explora una experiencia de contacto más
+          clara, cómoda y visualmente mejor organizada.
+        </p>
+
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <a
+            href={contactoData.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 rounded-full bg-[#171717] px-6 py-3 text-sm font-semibold text-white transition duration-300 hover:-translate-y-[2px] hover:opacity-90"
+          >
+            Abrir WhatsApp
+            <svg
+              viewBox="0 0 20 20"
+              aria-hidden="true"
+              class="h-4 w-4"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+            >
+              <path d="M4.5 10h11"></path>
+              <path d="M10.5 4.5 16 10l-5.5 5.5"></path>
+            </svg>
+          </a>
+
+          <a
+            href="#ubicacion"
+            class="inline-flex items-center justify-center rounded-full border border-[#d7cbc6] bg-white/80 px-6 py-3 text-sm font-semibold text-[#171717] transition duration-300 hover:bg-white"
+          >
+            Ver ubicación
+          </a>
+
+          <a
+            href="#redes"
+            class="inline-flex items-center justify-center rounded-full border border-[#d7cbc6] bg-white/80 px-6 py-3 text-sm font-semibold text-[#171717] transition duration-300 hover:bg-white"
+          >
+            Explorar redes
+          </a>
+        </div>
+
+        <div class="mt-10 grid gap-4 md:grid-cols-3">
+          <div class="rounded-[26px] border border-white/80 bg-white/78 p-5 shadow-[0_10px_25px_rgba(20,20,20,0.05)] backdrop-blur transition duration-300 hover:-translate-y-1">
+            <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#a28780]">
+              Contacto principal
+            </p>
+            <p class="mt-2 text-lg font-medium text-[#171717]">
+              WhatsApp oficial
+            </p>
+            <p class="mt-2 text-sm leading-relaxed text-[#5f5652]">
+              El canal más directo para citas, información y orientación.
+            </p>
+          </div>
+
+          <div class="rounded-[26px] border border-white/80 bg-white/78 p-5 shadow-[0_10px_25px_rgba(20,20,20,0.05)] backdrop-blur transition duration-300 hover:-translate-y-1">
+            <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#a28780]">
+              Ubicación
+            </p>
+            <p class="mt-2 text-lg font-medium text-[#171717]">
+              Llegada fácil
+            </p>
+            <p class="mt-2 text-sm leading-relaxed text-[#5f5652]">
+              Mapa, ruta y acceso rápido a la clínica y su entorno.
+            </p>
+          </div>
+
+          <div class="rounded-[26px] border border-white/80 bg-white/78 p-5 shadow-[0_10px_25px_rgba(20,20,20,0.05)] backdrop-blur transition duration-300 hover:-translate-y-1">
+            <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#a28780]">
+              Presencia digital
+            </p>
+            <p class="mt-2 text-lg font-medium text-[#171717]">
+              Clínica y equipo
+            </p>
+            <p class="mt-2 text-sm leading-relaxed text-[#5f5652]">
+              Redes oficiales y perfiles profesionales mejor organizados.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- columna derecha -->
+      <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-1">
+        <!-- tarjeta principal -->
+        <div class="relative overflow-hidden rounded-[36px] border border-[#1b1b1b] bg-[#171717] p-6 text-white shadow-[0_22px_65px_rgba(0,0,0,0.18)] md:p-7">
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.10),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0))]"></div>
+
+          <div class="relative">
+            <p class="text-[11px] font-semibold uppercase tracking-[0.24em] text-white/50">
+              Atención principal
+            </p>
+
+            <h2 class="mt-3 text-2xl font-light leading-tight md:text-3xl">
+              Agenda tu cita por el canal más rápido
+            </h2>
+
+            <p class="mt-4 text-sm leading-relaxed text-white/70 md:text-base">
+              Resuelve dudas, consulta disponibilidad y recibe información
+              inmediata a través del canal principal de atención.
+            </p>
+
+            <div class="mt-6 rounded-[24px] border border-white/10 bg-white/5 p-4 backdrop-blur">
+              <p class="text-xs uppercase tracking-[0.18em] text-white/45">
+                Número oficial
+              </p>
+              <p class="mt-2 text-xl font-medium text-white">
+                {contactoData.phoneDisplay}
+              </p>
+            </div>
+
+            <div class="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-2">
+              <a
+                href={contactoData.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-[#171717] transition duration-300 hover:opacity-90"
+              >
+                Escribir ahora
+              </a>
+
+              <a
+                href={`tel:${contactoData.phoneRaw}`}
+                class="inline-flex items-center justify-center rounded-full border border-white/15 px-5 py-3 text-sm font-medium text-white transition duration-300 hover:bg-white/8"
+              >
+                Llamar
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- tarjeta navegación -->
+        <div class="rounded-[36px] border border-white/80 bg-white/84 p-6 shadow-[0_12px_30px_rgba(20,20,20,0.06)] backdrop-blur md:p-7">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#a28780]">
+                Vista general
+              </p>
+              <h3 class="mt-2 text-2xl font-medium tracking-tight text-[#171717]">
+                Todo en un mismo lugar
+              </h3>
+            </div>
+
+            <span class="rounded-full border border-[#eadfdb] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#7a6660]">
+              Navegación
+            </span>
+          </div>
+
+          <div class="mt-5 space-y-4">
+            <a
+              href="#canales"
+              class="group flex items-center justify-between rounded-[22px] border border-[#efe6e2] bg-[#fcfbfb] px-4 py-4 transition duration-300 hover:bg-white"
+            >
+              <div>
+                <p class="text-sm font-medium text-[#171717]">
+                  Canales de contacto
+                </p>
+                <p class="mt-1 text-sm text-[#5f5652]">
+                  WhatsApp, teléfono y correo
+                </p>
+              </div>
+              <span class="text-xs font-medium text-[#7a6660] transition group-hover:translate-x-0.5">
+                01
+              </span>
+            </a>
+
+            <a
+              href="#redes"
+              class="group flex items-center justify-between rounded-[22px] border border-[#efe6e2] bg-[#fcfbfb] px-4 py-4 transition duration-300 hover:bg-white"
+            >
+              <div>
+                <p class="text-sm font-medium text-[#171717]">
+                  Redes sociales
+                </p>
+                <p class="mt-1 text-sm text-[#5f5652]">
+                  Clínica y perfiles del equipo
+                </p>
+              </div>
+              <span class="text-xs font-medium text-[#7a6660] transition group-hover:translate-x-0.5">
+                02
+              </span>
+            </a>
+
+            <a
+              href="#ubicacion"
+              class="group flex items-center justify-between rounded-[22px] border border-[#efe6e2] bg-[#fcfbfb] px-4 py-4 transition duration-300 hover:bg-white"
+            >
+              <div>
+                <p class="text-sm font-medium text-[#171717]">Ubicación</p>
+                <p class="mt-1 text-sm text-[#5f5652]">
+                  Mapa y acceso a fotos
+                </p>
+              </div>
+              <span class="text-xs font-medium text-[#7a6660] transition group-hover:translate-x-0.5">
+                03
+              </span>
+            </a>
+
+            <a
+              href="#horarios"
+              class="group flex items-center justify-between rounded-[22px] border border-[#efe6e2] bg-[#fcfbfb] px-4 py-4 transition duration-300 hover:bg-white"
+            >
+              <div>
+                <p class="text-sm font-medium text-[#171717]">Horarios</p>
+                <p class="mt-1 text-sm text-[#5f5652]">
+                  Disponibilidad y estado actual
+                </p>
+              </div>
+              <span class="text-xs font-medium text-[#7a6660] transition group-hover:translate-x-0.5">
+                04
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

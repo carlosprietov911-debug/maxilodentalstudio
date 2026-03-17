@@ -8,39 +8,153 @@ import { Picture, Image } from "astro:assets";
 ---
 
 <!-- HERO -->
-<section class="px-6 py-6 md:py-14 lg:px-10 lg:py-1">
+<section
+  id="inicio"
+  class="relative overflow-hidden px-5 pt-3 pb-10 md:px-6 md:py-14 lg:px-10 lg:py-1"
+>
+  <!-- fondo sutil solo para móvil/tablet -->
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute inset-0 -z-10 lg:hidden
+           bg-[radial-gradient(70%_42%_at_50%_18%,rgba(77,180,191,0.12),transparent_72%),linear-gradient(180deg,#f6f0f0_0%,#ffffff_38%,#ffffff_100%)]"
+  >
+  </div>
+
   <div class="mx-auto max-w-7xl">
-    <div class="grid grid-cols-1 items-star gap-10 lg:grid-cols-2 lg:gap-14">
+    <div
+      class="grid grid-cols-1 items-start gap-6 md:gap-10 lg:grid-cols-2 lg:gap-14"
+    >
+      <!-- Imagen -->
+      <div
+        class="group relative flex justify-center lg:col-start-2 lg:justify-end motion-safe:animate-[heroImageIn_.9s_cubic-bezier(.22,1,.36,1)_both]"
+      >
+        <div
+          class="relative w-full max-w-88 pb-12 sm:max-w-[24rem] sm:pb-14 md:max-w-110 md:pb-16 lg:max-w-130"
+        >
+       <!-- Imagen -->
+<div
+  class="group relative flex justify-center lg:col-start-2 lg:justify-end motion-safe:animate-[heroImageIn_.9s_cubic-bezier(.22,1,.36,1)_both]"
+>
+  <div
+    class="relative w-full max-w-88 pb-12 sm:max-w-[24rem] sm:pb-14 md:max-w-110 md:pb-16 lg:max-w-130"
+  >
+    <!-- Imagen principal -->
+    <div
+      class="will-change-transform motion-safe:animate-[heroFloat_6s_ease-in-out_infinite] mask-fade-bottom "
+    >
+      <Picture
+        class="h-auto w-full object-contain transition duration-500 ease-out will-change-transform
+               filter-[drop-shadow(0_12px_18px_rgba(0,0,0,0.18))_drop-shadow(0_28px_45px_rgba(0,0,0,0.14))]
+               group-hover:scale-[1.02] group-hover:-translate-y-1"
+        src={portada}
+        alt="imagen principal doctor"
+        formats={["avif", "webp"]}
+      />
+    </div>
+
+    <!-- brillo extra sutil solo móvil -->
+    <div
+      aria-hidden="true"
+      class="pointer-events-none absolute inset-x-[20%] top-[14%] -z-10 h-[38%] rounded-full bg-white/20 blur-2xl lg:hidden"
+    >
+    </div>
+  </div>
+</div>
+          <!-- brillo extra sutil solo móvil -->
+          <div
+            aria-hidden="true"
+            class="pointer-events-none absolute inset-x-[20%] top-[14%] -z-10 h-[38%] rounded-full bg-white/3 0 blur-2xl lg:hidden"
+          >
+          </div>
+
+          <!-- Badge -->
+          <div
+            class="absolute left-1/2 bottom-4 w-[90%] -translate-x-1/2
+                   sm:-bottom-5 sm:w-[84%] md:bottom-12 md:w-[84%] lg:w-[78%]
+                   motion-safe:animate-[badgeIn_1s_cubic-bezier(.22,1,.36,1)_both]
+                   [animation-delay:220ms]"
+          >
+            <div
+              class="relative overflow-hidden rounded-4xl
+                     bg-linear-to-br from-[#4DB4BF] via-[#3aa9b4] to-[#2e8f99]
+                     px-6 py-6 text-center text-lg font-extrabold text-white
+                     shadow-[0_24px_60px_-35px_rgba(0,0,0,0.65)]
+                     ring-1 ring-black/10 transition duration-500 ease-out
+                     md:rounded-3xl md:px-12 md:py-10 md:text-2xl
+                     group-hover:-translate-y-1 group-hover:shadow-[0_34px_90px_-35px_rgba(0,0,0,0.72)]"
+            >
+              <div
+                aria-hidden="true"
+                class="pointer-events-none absolute inset-0 opacity-[0.16]
+                       bg-[radial-gradient(rgba(255,255,255,.65)_1px,transparent_1px)]
+                       bg-size:[10px_10px]"
+              >
+              </div>
+
+              <div
+                aria-hidden="true"
+                class="pointer-events-none absolute inset-0 opacity-40
+                       bg-[radial-gradient(circle_at_50%_20%,rgba(255,255,255,0.22),transparent_55%)]
+                       motion-safe:animate-[badgeGlow_4.5s_ease-in-out_infinite]"
+              >
+              </div>
+
+              <div
+                aria-hidden="true"
+                class="pointer-events-none absolute inset-y-0 left-0 w-1/2
+                       bg-[linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent)]
+                       motion-safe:animate-[shine_3.2s_ease-in-out_infinite]"
+              >
+              </div>
+
+              <p class="relative m-0 leading-tight">
+                12 años de trayectoria en Fusagasugá
+              </p>
+
+              <p
+                class="relative mt-2 text-sm font-semibold leading-snug text-white/90 md:text-base"
+              >
+                Agenda tu valoración por WhatsApp
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Texto -->
-      <div class="order-1 space-y-6">
+      <div
+        class="space-y-5 text-center lg:col-start-1 lg:row-start-1 lg:text-left"
+      >
         <h1
-          class="text-xl font-medium leading-snug md:text-2xl motion-safe:animate-[fadeUp_.7s_ease-out_both]"
+          class="mx-auto max-w-2xl text-[1.05rem] font-medium leading-snug sm:text-xl md:text-2xl lg:mx-0 motion-safe:animate-[fadeUp_.7s_ease-out_both]"
         >
           Cirugía maxilofacial & odontología estética
         </h1>
 
         <p
-          class="max-w-2xl text-base font-normal leading-relaxed text-[#000000] md:text-xl motion-safe:animate-[fadeUp_.7s_ease-out_both] [animation-delay:120ms]"
+          class="mx-auto max-w-2xl text-[1rem] font-normal leading-relaxed text-[#000000] md:text-xl lg:mx-0 motion-safe:animate-[fadeUp_.7s_ease-out_both] [animation-delay:120ms]"
         >
           Líderes en odontología estética, maxilofacial y cirugía oral. 12 años
           de trayectoria en Fusagasugá.
         </p>
 
         <h2
-          class="max-w-3xl text-3xl font-bold leading-tight tracking-tighter text-[#2e2323] md:text-4xl lg:text-3xl motion-safe:animate-[fadeUp_.7s_ease-out_both] [animation-delay:220ms]"
+          class="mx-auto max-w-[18ch] text-3xl font-bold leading-tight tracking-tighter text-[#2e2323] md:max-w-3xl md:text-4xl lg:mx-0 lg:max-w-3xl lg:text-3xl motion-safe:animate-[fadeUp_.7s_ease-out_both] [animation-delay:220ms]"
         >
           Excelencia, tecnología y calidez: un nuevo estándar de atención
           especializada en Fusagasugá
         </h2>
 
         <div
-          class="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4"
+          class="flex flex-col gap-3 pt-1 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-4 lg:justify-start"
         >
           <a
             href="https://wa.link/u29whe"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#25D366] px-8 py-3 text-base font-semibold text-white shadow-md transition hover:scale-[1.02] hover:shadow-lg sm:w-auto"
+            class="inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#25D366] px-8 py-3.5 text-base font-semibold text-white
+                   shadow-[0_12px_28px_rgba(37,211,102,0.24)] transition duration-300
+                   hover:scale-[1.02] hover:shadow-[0_16px_34px_rgba(37,211,102,0.30)] sm:w-auto"
           >
             <WhatsappI width={32} height={32} />
             Agenda tu cita
@@ -48,20 +162,21 @@ import { Picture, Image } from "astro:assets";
 
           <a
             href="/servicios"
-            class="inline-flex w-full items-center justify-center rounded-full border border-[#d7caca] bg-white px-6 py-3 text-base font-semibold text-[#0c0c0c] transition hover:bg-[#f8f5f5] sm:w-auto"
+            class="inline-flex w-full items-center justify-center rounded-full border border-[#d7caca] bg-white/90 px-6 py-3.5 text-base font-semibold text-[#0c0c0c]
+                   shadow-sm backdrop-blur-sm transition duration-300 hover:bg-[#f8f5f5] sm:w-auto"
           >
             Ver servicios
           </a>
         </div>
 
-        <!-- Cards -->
-        <div class="grid gap-6 pt-4 md:grid-cols-2">
+        <div class="grid gap-4 pt-3 md:grid-cols-2 md:gap-6">
           <article
-            class="rounded-2xl bg-white p-4 ring-1 ring-black/5 shadow-xl shadow-black/10 md:p-5 transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:ring-black/10"
+            class="rounded-[1.6rem] bg-white/92 p-4 text-left ring-1 ring-black/5 shadow-xl shadow-black/10 backdrop-blur-sm
+                   transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:ring-black/10 md:p-5"
           >
             <AstrIcon width="72" height="72" />
             <h3
-              class="mb-2 mt-3 text-xl font-bold leading-snug text-[#000000] md:text-2xl transition group-hover:translate-x-0.5"
+              class="mb-2 mt-3 text-xl font-bold leading-snug text-[#000000] md:text-2xl"
             >
               Tratamientos hechos a tu medida
             </h3>
@@ -72,7 +187,8 @@ import { Picture, Image } from "astro:assets";
           </article>
 
           <article
-            class="rounded-2xl bg-white p-4 ring-1 ring-black/5 shadow-xl shadow-black/10 md:p-5 transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:ring-black/10"
+            class="rounded-[1.6rem] bg-white/92 p-4 text-left ring-1 ring-black/5 shadow-xl shadow-black/10 backdrop-blur-sm
+                   transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:ring-black/10 md:p-5"
           >
             <AstrIcon1 width={72} height={72} />
             <h3
@@ -85,306 +201,344 @@ import { Picture, Image } from "astro:assets";
               proceso. Tu seguridad es nuestra prioridad.
             </p>
           </article>
-          
         </div>
       </div>
-      <!-- Imagen -->
-<div
-  class="group order-2 relative flex justify-center lg:justify-end motion-safe:animate-[heroImageIn_.9s_cubic-bezier(.22,1,.36,1)_both]"
+    </div>
+  </div>
+</section>
+<!-- SEGUNDA SECCIÓN (Imagen izquierda / Texto derecha) - Diseño nuevo -->
+<section
+  class="relative mt-16 overflow-hidden px-6 py-20 md:py-24 lg:mt-24 lg:px-10"
 >
-  <div
-    class="relative w-full max-w-75 pb-16 sm:max-w-95 md:max-w-110 lg:max-w-130"
-  >
-    <!-- Imagen principal -->
-    <div class="will-change-transform motion-safe:animate-[heroFloat_6s_ease-in-out_infinite]">
-      <Picture
-        class="h-auto w-full object-contain transition duration-500 ease-out will-change-transform
-               filter-[drop-shadow(0_12px_18px_rgba(0,0,0,0.18))_drop-shadow(0_28px_45px_rgba(0,0,0,0.14))]
-               group-hover:scale-[1.02] group-hover:-translate-y-1"
-        src={portada}
-        alt="imagen principal doctor"
-        formats={["avif", "webp"]}
-      />
-    </div>
-
-    <!-- halo suave detrás -->
+  <!-- Fondo diferente (patrón + brillos suaves) -->
+  <div class="pointer-events-none absolute inset-0 -z-10">
     <div
-      aria-hidden="true"
-      class="pointer-events-none absolute inset-x-[12%] top-[8%] -z-10 h-[72%] rounded-full bg-[#4DB4BF]/12 blur-3xl
-             motion-safe:animate-[heroGlow_5.5s_ease-in-out_infinite]"
-    ></div>
-
-    <!-- Badge / Recuadro con textura -->
-    <div
-      class="absolute left-1/2 -bottom-6 w-[96%] -translate-x-1/2
-             sm:w-[86%] md:w-[84%] lg:w-[78%]
-             motion-safe:animate-[badgeIn_1s_cubic-bezier(.22,1,.36,1)_both]
-             [animation-delay:220ms]"
+      class="absolute -top-28 -left-4020px] w-105 rounded-full bg-[#4DB4BF]/18 blur-3xl"
     >
-      <div
-        class="relative overflow-hidden rounded-3xl
-               bg-linear-to-br from-[#4DB4BF] via-[#3aa9b4] to-[#2e8f99]
-               px-8 py-8 text-center text-xl font-extrabold text-white
-               shadow-[0_26px_70px_-35px_rgba(0,0,0,0.65)]
-               ring-1 ring-black/10 transition duration-500 ease-out
-               md:px-12 md:py-10 md:text-2xl
-               group-hover:-translate-y-1 group-hover:shadow-[0_34px_90px_-35px_rgba(0,0,0,0.72)]"
-      >
-        <!-- grain -->
-        <div
-          aria-hidden="true"
-          class="pointer-events-none absolute inset-0 opacity-[0.18]
-                 bg-[radial-gradient(rgba(255,255,255,.65)_1px,transparent_1px)]
-                 bg-size:[10px_10px]"
-        ></div>
-
-        <!-- glow interno sutil -->
-        <div
-          aria-hidden="true"
-          class="pointer-events-none absolute inset-0 opacity-40
-                 bg-[radial-gradient(circle_at_50%_20%,rgba(255,255,255,0.22),transparent_55%)]
-                 motion-safe:animate-[badgeGlow_4.5s_ease-in-out_infinite]"
-        ></div>
-
-        <!-- shine -->
-        <div
-          aria-hidden="true"
-          class="pointer-events-none absolute inset-y-0 left-0 w-1/2
-                 bg-[linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent)]
-                 motion-safe:animate-[shine_3.2s_ease-in-out_infinite]"
-        ></div>
-
-        <p class="relative m-0 leading-tight">
-          12 años de trayectoria en Fusagasugá
-        </p>
-
-        <p
-          class="relative mt-2 text-sm font-semibold text-white/90 md:text-base"
-        >
-          Agenda tu valoración por WhatsApp
-        </p>
-      </div>
     </div>
-  </div>
-</div>
-
-      
-    </div>
+    <div class=""></div>
   </div>
 
-  <!-- SEGUNDA SECCIÓN (Imagen izquierda / Texto derecha) - Diseño nuevo -->
-  <section
-    class="relative mt-16 overflow-hidden px-6 py-20 md:py-24 lg:mt-24 lg:px-10"
-  >
-    <!-- Fondo diferente (patrón + brillos suaves) -->
-    <div class="pointer-events-none absolute inset-0 -z-10">
+  <div class="mx-auto max-w-7xl">
+    <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+      <!-- IMAGEN (izquierda) -->
       <div
-        class="absolute -top-28 -left-4020px] w-105 rounded-full bg-[#4DB4BF]/18 blur-3xl"
+        class="order-1 flex justify-center lg:justify-start motion-safe:animate-[fadeUp_.7s_ease-out_both]"
       >
-      </div>
-      <div class=""></div>
-    </div>
-
-    <div class="mx-auto max-w-7xl">
-      <div
-        class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16"
-      >
-        <!-- IMAGEN (izquierda) -->
-        <div
-          class="order-1 flex justify-center lg:justify-start motion-safe:animate-[fadeUp_.7s_ease-out_both]"
-        >
+        <div class="group relative w-full max-w-82.5 sm:max-w-90 md:max-w-100">
+          <!-- marco/halo -->
           <div
-            class="group relative w-full max-w-82.5 sm:max-w-90 md:max-w-100"
+            class="absolute -inset-4 -z-10 rounded-[2.75rem] bg-white/40 blur-xl"
           >
-            <!-- marco/halo -->
+          </div>
+          <div
+            class="absolute -inset-7 -z-10 rounded-[3rem] bg-[#4DB4BF]/10 blur-2xl transition duration-300 group-hover:bg-[#4DB4BF]/14"
+          >
+          </div>
+
+          <div
+            class="relative overflow-hidden rounded-[2.25rem] ring-1 ring-black/10 bg-white shadow-[0_26px_70px_-38px_rgba(0,0,0,0.60)]"
+          >
+            <!-- overlay suave para profundidad -->
             <div
-              class="absolute -inset-4 -z-10 rounded-[2.75rem] bg-white/40 blur-xl"
-            >
-            </div>
-            <div
-              class="absolute -inset-7 -z-10 rounded-[3rem] bg-[#4DB4BF]/10 blur-2xl transition duration-300 group-hover:bg-[#4DB4BF]/14"
+              aria-hidden="true"
+              class="pointer-events-none absolute inset-0 bg-[linear-gradient(145deg,rgba(255,255,255,0.20),transparent_55%)]"
             >
             </div>
 
+            <!-- shine (distinto al anterior: más corto) -->
             <div
-              class="relative overflow-hidden rounded-[2.25rem] ring-1 ring-black/10 bg-white shadow-[0_26px_70px_-38px_rgba(0,0,0,0.60)]"
-            >
-              <!-- overlay suave para profundidad -->
-              <div
-                aria-hidden="true"
-                class="pointer-events-none absolute inset-0 bg-[linear-gradient(145deg,rgba(255,255,255,0.20),transparent_55%)]"
-              >
-              </div>
-
-              <!-- shine (distinto al anterior: más corto) -->
-              <div
-                aria-hidden="true"
-                class="pointer-events-none absolute -left-1/2 top-0 h-full w-1/2
+              aria-hidden="true"
+              class="pointer-events-none absolute -left-1/2 top-0 h-full w-1/2
                      bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.50),transparent)]
                      -skew-x-12 opacity-0 transition duration-500
                      group-hover:translate-x-[210%] group-hover:opacity-100"
-              >
-              </div>
-
-              <Image
-                src={cirugiaImg}
-                alt="Procedimiento clínico"
-                width={420}
-                height={560}
-                sizes="(min-width: 1024px) 420px, (min-width: 768px) 400px, 88vw"
-                class="relative h-auto w-full object-cover transition duration-500 group-hover:scale-[1.03]"
-              />
-            </div>
-          </div>
-        </div>
-
-        <!-- TEXTO (derecha) -->
-        <div
-          class="order-2 max-w-170 motion-safe:animate-[fadeUp_.7s_ease-out_both] [animation-delay:120ms]"
-        >
-          <!-- título con acento lateral (detalle diferente) -->
-          <div class="mt-5 flex gap-4">
-            <span
-              class="mt-2 hidden h-12 w-1 rounded-full bg-[#4DB4BF]/70 lg:block"
-            ></span>
-            <div>
-              <h2
-                class="text-3xl font-extrabold leading-tight tracking-tight text-[#2e2323] md:text-4xl lg:text-5xl"
-              >
-                Excelencia Clínica
-              </h2>
-              <p
-                class="mt-2 text-sm font-semibold text-[#4b3f3f]/75 md:text-base"
-              >
-                Enfoque digital para resultados predecibles.
-              </p>
-            </div>
-          </div>
-
-          <div
-            class="mt-6 space-y-5 text-base leading-relaxed text-[#4b3f3f] md:text-lg lg:text-xl"
-          >
-            <p>
-              En Maxilodental Studio trabajamos con altos estándares clínicos,
-              tecnología avanzada y un enfoque humano para brindarte resultados
-              reales, estéticos y duraderos.
-            </p>
-            <p>
-              También incorporamos tecnología digital 3D, que nos permite
-              planificar cada caso con precisión y asegurar resultados
-              totalmente predecibles.
-            </p>
-          </div>
-
-          <!-- chips/beneficios (detalles nuevos) -->
-          <div class="mt-8 grid gap-3 sm:grid-cols-2">
-            <div
-              class="rounded-2xl bg-white/70 p-4 ring-1 ring-black/5 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-md"
             >
-              <p class="text-sm font-semibold text-[#2e2323]">
-                Planificación 3D
-              </p>
-              <p class="mt-1 text-sm text-[#4b3f3f]">
-                Mayor precisión y seguridad.
-              </p>
             </div>
-            <div
-              class="rounded-2xl bg-white/70 p-4 ring-1 ring-black/5 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-md"
-            >
-              <p class="text-sm font-semibold text-[#2e2323]">
-                Seguimiento real
-              </p>
-              <p class="mt-1 text-sm text-[#4b3f3f]">
-                Acompañamiento en cada etapa.
-              </p>
-            </div>
-          </div>
 
-          <div class="mt-12">
-            <a
-              href="/servicios"
-              class="inline-flex w-full items-center justify-center gap-3 rounded-full bg-white px-12 py-6 text-base font-semibold text-[#0c0c0c]
-                   ring-1 ring-black/10 shadow-md
-                   transition duration-300
-                   hover:-translate-y-0.5 hover:shadow-lg hover:ring-black/20
-                   active:translate-y-0 sm:w-auto"
-            >
-              Ver servicios
-              <span aria-hidden="true" class="text-lg">→</span>
-            </a>
+            <Image
+              src={cirugiaImg}
+              alt="Procedimiento clínico"
+              width={420}
+              height={560}
+              sizes="(min-width: 1024px) 420px, (min-width: 768px) 400px, 88vw"
+              class="relative h-auto w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+            />
           </div>
         </div>
       </div>
+
+      <!-- TEXTO (derecha) -->
+      <div
+        class="order-2 max-w-170 motion-safe:animate-[fadeUp_.7s_ease-out_both] [animation-delay:120ms]"
+      >
+        <!-- título con acento lateral (detalle diferente) -->
+        <div class="mt-5 flex gap-4">
+          <span
+            class="mt-2 hidden h-12 w-1 rounded-full bg-[#4DB4BF]/70 lg:block"
+          ></span>
+          <div>
+            <h2
+              class="text-3xl font-extrabold leading-tight tracking-tight text-[#000000] md:text-4xl lg:text-5xl"
+            >
+              Excelencia Clínica
+            </h2>
+          </div>
+        </div>
+
+        <div
+          class="mt-6 space-y-5 text-base leading-relaxed text-[#0d0d0d] md:text-lg lg:text-xl"
+        >
+          <p>
+            En Maxilodental Studio trabajamos con altos estándares clínicos,
+            tecnología avanzada y un enfoque humano para brindarte resultados
+            reales, estéticos y duraderos.
+          </p>
+          <p>
+            También incorporamos tecnología digital 3D, que nos permite
+            planificar cada caso con precisión y asegurar resultados totalmente
+            predecibles.
+          </p>
+        </div>
+        <div class="mt-8 grid gap-3 sm:grid-cols-2">
+          <div
+            class="rounded-2xl bg-white/70 p-4 ring-1 ring-black/5 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-md"
+          >
+            <p class="text-sm font-semibold text-[#000000]">Planificación 3D</p>
+            <p class="mt-1 text-sm text-[#4b3f3f]">
+              Mayor precisión y seguridad.
+            </p>
+          </div>
+          <div
+            class="rounded-2xl bg-white/70 p-4 ring-1 ring-black/5 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-md"
+          >
+            <p class="text-sm font-semibold text-[#2e2323]">Seguimiento real</p>
+            <p class="mt-1 text-sm text-[#4b3f3f]">
+              Acompañamiento en cada etapa.
+            </p>
+          </div>
+        </div>
+        <div class="mt-8">
+          <a
+            href="/servicios"
+            class="inline-flex w-full items-center justify-center gap-3 rounded-full bg-white px-10 py-5 text-base font-bold text-[#0c0c0c]
+           ring-1 ring-black/10 shadow-md
+           transition duration-300
+           hover:-translate-y-1 hover:shadow-lg hover:ring-black/20
+           active:translate-y-1 sm:w-auto"
+          >
+            Ver servicios
+            <span aria-hidden="true" class="text-lg">→</span>
+          </a>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <style>
-      @keyframes fadeUp {
-        from {
-          opacity: 0;
-          transform: translateY(14px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+  <style>
+    @keyframes fadeUp {
+      from {
+        opacity:;
+        transform: translateY(30px);
       }
-    </style>
-  </section>
+      to {
+        opacity: 1;
+        transform: translateY(30);
+      }
+    }
+  </style>
 </section>
- <section class="relative mt-16 overflow-hidden bg-[#f8fbfc] px-6 py-20 lg:px-10">
-  <!-- transición desde la sección anterior -->
-  <div class="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#d9d9d9]/50 to-transparent"></div>
+<section class="relative mt-16 overflow-hidden bg-[linear-gradient(180deg,#f8efef_0%,#f7eeee_14%,#f2e7e7_34%,#eadfdf_58%,#e0d6d6_78%,#d9d9d9_100%)] px-2 pt-2 pb-12 lg:px-10">
+  <!-- brillo superior sutil -->
+  <div
+    class="absolute inset-x-0 top-0 h-24 bg-[linear-gradient(180deg,rgba(255,255,255,0.34)_0%,rgba(255,255,255,0)_100%)]"
+  >
+  </div>
 
-  <!-- fondo decorativo sutil -->
-  <div class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(900px_460px_at_15%_0%,rgba(77,180,191,0.10),transparent_60%),radial-gradient(800px_420px_at_90%_90%,rgba(243,217,212,0.18),transparent_60%)]"></div>
+  <!-- fondos decorativos -->
+  <div class="pointer-events-none absolute inset-0 -z-10">
+    <div
+      class="absolute left-[-8%] top-[-10%] h-105 w-105 rounded-full bg-[#4DB4BF]/10 blur-3xl"
+    >
+    </div>
+    <div
+      class="absolute bottom-[-12%] right-[-8%] h-90 w-90 rounded-full bg-[#f3d9d4]/30 blur-3xl"
+    >
+    </div>
+    <div
+      class="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-white/80 to-transparent"
+    >
+    </div>
+  </div>
 
   <div class="mx-auto max-w-7xl">
     <div class="flex flex-col items-center text-center">
-      <h2 class="text-3xl font-extrabold tracking-tight text-[#2e2323] md:text-4xl">
+      <h2
+        class="mt-5 max-w-3xl text-3xl font-extrabold tracking-tight text-[#2e2323] md:text-4xl lg:text-[2.9rem]"
+      >
         Nuestra Promesa Contigo
       </h2>
 
-      <div class="mt-10 grid w-full gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <p
+        class="mt-4 max-w-2xl text-sm leading-relaxed text-[#5b4d4d] md:text-base"
+      >
+        Combinamos criterio clínico, estética natural y un acompañamiento
+        cercano para que cada tratamiento se sienta preciso, humano y confiable.
+      </p>
+
+      <!-- cards -->
+      <div class="mt-14 grid w-full gap-5 sm:grid-cols-2 xl:grid-cols-4">
         <!-- Card 1 -->
-        <article class="group relative rounded-3xl bg-white p-6 shadow-[0_8px_24px_rgba(0,0,0,0.06)] ring-1 ring-black/5 transition duration-300 hover:-translate-y-1 hover:shadow-[0_14px_34px_rgba(0,0,0,0.09)]">
-          <div class="absolute right-6 top-6 text-sm font-extrabold text-[#2e2323]/20">01</div>
-          <div class="mb-4 h-1 w-10 rounded-full bg-[#4DB4BF]/70 transition group-hover:w-14"></div>
-          <h3 class="text-base font-bold text-[#2e2323]">Excelencia clínica</h3>
-          <p class="mt-2 text-sm leading-relaxed text-[#4b3f3f]">
-            Protocolos, tecnología y detalle.
-          </p>
+        <article
+          style="--delay: 0ms"
+          class="group relative overflow-hidden rounded-[28px] border border-white/70 bg-white/80 p-7 text-left shadow-[0_12px_32px_rgba(0,0,0,0.06)] ring-1 ring-black/5 backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_18px_40px_rgba(0,0,0,0.10)] motion-safe:animate-[fadeUp_.7s_ease-out_both] [animation-delay:var(--delay)]"
+        >
+          <div
+            class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(77,180,191,0.16),transparent_42%)] opacity-0 transition duration-500 group-hover:opacity-100"
+          >
+          </div>
+          <div
+            class="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-white to-transparent opacity-80"
+          >
+          </div>
+
+          <div class="relative z-10">
+            <div class="flex items-start justify-between gap-4">
+              <div
+                class="mb-5 h-1.5 w-11 rounded-full bg-[#4DB4BF]/75 transition-all duration-300 group-hover:w-16"
+              >
+              </div>
+              <span
+                class="text-xs font-bold tracking-[0.28em] text-[#2e2323]/18"
+              >
+                01
+              </span>
+            </div>
+
+            <h3 class="text-[1.05rem] font-semibold text-[#2e2323]">
+              Excelencia clínica
+            </h3>
+
+            <p class="mt-3 text-sm leading-relaxed text-[#5a4d4d]">
+              Protocolos rigurosos, tecnología de apoyo y atención al detalle en
+              cada decisión.
+            </p>
+          </div>
         </article>
 
         <!-- Card 2 -->
-        <article class="group relative rounded-3xl bg-white p-6 shadow-[0_8px_24px_rgba(0,0,0,0.06)] ring-1 ring-black/5 transition duration-300 hover:-translate-y-1 hover:shadow-[0_14px_34px_rgba(0,0,0,0.09)]">
-          <div class="absolute right-6 top-6 text-sm font-extrabold text-[#2e2323]/20">02</div>
-          <div class="mb-4 h-1 w-10 rounded-full bg-[#4DB4BF]/70 transition group-hover:w-14"></div>
-          <h3 class="text-base font-bold text-[#2e2323]">Diagnóstico personalizado</h3>
-          <p class="mt-2 text-sm leading-relaxed text-[#4b3f3f]">
-            Tu caso, tu plan, tu ritmo.
-          </p>
+        <article
+          style="--delay: 120ms"
+          class="group relative overflow-hidden rounded-[28px] border border-white/70 bg-white/80 p-7 text-left shadow-[0_12px_32px_rgba(0,0,0,0.06)] ring-1 ring-black/5 backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_18px_40px_rgba(0,0,0,0.10)] motion-safe:animate-[fadeUp_.7s_ease-out_both] [animation-delay:var(--delay)]"
+        >
+          <div
+            class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(243,217,212,0.28),transparent_42%)] opacity-0 transition duration-500 group-hover:opacity-100"
+          >
+          </div>
+          <div
+            class="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-white to-transparent opacity-80"
+          >
+          </div>
+
+          <div class="relative z-10">
+            <div class="flex items-start justify-between gap-4">
+              <div
+                class="mb-5 h-1.5 w-11 rounded-full bg-[#4DB4BF]/75 transition-all duration-300 group-hover:w-24"
+              >
+              </div>
+              <span
+                class="text-xs font-bold tracking-[0.28em] text-[#2e2323]/18"
+              >
+                02
+              </span>
+            </div>
+
+            <h3 class="text-[1.05rem] font-semibold text-[#2e2323]">
+              Diagnóstico personalizado
+            </h3>
+
+            <p class="mt-3 text-sm leading-relaxed text-[#5a4d4d]">
+              Cada caso se estudia con criterio propio para definir un plan
+              realista y a tu medida.
+            </p>
+          </div>
         </article>
 
         <!-- Card 3 -->
-        <article class="group relative rounded-3xl bg-white p-6 shadow-[0_8px_24px_rgba(0,0,0,0.06)] ring-1 ring-black/5 transition duration-300 hover:-translate-y-1 hover:shadow-[0_14px_34px_rgba(0,0,0,0.09)]">
-          <div class="absolute right-6 top-6 text-sm font-extrabold text-[#2e2323]/20">03</div>
-          <div class="mb-4 h-1 w-10 rounded-full bg-[#4DB4BF]/70 transition group-hover:w-14"></div>
-          <h3 class="text-base font-bold text-[#2e2323]">Resultados naturales</h3>
-          <p class="mt-2 text-sm leading-relaxed text-[#4b3f3f]">
-            Estética sin exageración.
-          </p>
+        <article
+          style="--delay: 240ms"
+          class="group relative overflow-hidden rounded-[28px] border border-white/70 bg-white/80 p-7 text-left shadow-[0_12px_32px_rgba(0,0,0,0.06)] ring-1 ring-black/5 backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_18px_40px_rgba(0,0,0,0.10)] motion-safe:animate-[fadeUp_.7s_ease-out_both] [animation-delay:var(--delay)]"
+        >
+          <div
+            class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(77,180,191,0.16),transparent_42%)] opacity-0 transition duration-500 group-hover:opacity-100"
+          >
+          </div>
+          <div
+            class="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-white to-transparent opacity-80"
+          >
+          </div>
+
+          <div class="relative z-10">
+            <div class="flex items-start justify-between gap-4">
+              <div
+                class="mb-5 h-1.5 w-11 rounded-full bg-[#4DB4BF]/75 transition-all duration-300 group-hover:w-32"
+              >
+              </div>
+              <span
+                class="text-xs font-bold tracking-[0.28em] text-[#2e2323]/18"
+              >
+                03
+              </span>
+            </div>
+
+            <h3 class="text-[1.05rem] font-semibold text-[#2e2323]">
+              Resultados naturales
+            </h3>
+
+            <p class="mt-3 text-sm leading-relaxed text-[#5a4d4d]">
+              Buscamos armonía, equilibrio y estética auténtica, sin excesos ni
+              artificios.
+            </p>
+          </div>
         </article>
 
         <!-- Card 4 -->
-        <article class="group relative rounded-3xl bg-white p-6 shadow-[0_8px_24px_rgba(0,0,0,0.06)] ring-1 ring-black/5 transition duration-300 hover:-translate-y-1 hover:shadow-[0_14px_34px_rgba(0,0,0,0.09)]">
-          <div class="absolute right-6 top-6 text-sm font-extrabold text-[#2e2323]/20">04</div>
-          <div class="mb-4 h-1 w-10 rounded-full bg-[#4DB4BF]/70 transition group-hover:w-14"></div>
-          <h3 class="text-base font-bold text-[#2e2323]">Trato humano y cercano</h3>
-          <p class="mt-2 text-sm leading-relaxed text-[#4b3f3f]">
-            Acompañamiento real siempre.
-          </p>
+        <article
+          style="--delay: 360ms"
+          class="group relative overflow-hidden rounded-[28px] border border-white/70 bg-white/80 p-7 text-left shadow-[0_12px_32px_rgba(0,0,0,0.06)] ring-1 ring-black/5 backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_18px_40px_rgba(0,0,0,0.10)] motion-safe:animate-[fadeUp_.7s_ease-out_both] [animation-delay:var(--delay)]"
+        >
+          <div
+            class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(243,217,212,0.28),transparent_42%)] opacity-0 transition duration-500 group-hover:opacity-100"
+          >
+          </div>
+          <div
+            class="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-white to-transparent opacity-80"
+          >
+          </div>
+
+          <div class="relative z-10">
+            <div class="flex items-start justify-between gap-4">
+              <div
+                class="mb-5 h-1.5 w-11 rounded-full bg-[#4DB4BF]/75 transition-all duration-300 group-hover:w-40"
+              >
+              </div>
+              <span
+                class="text-xs font-bold tracking-[0.28em] text-[#2e2323]/18"
+              >
+                04
+              </span>
+            </div>
+
+            <h3 class="text-[1.05rem] font-semibold text-[#2e2323]">
+              Trato humano y cercano
+            </h3>
+
+            <p class="mt-3 text-sm leading-relaxed text-[#5a4d4d]">
+              Acompañamiento claro, cálido y constante durante todo el proceso.
+            </p>
+          </div>
         </article>
       </div>
     </div>
   </div>
-</section>
+</section>          

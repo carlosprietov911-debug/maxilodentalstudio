@@ -1,0 +1,232 @@
+  ---
+  import logo from "../../assets/Logotipo1.svg?url";
+
+  const WHATSAPP_URL = "https://wa.link/u29whe";
+  const INSTAGRAM_URL = "https://www.instagram.com/maxilodentalstudio/";
+  const MAPS_URL = "https://www.google.com/maps/search/Fusagasug%C3%A1,+Colombia";
+
+  const PHONE_DISPLAY = "+57 302 2447789";
+  const PHONE_RAW = "573022447789";
+  const EMAIL = "maxilodentalstudio@gmail.com";
+
+  const navLinks = [
+    { label: "Inicio", href: "/#inicio" },
+    { label: "Nosotros", href: "/#nosotros-equipo" },
+    { label: "Servicios", href: "/#servicios" },
+    { label: "Pacientes", href: "/#pacientes" },
+  ];
+
+  const horarios = [
+    "Lunes a viernes: 8:00 a. m. – 6:00 p. m.",
+    "Sábados: 8:00 a. m. – 1:00 p. m.",
+    "Domingos y festivos: atención bajo agenda",
+  ];
+  ---
+
+  <footer class=footer class="relative overflow-hidden border-t border-[#ece2e2] bg-[#fcf8f7] text-[#261b1b]">
+    <!-- fondo sutil -->
+    <div class="pointer-events-none absolute inset-0 -z-10">
+      <div class="absolute inset-0 bg-[radial-gradient(900px_420px_at_0%_0%,rgba(77,180,191,0.08),transparent_60%),radial-gradient(700px_340px_at_100%_100%,rgba(243,217,212,0.18),transparent_60%)]"></div>
+      <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.72)_0%,rgba(255,255,255,0)_24%,rgba(255,255,255,0)_76%,rgba(255,255,255,0.42)_100%)]"></div>
+    </div>
+
+    <div class="mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-20">
+      <!-- bloque superior -->
+      <div class="mx-auto max-w-4xl text-center">
+        <a href="/" class="inline-flex items-center justify-center">
+          <img
+            src={logo}
+            alt="Maxilodental Studio"
+            class="h-24 w-auto object-contain drop-shadow-[0_18px_28px_rgba(0,0,0,0.06)] md:h-28 lg:h-36"
+          />
+        </a>
+
+        <p class="mt-6 text-[11px] font-semibold uppercase tracking-[0.34em] text-[#4db4bf]">
+          Maxilodental Studio
+        </p>
+
+        <h2 class="mt-4 text-2xl font-semibold tracking-tight text-[#241717] md:text-[2rem] lg:text-[2.35rem] lg:leading-[1.08]">
+          Cirugía maxilofacial y odontología estética con una experiencia serena,
+          precisa y cuidadosamente diseñada
+        </h2>
+
+        <p class="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-[#5e5252] md:text-[15px]">
+          Un espacio pensado para transmitir confianza, armonía y atención
+          profesional en cada detalle.
+        </p>
+
+        <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-3 rounded-full bg-[#241717] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_14px_24px_rgba(36,23,23,0.14)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#342424]"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="h-5 w-5"
+              aria-hidden="true"
+            >
+              <path
+                d="M19.05 4.91A9.82 9.82 0 0 0 12.09 2C6.62 2 2.17 6.44 2.17 11.91c0 1.75.46 3.46 1.33 4.97L2 22l5.27-1.38a9.9 9.9 0 0 0 4.82 1.23h.01c5.47 0 9.91-4.45 9.91-9.92a9.85 9.85 0 0 0-2.96-7.02Zm-6.96 15.26h-.01a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.13.82.83-3.05-.2-.31a8.23 8.23 0 0 1-1.27-4.4c0-4.54 3.69-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24Zm4.52-6.17c-.25-.12-1.47-.73-1.7-.81-.23-.09-.39-.12-.55.12-.17.24-.63.81-.78.98-.14.16-.29.18-.54.06-.25-.12-1.04-.38-1.98-1.23-.73-.65-1.22-1.45-1.36-1.69-.14-.24-.01-.37.11-.49.11-.11.25-.29.37-.43.12-.15.16-.24.25-.4.08-.16.04-.31-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.43.06-.66.31-.23.24-.87.85-.87 2.06s.9 2.39 1.03 2.56c.12.16 1.77 2.7 4.28 3.79.6.26 1.07.42 1.43.54.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.1-.22-.16-.47-.28Z"
+              />
+            </svg>
+            Agenda por WhatsApp
+          </a>
+
+          <a
+            href={MAPS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-3 rounded-full border border-[#e8dcdc] bg-white/80 px-6 py-3.5 text-sm font-semibold text-[#3d3030] transition duration-300 hover:-translate-y-0.5 hover:border-[#d8c7c7] hover:text-[#241717]"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="h-5 w-5"
+              aria-hidden="true"
+            >
+              <path
+                d="M12 2.25A6.75 6.75 0 0 0 5.25 9c0 5.26 5.56 11.29 6.2 11.96a.75.75 0 0 0 1.1 0c.64-.67 6.2-6.7 6.2-11.96A6.75 6.75 0 0 0 12 2.25Zm0 9A2.25 2.25 0 1 1 14.25 9 2.25 2.25 0 0 1 12 11.25Z"
+              />
+            </svg>
+            Ver ubicación
+          </a>
+        </div>
+      </div>
+
+      <!-- separador -->
+      <div class="mt-14 h-px w-full bg-linear-to-r from-transparent via-[#ddd0d0] to-transparent"></div>
+
+      <!-- info inferior -->
+      <div class="mt-12 grid gap-y-10 md:grid-cols-2 md:gap-x-12 lg:grid-cols-4 lg:gap-x-16">
+        <div>
+          <h3 class="text-[11px] font-semibold uppercase tracking-[0.30em] text-[#8c7d7d]">
+            Navegación
+          </h3>
+
+          <ul class="mt-5 space-y-3">
+            {navLinks.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  class="text-[15px] text-[#5a4d4d] transition duration-300 hover:text-[#241717]"
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-[11px] font-semibold uppercase tracking-[0.30em] text-[#8c7d7d]">
+            Contacto
+          </h3>
+
+          <div class="mt-5 space-y-3 text-[15px] text-[#5a4d4d]">
+            <a
+              href={`tel:${PHONE_RAW}`}
+              class="block text-lg font-semibold text-[#241717] transition duration-300 hover:text-[#4db4bf]"
+            >
+              {PHONE_DISPLAY}
+            </a>
+
+            <a
+              href={`mailto:${EMAIL}`}
+              class="block break-all transition duration-300 hover:text-[#241717]"
+            >
+              {EMAIL}
+            </a>
+
+            <a
+              href={MAPS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block transition duration-300 hover:text-[#241717]"
+            >
+              Fusagasugá, Colombia
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-[11px] font-semibold uppercase tracking-[0.30em] text-[#8c7d7d]">
+            Horarios
+          </h3>
+
+          <ul class="mt-5 space-y-3 text-[15px] leading-relaxed text-[#5a4d4d]">
+            {horarios.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-[11px] font-semibold uppercase tracking-[0.30em] text-[#8c7d7d]">
+            Redes
+          </h3>
+
+          <div class="mt-5 flex flex-col gap-3">
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex w-fit items-center gap-3 text-[15px] text-[#5a4d4d] transition duration-300 hover:text-[#241717]"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="h-5 w-5"
+                aria-hidden="true"
+              >
+                <path
+                  d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5Zm8.88 1.12a1.13 1.13 0 1 1 0 2.26 1.13 1.13 0 0 1 0-2.26ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.5A3.5 3.5 0 1 0 12 15.5 3.5 3.5 0 0 0 12 8.5Z"
+                />
+              </svg>
+              Instagram
+            </a>
+
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex w-fit items-center gap-3 text-[15px] text-[#5a4d4d] transition duration-300 hover:text-[#241717]"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="h-5 w-5"
+                aria-hidden="true"
+              >
+                <path
+                  d="M19.05 4.91A9.82 9.82 0 0 0 12.09 2C6.62 2 2.17 6.44 2.17 11.91c0 1.75.46 3.46 1.33 4.97L2 22l5.27-1.38a9.9 9.9 0 0 0 4.82 1.23h.01c5.47 0 9.91-4.45 9.91-9.92a9.85 9.85 0 0 0-2.96-7.02Zm-6.96 15.26h-.01a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.13.82.83-3.05-.2-.31a8.23 8.23 0 0 1-1.27-4.4c0-4.54 3.69-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24Zm4.52-6.17c-.25-.12-1.47-.73-1.7-.81-.23-.09-.39-.12-.55.12-.17.24-.63.81-.78.98-.14.16-.29.18-.54.06-.25-.12-1.04-.38-1.98-1.23-.73-.65-1.22-1.45-1.36-1.69-.14-.24-.01-.37.11-.49.11-.11.25-.29.37-.43.12-.15.16-.24.25-.4.08-.16.04-.31-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.43.06-.66.31-.23.24-.87.85-.87 2.06s.9 2.39 1.03 2.56c.12.16 1.77 2.7 4.28 3.79.6.26 1.07.42 1.43.54.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.1-.22-.16-.47-.28Z"
+                />
+              </svg>
+              WhatsApp
+            </a>
+
+            <a
+              href="/aviso-de-privacidad"
+              class="inline-flex w-fit text-[15px] text-[#5a4d4d] transition duration-300 hover:text-[#241717]"
+            >
+              Aviso de privacidad
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- línea final -->
+      <div class="mt-14 h-px w-full bg-linear-to-r from-transparent via-[#ddd0d0] to-transparent"></div>
+
+      <div class="mt-6 flex flex-col gap-2 text-center text-sm text-[#7d6d6d] md:flex-row md:items-center md:justify-between md:text-left">
+        <p>© {new Date().getFullYear()} Maxilodental Studio. Todos los derechos reservados.</p>
+        <p>Sitio informativo · Atención con cita previa</p>
+      </div>
+    </div>
+  </footer>

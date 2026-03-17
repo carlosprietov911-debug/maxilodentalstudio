@@ -1,0 +1,289 @@
+﻿---
+import { Picture } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+import brandLogo from "../../../assets/Logotipo1.svg?url";
+import disenoSonrisaImg from "../../../assets/diseño-sonrisa.jpg";
+import implantesImg from "../../../assets/implantes.jpg";
+import ortodonciaImg from "../../../assets/ortodoncia.jpg";
+
+const WHATSAPP_URL = "https://wa.link/u29whe";
+
+type ServicioActivo = {
+  titulo: string;
+  descripcion: string;
+  imagen: ImageMetadata;
+  alt: string;
+  href: string;
+  activo: true;
+  etiqueta: string;
+};
+
+type ServicioProximo = {
+  titulo: "";
+  descripcion: "";
+  imagen: null;
+  alt: "";
+  href: "";
+  activo: false;
+  etiqueta: "";
+};
+
+type Servicio = ServicioActivo | ServicioProximo;
+
+const servicios: Servicio[] = [
+  {
+    titulo: "Diseño de sonrisa",
+    descripcion:
+      "Creamos sonrisas armónicas y naturales, planificadas según tus rasgos, proporciones faciales y objetivos estéticos.",
+    imagen: disenoSonrisaImg,
+    alt: "Resultado de diseño de sonrisa",
+    href: "/tratamientos/diseno-de-sonrisa",
+    activo: true,
+    etiqueta: "Estética dental",
+  },
+  {
+    titulo: "Implantes dentales",
+    descripcion:
+      "Recuperamos función, estabilidad y estética con una planificación precisa para lograr una integración natural y duradera.",
+    imagen: implantesImg,
+    alt: "Implante dental",
+    href: "/tratamientos/implantes-dentales",
+    activo: true,
+    etiqueta: "Rehabilitación oral",
+  },
+  {
+    titulo: "Ortodoncia",
+    descripcion:
+      "Alineamos tu sonrisa mejorando mordida, estética y salud oral con tratamientos cómodos y bien orientados a tu caso.",
+    imagen: ortodonciaImg,
+    alt: "Tratamiento de ortodoncia",
+    href: "/tratamientos/ortodoncia",
+    activo: true,
+    etiqueta: "Alineación dental",
+  },
+  {
+    titulo: "",
+    descripcion: "",
+    imagen: null,
+    alt: "",
+    href: "",
+    activo: false,
+    etiqueta: "",
+  },
+  {
+    titulo: "",
+    descripcion: "",
+    imagen: null,
+    alt: "",
+    href: "",
+    activo: false,
+    etiqueta: "",
+  },
+  {
+    titulo: "",
+    descripcion: "",
+    imagen: null,
+    alt: "",
+    href: "",
+    activo: false,
+    etiqueta: "",
+  },
+];
+
+const enfoque = [
+  "Diagnóstico con criterio",
+  "Planificación personalizada",
+  "Resultados naturales",
+];
+---
+
+<section id="servicios1" class="px-6 py-14 md:py-16 lg:px-10 lg:py-18">
+  <div class="mx-auto max-w-7xl">
+    <nav class="mb-5 flex items-center gap-3 text-sm font-medium text-[#7a7272]">
+      <a href="/" class="transition hover:text-[#241717]">Inicio</a>
+      <span class="text-[#beb3b3]">/</span>
+      <span class="text-[#241717]">Tratamientos</span>
+    </nav>
+
+    <!-- Encabezado -->
+    <div class="max-w-7xl">
+      <p class="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#8f7f7f]">
+        Tratamientos
+      </p>
+
+      <h2 class="mt-4 max-w-300 text-[2.35rem] font-light leading-[0.96] tracking-[-0.05em] text-[#1f1c1c] md:text-5xl lg:text-[4.7rem]">
+        Tratamientos pensados para construir una sonrisa
+        <span class="font-medium text-[#241717]">
+          equilibrada, natural y bien diseñada para ti
+        </span>
+      </h2>
+
+      <div class="mt-6 flex flex-wrap gap-2.5">
+        <span class="rounded-full border border-[#ebe2e2] px-3.5 py-1.5 text-[12px] font-medium text-[#6f6363]">
+          Diagnóstico individual
+        </span>
+        <span class="rounded-full border border-[#ebe2e2] px-3.5 py-1.5 text-[12px] font-medium text-[#6f6363]">
+          Planificación precisa
+        </span>
+        <span class="rounded-full border border-[#ebe2e2] px-3.5 py-1.5 text-[12px] font-medium text-[#6f6363]">
+          Resultados armónicos
+        </span>
+      </div>
+    </div>
+
+    <!-- Grid de servicios -->
+    <div class="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+      {servicios.map((servicio, index) => (
+        <article
+          class={`group flex min-h-106 flex-col overflow-hidden rounded-3xl border ${
+            servicio.activo
+              ? "border-[#ece3e3] bg-white shadow-[0_10px_26px_rgba(0,0,0,0.045)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_16px_34px_rgba(0,0,0,0.075)]"
+              : "border-dashed border-[#ddd3d3] bg-[#fcf9f9]"
+          }`}
+        >
+          <!-- Header -->
+          <div class="flex items-center justify-between px-4 pb-3 pt-4 md:px-5">
+            <span class="inline-flex h-8 min-w-8 items-center justify-center rounded-full border border-[#ece2e2] px-2 text-[10px] font-semibold tracking-[0.16em] text-[#7d6f6f]">
+              0{index + 1}
+            </span>
+
+            <img
+              src={brandLogo}
+              alt="Logo Maxilodental Studio"
+              class="h-20 w-auto opacity-85 md:h-20"
+            />
+          </div>
+
+          <!-- Imagen -->
+          <div class="px-4 md:px-5">
+            <div
+              class={`overflow-hidden rounded-[1.15rem] ${
+                servicio.activo
+                  ? "bg-[#f7f4f4]"
+                  : "border border-dashed border-[#ded2d2] bg-[#faf7f7]"
+              }`}
+            >
+              {servicio.activo ? (
+                <Picture
+                  src={servicio.imagen}
+                  alt={servicio.alt}
+                  formats={["avif", "webp"]}
+                  widths={[480, 768, 960]}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                  class="aspect-16/11 h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]"
+                />
+              ) : (
+                <div class="flex aspect-16/11 items-center justify-center">
+                  <div class="text-center">
+                    <img
+                      src={brandLogo}
+                      alt="Logo Maxilodental Studio"
+                      class="mx-auto h-14 w-auto opacity-15"
+                    />
+                    <p class="mt-4 text-[10px] font-semibold uppercase tracking-[0.24em] text-[#b09d9d]">
+                      Próximamente
+                    </p>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+
+          <!-- Contenido -->
+          <div class="flex flex-1 flex-col px-4 pb-4 pt-4 md:px-5 md:pb-5">
+            {servicio.activo ? (
+              <>
+                <h3 class="text-[1.32rem] font-medium leading-[1.1] tracking-tight text-[#1f1717] md:text-[1.48rem]">
+                  {servicio.titulo}
+                </h3>
+
+                <p class="mt-3 text-[15px] leading-6 text-[#564b4b]">
+                  {servicio.descripcion}
+                </p>
+
+                <div class="mt-auto pt-5">
+                  <a
+                    href={WHATSAPP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 rounded-full border border-[#e9dede] px-4 py-2.5 text-sm font-semibold text-[#241717] transition hover:border-[#d8caca] hover:text-[#6d5a5a]"
+                  >
+                    <svg viewBox="0 0 24 24" class="h-4.5 w-4.5 fill-current" aria-hidden="true">
+                      <path d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.16 1.6 5.97L0 24l6.32-1.66a11.82 11.82 0 0 0 5.73 1.46h.01c6.56 0 11.9-5.34 11.9-11.9 0-3.18-1.24-6.17-3.44-8.42ZM12.06 21.8h-.01a9.8 9.8 0 0 1-4.99-1.37l-.36-.21-3.75.98 1-3.65-.24-.37a9.83 9.83 0 0 1-1.51-5.28c0-5.43 4.42-9.85 9.86-9.85 2.63 0 5.1 1.02 6.96 2.89a9.78 9.78 0 0 1 2.88 6.96c0 5.43-4.42 9.85-9.84 9.85Zm5.4-7.35c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.1 4.49.71.31 1.27.5 1.7.64.71.23 1.36.2 1.88.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.08-.12-.28-.2-.57-.35Z" />
+                    </svg>
+                    <span>Agenda tu valoración</span>
+                  </a>
+                </div>
+              </>
+            ) : (
+              <div class="flex h-full flex-col justify-between">
+                <div class="space-y-3 pt-2">
+                  <div class="h-6 w-2/3 rounded-full bg-[#f1e9e9]"></div>
+                  <div class="h-4 w-full rounded-full bg-[#f5efef]"></div>
+                  <div class="h-4 w-10/12 rounded-full bg-[#f5efef]"></div>
+                  <div class="h-4 w-7/12 rounded-full bg-[#f5efef]"></div>
+                </div>
+
+                <div class="mt-6 rounded-2xl border border-dashed border-[#dacccc] px-4 py-3 text-center">
+                  <p class="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#ac9898]">
+                    Próximo tratamiento
+                  </p>
+                </div>
+              </div>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="px-6 py-10 lg:px-10 lg:py-12">
+  <div class="mx-auto max-w-7xl border-y border-[#eee5e5] py-8 md:py-10">
+    <div class="mx-auto max-w-5xl text-center">
+      <p class="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#8f7f7f]">
+        Nuestro enfoque
+      </p>
+
+      <h2 class="mt-3 text-[1.95rem] font-light leading-[1.05] tracking-tight text-[#241717] md:text-[2.45rem]">
+        Antes de intervenir una sonrisa,
+        <span class="font-medium">nos detenemos a entenderla</span>
+      </h2>
+
+      <p class="mx-auto mt-4 max-w-3xl text-[15px] leading-relaxed text-[#5f5656] md:text-base">
+        Observamos proporciones, escuchamos expectativas y analizamos cada caso con
+        calma para que el tratamiento tenga sentido, coherencia y belleza real.
+      </p>
+
+      <div class="mt-7 grid gap-4 md:grid-cols-3">
+        <div class="rounded-[1.1rem] border border-[#eee5e5] px-5 py-4">
+          <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#8b7b7b]">
+            Escucha
+          </p>
+          <p class="mt-2 text-sm leading-relaxed text-[#564b4b]">
+            Entendemos lo que buscas y lo que realmente necesita tu sonrisa.
+          </p>
+        </div>
+
+        <div class="rounded-[1.1rem] border border-[#eee5e5] px-5 py-4">
+          <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#8b7b7b]">
+            Criterio
+          </p>
+          <p class="mt-2 text-sm leading-relaxed text-[#564b4b]">
+            Evaluamos función, estética y proporciones antes de decidir cualquier paso.
+          </p>
+        </div>
+
+        <div class="rounded-[1.1rem] border border-[#eee5e5] px-5 py-4">
+          <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#8b7b7b]">
+            Dirección
+          </p>
+          <p class="mt-2 text-sm leading-relaxed text-[#564b4b]">
+            Trazamos un camino claro para lograr un resultado natural y bien pensado.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

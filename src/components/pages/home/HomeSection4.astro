@@ -1,0 +1,525 @@
+---
+import logo from "../../../assets/Logotipo1.svg?url";
+
+import img1 from "../../../assets/imagen1.jpeg?url";
+import img2 from "../../../assets/imagen2.jpeg?url";
+import img3 from "../../../assets/imagen3.jpeg?url";
+import img4 from "../../../assets/imagen4.jpeg?url";
+import img5 from "../../../assets/imagen5.jpeg?url";
+
+const WHATSAPP_URL = "https://wa.link/u29whe";
+
+const ADDRESS =
+  "Calle 18 # 11 - 116 Edificio Copacabana, Piso 6, Fusagasugá, Cundinamarca, Colombia";
+
+const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ADDRESS)}`;
+const MAPS_DIRECTIONS_URL = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(ADDRESS)}`;
+
+const gallery = [
+  {
+    src: img1,
+    alt: "Recepción de Maxilodental Studio",
+    title: "Recepción",
+    text: "Un entorno cómodo y armónico desde tu llegada.",
+  },
+  {
+    src: img2,
+    alt: "Instalaciones de Maxilodental Studio",
+    title: "Instalaciones",
+    text: "Espacios pensados para una experiencia tranquila.",
+  },
+  {
+    src: img3,
+    alt: "Consultorio odontológico moderno",
+    title: "Consultorio",
+    text: "Tecnología y detalle en cada consulta.",
+  },
+  {
+    src: img4,
+    alt: "Atención profesional en Maxilodental Studio",
+    title: "Atención",
+    text: "Acompañamiento profesional y cercano.",
+  },
+  {
+    src: img5,
+    alt: "Espacio interior de la clínica",
+    title: "Ambiente",
+    text: "Diseño cálido, limpio y elegante.",
+  },
+];
+---
+
+<section
+  id="ubicacion"
+  class="relative overflow-hidden px-4 py-14 sm:px-6 sm:py-16 lg:px-10 lg:py-24"
+>
+  <!-- Fondo -->
+  <div class="pointer-events-none absolute inset-0 -z-10">
+    <div class="absolute inset-0 bg-[#f8f2f0]"></div>
+
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_10%_10%,rgba(77,180,191,0.16),transparent_28%),radial-gradient(circle_at_90%_15%,rgba(243,217,212,0.38),transparent_24%),linear-gradient(180deg,rgba(255,255,255,0.45)_0%,rgba(255,255,255,0.08)_38%,rgba(255,255,255,0.38)_100%)]"></div>
+
+    <div class="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#d9d9d9] via-[#ece8e6] to-transparent sm:h-20 md:h-24"></div>
+
+    <div class="absolute -left-20 top-[6%] h-44 w-44 rounded-full bg-[#4db4bf]/10 blur-3xl sm:-left-24 sm:h-56 sm:w-56 md:h-72 md:w-72"></div>
+
+    <div class="absolute -right-16 top-[16%] h-44 w-44 rounded-full bg-[#f3d9d4]/45 blur-3xl sm:-right-20 sm:h-56 sm:w-56 md:h-72 md:w-72"></div>
+
+    <div class="absolute -bottom-20 left-[10%] h-44 w-44 rounded-full bg-white/70 blur-3xl sm:-bottom-24 sm:left-[16%] sm:h-56 sm:w-56 md:-bottom-32 md:left-[20%] md:h-72 md:w-72"></div>
+  </div>
+
+  <div class="mx-auto max-w-7xl">
+    <!-- Encabezado -->
+    <div class="mx-auto mb-10 max-w-3xl text-center sm:mb-12 md:mb-16">
+      <span class="inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/70 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#4db4bf] shadow-[0_10px_24px_rgba(15,23,42,0.04)] ring-1 ring-black/5 backdrop-blur-md sm:px-4 sm:text-[11px] sm:tracking-[0.28em]">
+        Ubicación y atención
+      </span>
+
+      <h2 class="mt-4 text-[2rem] font-extrabold tracking-tight text-[#241717] sm:mt-5 sm:text-[2.35rem] sm:leading-[1.08] md:text-4xl lg:text-[3.2rem] lg:leading-[1.05]">
+        Un espacio creado para que la experiencia se sienta tranquila, cuidada y confiable
+      </h2>
+
+      <p class="mt-4 text-[15px] leading-relaxed text-[#5f5656] sm:mt-5 sm:text-base md:text-lg">
+        Encuentra nuestra sede, consulta los horarios y recorre visualmente un
+        entorno pensado para transmitir serenidad, detalle y profesionalismo
+        desde el primer momento.
+      </p>
+    </div>
+
+    <div class="grid items-start gap-8 sm:gap-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:gap-12">
+      <!-- Columna izquierda -->
+      <div class="relative min-w-0 overflow-hidden rounded-[2rem] border border-white/70 bg-white/78 p-5 shadow-[0_20px_60px_rgba(15,23,42,0.08)] ring-1 ring-black/5 backdrop-blur-xl sm:rounded-[2.2rem] sm:p-6 md:p-8 lg:rounded-[2.5rem] lg:p-10">
+        <div class="pointer-events-none absolute inset-0">
+          <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#4db4bf]/35 to-transparent"></div>
+          <div class="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-[#4db4bf]/10 blur-3xl sm:-right-20 sm:-top-20 sm:h-48 sm:w-48"></div>
+          <div class="absolute -bottom-20 -left-14 h-36 w-36 rounded-full bg-[#f3d9d4]/25 blur-3xl sm:-bottom-24 sm:-left-20 sm:h-48 sm:w-48"></div>
+          <div class="absolute inset-0 bg-[linear-gradient(140deg,rgba(255,255,255,0.48)_0%,rgba(255,255,255,0)_32%,rgba(77,180,191,0.04)_100%)]"></div>
+        </div>
+
+        <div class="relative z-10">
+          <div class="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
+            <div class="min-w-0">
+              <span class="inline-flex rounded-full border border-black/5 bg-black/[0.03] px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6d6262] sm:px-4 sm:text-[11px] sm:tracking-[0.24em]">
+                Fusagasugá · Cundinamarca
+              </span>
+
+              <img
+                src={logo}
+                alt="Maxilodental Studio"
+                class="mt-5 h-12 w-auto object-contain drop-shadow-[0_18px_30px_rgba(0,0,0,0.06)] sm:h-14 md:h-16"
+              />
+            </div>
+
+            <a
+              href={MAPS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hidden shrink-0 rounded-full border border-black/10 bg-white/80 px-4 py-2 text-xs font-semibold text-[#111] shadow-[0_10px_20px_rgba(15,23,42,0.04)] transition hover:-translate-y-0.5 hover:text-[#4db4bf] md:inline-flex"
+            >
+              Ver mapa
+            </a>
+          </div>
+
+          <h3 class="mt-7 max-w-lg text-[1.65rem] font-bold leading-tight tracking-tight text-[#1e1717] sm:text-[1.9rem] md:text-[2.3rem]">
+            Atención especializada en un entorno sereno, limpio y cuidadosamente diseñado
+          </h3>
+
+          <p class="mt-4 max-w-xl text-[15px] leading-relaxed text-[#5f5656] md:text-base">
+            Buscamos que cada visita se sienta cómoda y bien acompañada. La
+            atmósfera, la organización del espacio y la atención humana trabajan
+            juntas para ofrecer una experiencia más cálida y confiable.
+          </p>
+
+          <div class="mt-7 space-y-3 sm:mt-8">
+            <!-- Contacto -->
+            <div class="group flex items-start gap-3 rounded-[1.35rem] border border-black/5 bg-white/80 px-4 py-4 shadow-[0_10px_30px_rgba(15,23,42,0.04)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_34px_rgba(15,23,42,0.06)] sm:gap-4 sm:rounded-[1.6rem] md:px-5 md:py-5">
+              <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-[0.95rem] border border-black/5 bg-[#111] text-white shadow-[0_12px_24px_rgba(17,17,17,0.12)] sm:h-12 sm:w-12 sm:rounded-2xl">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
+                  <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.07 21 3 13.93 3 5c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.24.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2Z"></path>
+                </svg>
+              </div>
+
+              <div class="min-w-0">
+                <p class="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#4db4bf] sm:text-[11px] sm:tracking-[0.28em]">
+                  Contacto directo
+                </p>
+
+                <a
+                  href="tel:3022447789"
+                  class="mt-2 inline-block break-words text-[1.12rem] font-bold leading-none tracking-tight text-[#111] transition hover:text-[#4db4bf] sm:text-[1.3rem] md:text-[1.55rem]"
+                >
+                  302 244 7789
+                </a>
+
+                <p class="mt-2 text-sm leading-relaxed text-[#6a6262]">
+                  Agenda tu valoración o resuelve tus dudas con una atención clara y cercana.
+                </p>
+              </div>
+            </div>
+
+            <!-- Horarios -->
+            <div class="group rounded-[1.35rem] border border-black/5 bg-white/80 px-4 py-4 shadow-[0_10px_30px_rgba(15,23,42,0.04)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_34px_rgba(15,23,42,0.06)] sm:rounded-[1.6rem] md:px-5 md:py-5">
+              <div class="flex items-start gap-3 sm:gap-4">
+                <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-[0.95rem] border border-black/5 bg-[#111] text-white shadow-[0_12px_24px_rgba(17,17,17,0.12)] sm:h-12 sm:w-12 sm:rounded-2xl">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
+                    <path d="M12 1.75A10.25 10.25 0 1 0 22.25 12 10.26 10.26 0 0 0 12 1.75Zm.75 5a.75.75 0 0 0-1.5 0V12c0 .2.08.39.22.53l3.5 3.5a.75.75 0 1 0 1.06-1.06l-3.28-3.28Z"></path>
+                  </svg>
+                </div>
+
+                <div class="w-full min-w-0">
+                  <p class="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#4db4bf] sm:text-[11px] sm:tracking-[0.28em]">
+                    Horarios de atención
+                  </p>
+
+                  <div
+                    id="clinic-status"
+                    class="mt-4 inline-flex max-w-full flex-wrap items-center gap-2 rounded-full border border-black/5 bg-[#f4efef] px-4 py-2 text-[11px] font-semibold tracking-[0.12em] text-[#6b6161] sm:text-xs sm:tracking-[0.14em]"
+                  >
+                    <span id="clinic-status-dot" class="h-2.5 w-2.5 rounded-full bg-[#a1a1aa]"></span>
+                    <span id="clinic-status-text">Consultando horario…</span>
+                  </div>
+
+                  <div class="mt-4 space-y-3">
+                    <div class="flex flex-col gap-1.5 border-b border-black/10 pb-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+                      <span class="text-[15px] font-medium text-[#302828]">Lunes a viernes</span>
+                      <span class="text-[15px] font-semibold text-[#111]">8 a.m. – 6 p.m.</span>
+                    </div>
+
+                    <div class="flex flex-col gap-1.5 border-b border-black/10 pb-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+                      <span class="text-[15px] font-medium text-[#302828]">Sábado</span>
+                      <span class="text-[15px] font-semibold text-[#111]">8 a.m. – 2 p.m.</span>
+                    </div>
+
+                    <div class="flex flex-col gap-1.5 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+                      <span class="text-[15px] font-medium text-[#302828]">Domingo</span>
+                      <span class="inline-flex w-fit rounded-full bg-[#f4efef] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#7a6f6f]">
+                        Cerrado
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dirección -->
+            <a
+              href={MAPS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group block rounded-[1.35rem] border border-black/5 bg-white/82 px-4 py-4 shadow-[0_10px_30px_rgba(15,23,42,0.04)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_34px_rgba(15,23,42,0.06)] sm:rounded-[1.6rem] md:px-5 md:py-5"
+            >
+              <div class="flex items-start gap-3 sm:gap-4">
+                <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-[0.95rem] border border-black/5 bg-[#111] text-white shadow-[0_12px_24px_rgba(17,17,17,0.12)] transition group-hover:bg-[#4db4bf] sm:h-12 sm:w-12 sm:rounded-2xl">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
+                    <path d="M12 2.25A6.75 6.75 0 0 0 5.25 9c0 5.26 5.56 11.29 6.2 11.96a.75.75 0 0 0 1.1 0c.64-.67 6.2-6.7 6.2-11.96A6.75 6.75 0 0 0 12 2.25Zm0 9A2.25 2.25 0 1 1 14.25 9 2.25 2.25 0 0 1 12 11.25Z"></path>
+                  </svg>
+                </div>
+
+                <div class="min-w-0">
+                  <p class="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#4db4bf] sm:text-[11px] sm:tracking-[0.28em]">
+                    Ubicación
+                  </p>
+
+                  <p class="mt-2 text-[1.05rem] font-bold leading-snug tracking-tight text-[#111] transition group-hover:text-[#4db4bf] sm:text-[1.18rem] md:text-[1.35rem]">
+                    Calle 18 # 11 - 116
+                  </p>
+
+                  <p class="mt-2 text-[15px] leading-relaxed text-[#4f4747]">
+                    Edificio Copacabana, Piso 6<br />
+                    Fusagasugá, Cundinamarca
+                  </p>
+
+                  <div class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#111]">
+                    <span>Ver ubicación en Google Maps</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4 transition group-hover:translate-x-0.5">
+                      <path d="M13.28 5.47a.75.75 0 0 1 1.06 0l5.25 5.25a.75.75 0 0 1 0 1.06l-5.25 5.25a.75.75 0 1 1-1.06-1.06l3.97-3.97H4.75a.75.75 0 0 1 0-1.5h12.5l-3.97-3.97a.75.75 0 0 1 0-1.06Z"></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- CTAs -->
+          <div class="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row">
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#111] px-6 py-4 text-sm font-semibold text-white shadow-[0_18px_34px_rgba(17,17,17,0.16)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#1b1b1b] sm:w-auto"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" class="h-5 w-5">
+                <path d="M19.11 17.38c-.29-.15-1.72-.85-1.99-.95-.27-.1-.46-.15-.66.15-.2.29-.76.95-.94 1.15-.17.2-.34.22-.63.07-.29-.15-1.22-.45-2.33-1.44-.86-.76-1.44-1.7-1.61-1.99-.17-.29-.02-.45.13-.59.13-.13.29-.34.44-.51.15-.17.2-.29.29-.49.1-.2.05-.37-.02-.51-.07-.15-.66-1.58-.9-2.16-.24-.58-.49-.49-.66-.5h-.56c-.2 0-.51.07-.78.37-.27.29-1.03 1.01-1.03 2.47s1.05 2.87 1.2 3.06c.15.2 2.07 3.16 5.01 4.43.7.3 1.24.48 1.66.61.7.22 1.34.19 1.85.12.56-.08 1.72-.7 1.97-1.38.24-.68.24-1.26.17-1.38-.07-.12-.27-.2-.56-.34Z"></path>
+                <path d="M16.03 3.2c-7.07 0-12.8 5.73-12.8 12.8 0 2.26.59 4.47 1.71 6.41L3 29l6.77-1.88a12.74 12.74 0 0 0 6.26 1.69h.01c7.07 0 12.8-5.73 12.8-12.8S23.1 3.2 16.03 3.2Zm0 23.29h-.01a10.44 10.44 0 0 1-5.32-1.45l-.38-.22-4.02 1.12 1.08-3.92-.25-.4a10.45 10.45 0 1 1 8.9 4.87Z"></path>
+              </svg>
+              <span>Agenda tu cita</span>
+            </a>
+
+            <a
+              href={MAPS_DIRECTIONS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex w-full items-center justify-center gap-3 rounded-full border border-white/80 bg-white/80 px-6 py-4 text-sm font-semibold text-[#111] shadow-[0_12px_24px_rgba(15,23,42,0.05)] ring-1 ring-black/5 transition duration-300 hover:-translate-y-0.5 hover:border-[#4db4bf]/30 hover:text-[#4db4bf] sm:w-auto"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
+                <path d="M12 2.25c-2.58 0-4.54.61-5.94 1.83C4.66 5.3 3.97 7.02 3.97 9.16c0 1.74.73 3.69 2.18 5.85l5.23 7.76a.75.75 0 0 0 1.24 0l5.23-7.76c1.45-2.16 2.18-4.11 2.18-5.85 0-2.14-.69-3.86-2.09-5.08C16.54 2.86 14.58 2.25 12 2.25Zm0 9a2.25 2.25 0 1 1 0-4.5 2.25 2.25 0 0 1 0 4.5Z"></path>
+              </svg>
+              <span>Cómo llegar</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Columna derecha: galería -->
+      <div class="relative min-w-0">
+        <div class="relative overflow-hidden rounded-[2rem] border border-white/70 bg-white/72 p-3 shadow-[0_20px_60px_rgba(15,23,42,0.10)] ring-1 ring-black/5 backdrop-blur-xl sm:rounded-[2.2rem] sm:p-4 md:p-5 lg:rounded-[2.5rem]">
+          <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#4db4bf]/30 to-transparent"></div>
+
+          <!-- Imagen principal -->
+          <div class="relative">
+            <button
+              id="gallery-open"
+              type="button"
+              class="group relative block w-full overflow-hidden rounded-[1.6rem] sm:rounded-[2rem]"
+              aria-label="Abrir galería"
+            >
+              <div class="relative h-[360px] sm:h-[480px] md:h-[620px] lg:h-[760px] xl:h-[860px]">
+                <img
+                  id="gallery-main-image"
+                  src={gallery[0].src}
+                  alt={gallery[0].alt}
+                  class="absolute inset-0 h-full w-full object-cover transition duration-700 ease-out group-hover:scale-[1.03]"
+                />
+
+                <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,8,8,0.05)_0%,rgba(8,8,8,0.18)_48%,rgba(8,8,8,0.62)_100%)]"></div>
+
+                <div class="absolute left-3 top-3 rounded-full border border-white/20 bg-black/25 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-white/85 backdrop-blur-md sm:left-5 sm:top-5 sm:text-[11px] sm:tracking-[0.18em]">
+                  Recorrido por la clínica
+                </div>
+
+                <div
+                  id="gallery-counter"
+                  class="absolute right-3 top-3 rounded-full border border-white/15 bg-black/30 px-3 py-1.5 text-[10px] font-semibold tracking-[0.14em] text-white/90 backdrop-blur-md sm:right-5 sm:top-5 sm:text-xs sm:tracking-[0.18em]"
+                >
+                  01 / 05
+                </div>
+
+                <div class="absolute inset-x-3 bottom-3 rounded-[1.2rem] border border-white/15 bg-white/12 p-3 backdrop-blur-md sm:inset-x-4 sm:bottom-4 sm:rounded-[1.4rem] sm:p-4 md:inset-x-6 md:bottom-6 md:rounded-[1.6rem] md:p-6">
+                  <div class="flex flex-col items-start gap-3 lg:flex-row lg:items-end lg:justify-between lg:gap-4">
+                    <div class="max-w-xl text-left">
+                      <h3
+                        id="gallery-main-title"
+                        class="text-xl font-bold tracking-tight text-white sm:text-2xl md:text-[2rem]"
+                      >
+                        {gallery[0].title}
+                      </h3>
+
+                      <p
+                        id="gallery-main-text"
+                        class="mt-2 text-sm leading-relaxed text-white/82 md:text-[15px]"
+                      >
+                        {gallery[0].text}
+                      </p>
+                    </div>
+
+                    <span class="hidden rounded-full border border-white/20 bg-black/25 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-white/85 backdrop-blur-md lg:inline-flex">
+                      Abrir galería
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </button>
+
+            <!-- Flechas -->
+            <button
+              id="gallery-prev"
+              type="button"
+              class="absolute left-3 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/28 text-white backdrop-blur-md transition hover:scale-105 hover:bg-black/45 sm:left-4 sm:h-10 sm:w-10 md:h-11 md:w-11"
+              aria-label="Imagen anterior"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
+                <path d="M15.53 19.03a.75.75 0 0 1-1.06 0l-6.25-6.25a.75.75 0 0 1 0-1.06l6.25-6.25a.75.75 0 1 1 1.06 1.06L9.81 12l5.72 5.97a.75.75 0 0 1 0 1.06Z"></path>
+              </svg>
+            </button>
+
+            <button
+              id="gallery-next"
+              type="button"
+              class="absolute right-3 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/28 text-white backdrop-blur-md transition hover:scale-105 hover:bg-black/45 sm:right-4 sm:h-10 sm:w-10 md:h-11 md:w-11"
+              aria-label="Siguiente imagen"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
+                <path d="M8.47 4.97a.75.75 0 0 1 1.06 0l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 1 1-1.06-1.06L14.19 12 8.47 6.03a.75.75 0 0 1 0-1.06Z"></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Miniaturas -->
+          <div class="mt-4 flex gap-3 overflow-x-auto pb-1 md:grid md:grid-cols-5 md:overflow-visible">
+            {gallery.map((image, index) => (
+              <button
+                type="button"
+                class:list={[
+                  "gallery-thumb group relative min-w-[88px] overflow-hidden rounded-2xl ring-1 transition duration-300 sm:min-w-[96px] sm:rounded-[1.25rem] md:min-w-0",
+                  index === 0
+                    ? "ring-2 ring-[#4db4bf]/70 opacity-100"
+                    : "ring-black/5 opacity-70 hover:ring-[#4db4bf]/40 hover:opacity-100",
+                ]}
+                data-gallery-thumb
+                data-index={index}
+                data-src={image.src}
+                data-alt={image.alt}
+                data-title={image.title}
+                data-text={image.text}
+                aria-label={`Ver imagen ${index + 1}`}
+              >
+                <div class="relative h-20 sm:h-24">
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    loading="lazy"
+                    class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
+                  />
+                  <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.02)_0%,rgba(0,0,0,0.28)_100%)]"></div>
+
+                  <div class="absolute inset-x-0 bottom-0 p-2 text-left">
+                    <span class="text-[10px] font-semibold uppercase tracking-[0.14em] text-white/90">
+                      {image.title}
+                    </span>
+                  </div>
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <!-- Modal -->
+        <div
+          id="gallery-modal"
+          class="pointer-events-none fixed inset-0 z-[90] flex items-end justify-center bg-black/0 p-3 opacity-0 transition duration-300 md:items-center md:p-4"
+          aria-hidden="true"
+        >
+          <div id="gallery-backdrop" class="absolute inset-0"></div>
+
+          <div
+            id="gallery-modal-panel"
+            class="relative z-10 max-h-[92vh] w-full max-w-6xl translate-y-5 scale-[0.985] overflow-hidden rounded-[1.6rem] border border-white/12 bg-[#111]/88 shadow-[0_34px_100px_rgba(0,0,0,0.45)] backdrop-blur-xl transition duration-300 sm:rounded-[2rem] md:rounded-[2.2rem]"
+          >
+            <button
+              id="gallery-close"
+              type="button"
+              class="absolute right-3 top-3 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white transition hover:bg-white/20 md:right-4 md:top-4 md:h-11 md:w-11"
+              aria-label="Cerrar galería"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
+                <path d="M6.22 6.22a.75.75 0 0 1 1.06 0L12 10.94l4.72-4.72a.75.75 0 1 1 1.06 1.06L13.06 12l4.72 4.72a.75.75 0 0 1-1.06 1.06L12 13.06l-4.72 4.72a.75.75 0 0 1-1.06-1.06L10.94 12 6.22 7.28a.75.75 0 0 1 0-1.06Z"></path>
+              </svg>
+            </button>
+
+            <div class="grid max-h-[92vh] overflow-y-auto lg:grid-cols-[1.18fr_0.82fr]">
+              <!-- Imagen grande -->
+              <div class="relative min-h-[320px] sm:min-h-[420px] lg:min-h-[720px]">
+                <img
+                  id="gallery-modal-image"
+                  src={gallery[0].src}
+                  alt={gallery[0].alt}
+                  class="absolute inset-0 h-full w-full object-cover"
+                />
+
+                <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.05)_0%,rgba(0,0,0,0.18)_42%,rgba(0,0,0,0.4)_100%)]"></div>
+
+                <button
+                  id="gallery-modal-prev"
+                  type="button"
+                  class="absolute left-3 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-black/35 text-white backdrop-blur-md transition hover:scale-105 hover:bg-black/50 md:left-4 md:h-12 md:w-12"
+                  aria-label="Anterior"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
+                    <path d="M15.53 19.03a.75.75 0 0 1-1.06 0l-6.25-6.25a.75.75 0 0 1 0-1.06l6.25-6.25a.75.75 0 1 1 1.06 1.06L9.81 12l5.72 5.97a.75.75 0 0 1 0 1.06Z"></path>
+                  </svg>
+                </button>
+
+                <button
+                  id="gallery-modal-next"
+                  type="button"
+                  class="absolute right-3 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-black/35 text-white backdrop-blur-md transition hover:scale-105 hover:bg-black/50 md:right-4 md:h-12 md:w-12"
+                  aria-label="Siguiente"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
+                    <path d="M8.47 4.97a.75.75 0 0 1 1.06 0l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 1 1-1.06-1.06L14.19 12 8.47 6.03a.75.75 0 0 1 0-1.06Z"></path>
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Panel lateral -->
+              <div class="flex flex-col justify-between p-5 text-white sm:p-6 md:p-8">
+                <div>
+                  <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/55 sm:text-xs sm:tracking-[0.26em]">
+                    Recorrido por la clínica
+                  </p>
+
+                  <h3
+                    id="gallery-modal-title"
+                    class="mt-3 text-2xl font-bold tracking-tight sm:mt-4 sm:text-3xl"
+                  >
+                    {gallery[0].title}
+                  </h3>
+
+                  <p
+                    id="gallery-modal-text"
+                    class="mt-3 max-w-md text-sm leading-relaxed text-white/75 sm:mt-4 md:text-base"
+                  >
+                    {gallery[0].text}
+                  </p>
+                </div>
+
+                <div class="mt-7 sm:mt-8">
+                  <div
+                    id="gallery-modal-counter"
+                    class="text-sm font-semibold uppercase tracking-[0.18em] text-white/55 sm:tracking-[0.22em]"
+                  >
+                    01 / 05
+                  </div>
+
+                  <div class="mt-4 grid grid-cols-5 gap-2 sm:mt-5">
+                    {gallery.map((image, index) => (
+                      <button
+                        type="button"
+                        class:list={[
+                          "gallery-modal-thumb relative overflow-hidden rounded-lg ring-1 transition duration-300 sm:rounded-xl",
+                          index === 0
+                            ? "ring-2 ring-[#4db4bf]/70 opacity-100"
+                            : "ring-white/10 opacity-70 hover:ring-white/25 hover:opacity-100",
+                        ]}
+                        data-gallery-modal-thumb
+                        data-index={index}
+                        aria-label={`Abrir imagen ${index + 1}`}
+                      >
+                        <div class="relative h-12 sm:h-14">
+                          <img
+                            src={image.src}
+                            alt={image.alt}
+                            loading="lazy"
+                            class="absolute inset-0 h-full w-full object-cover"
+                          />
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- /columna derecha -->
+    </div>
+  </div>
+</section>
+
+<script>
+  import initGalleryUbicacion from "../../../scripts/gallery-ubicacion.js";
+  import initClinicStatus from "../../../scripts/clinic-status.js";
+
+  initGalleryUbicacion();
+  initClinicStatus();
+</script>

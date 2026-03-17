@@ -1,0 +1,127 @@
+---
+const faqs = [
+  {
+    pregunta: "¿Cada cuánto debo hacerme una limpieza dental profesional?",
+    respuesta:
+      "Lo recomendado suele ser cada 6 meses, aunque puede variar según tu salud bucal, hábitos de higiene, presencia de ortodoncia, encías sensibles o acumulación de placa y sarro.",
+    abierto: true,
+  },
+  {
+    pregunta: "¿Las consultas de valoración tienen algún costo?",
+    respuesta:
+      "Depende del tipo de valoración y del tratamiento a evaluar. Lo ideal es contactarnos para indicarte con claridad qué incluye la consulta y resolver tus dudas antes de agendar.",
+  },
+  {
+    pregunta: "¿Los procedimientos son dolorosos?",
+    respuesta:
+      "La mayoría de tratamientos se realizan con técnicas y protocolos que buscan que la experiencia sea cómoda y controlada. Cada caso es diferente, pero siempre priorizamos tu bienestar.",
+  },
+  {
+    pregunta: "¿Aceptan urgencias odontológicas?",
+    respuesta:
+      "Sí, atendemos casos que requieren valoración prioritaria. Si presentas dolor intenso, inflamación, trauma o una molestia repentina, escríbenos para orientarte lo antes posible.",
+  },
+  {
+    pregunta: "¿Trabajan con todas las edades?",
+    respuesta:
+      "Atendemos diferentes perfiles de pacientes según el tratamiento requerido. Podemos orientarte para confirmar si el procedimiento que buscas es el adecuado según la edad y condición del paciente.",
+  },
+];
+---
+
+<section class="relative overflow-hidden px-6 py-18 md:py-24 lg:px-10">
+  <!-- fondo muy sutil -->
+  <div class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(800px_400px_at_0%_0%,rgba(222,205,197,0.18),transparent_60%),radial-gradient(700px_360px_at_100%_100%,rgba(77,180,191,0.08),transparent_60%)]"></div>
+
+  <div class="mx-auto max-w-7xl">
+    <div class="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+      <!-- izquierda -->
+      <div class="max-w-xl">
+        <span class="inline-flex items-center rounded-full border border-[#e8ddda] bg-white px-4 py-2 text-[0.72rem] font-medium uppercase tracking-[0.24em] text-[#9d7d73]">
+          Dudas frecuentes
+        </span>
+
+        <h2 class="mt-6 text-[2.3rem] font-light leading-[1.03] tracking-[-0.04em] text-[#241917] md:text-[3.3rem]">
+          Todo más claro
+          <span class="block text-[#9f7f75]">antes de tu cita</span>
+        </h2>
+
+        <p class="mt-6 max-w-lg text-base leading-relaxed text-[#5f514d] md:text-lg">
+          Queremos que te sientas tranquilo desde el primer contacto. Aquí reunimos
+          las preguntas más comunes para que tengas una idea más clara sobre la
+          atención, la valoración y algunos tratamientos.
+        </p>
+
+        <div class="mt-8 h-px w-24 bg-[#d9c6bf]"></div>
+
+        <p class="mt-8 max-w-md text-sm leading-relaxed text-[#8a7771] md:text-base">
+          Si prefieres una orientación más directa, podemos ayudarte por WhatsApp
+          según tu caso.
+        </p>
+
+        <a
+          href="https://wa.link/u29whe"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-6 inline-flex items-center gap-3 rounded-full border border-[#d8c5be] bg-white px-6 py-3 text-sm font-medium text-[#2d211e] shadow-[0_14px_30px_rgba(38,22,17,0.06)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_36px_rgba(38,22,17,0.1)]"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            class="h-5 w-5"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              d="M19.05 4.91A9.82 9.82 0 0 0 12.03 2C6.6 2 2.18 6.42 2.18 11.85c0 1.74.45 3.43 1.31 4.93L2 22l5.38-1.41a9.8 9.8 0 0 0 4.65 1.19h.01c5.43 0 9.85-4.42 9.85-9.85 0-2.63-1.02-5.1-2.84-7.02Zm-7.02 15.2h-.01a8.14 8.14 0 0 1-4.14-1.13l-.3-.18-3.19.84.85-3.11-.2-.32a8.14 8.14 0 0 1-1.25-4.36c0-4.49 3.65-8.14 8.15-8.14 2.17 0 4.22.84 5.75 2.38a8.07 8.07 0 0 1 2.39 5.76c0 4.49-3.65 8.14-8.05 8.14Zm4.46-6.08c-.24-.12-1.4-.69-1.62-.77-.22-.08-.38-.12-.54.12-.16.24-.62.77-.76.93-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.95-1.22-.72-.64-1.21-1.43-1.35-1.67-.14-.24-.01-.37.1-.49.1-.1.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.31-.74-1.79-.2-.48-.4-.42-.54-.43h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.31.98 2.47c.12.16 1.68 2.56 4.08 3.59.57.25 1.02.39 1.37.5.58.18 1.11.15 1.53.09.47-.07 1.4-.57 1.6-1.11.2-.54.2-1 .14-1.11-.06-.11-.22-.18-.46-.3Z"
+            />
+          </svg>
+          Resolver mi duda
+        </a>
+      </div>
+
+      <!-- derecha -->
+      <div class="space-y-4">
+        {faqs.map((item, index) => (
+          <details
+            open={item.abierto}
+            class="group rounded-4xl border border-[#efe4e0] bg-white/95 p-0 shadow-[0_16px_40px_rgba(27,18,15,0.05)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_46px_rgba(27,18,15,0.08)]"
+          >
+            <summary class="flex cursor-pointer list-none items-start gap-4 px-6 py-6 md:px-7 md:py-7">
+              <span class="mt-1 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#f7f1ee] text-sm font-medium text-[#a07e73]">
+                {(index + 1).toString().padStart(2, "0")}
+              </span>
+
+              <div class="min-w-0 flex-1">
+                <h3 class="text-lg font-medium leading-snug text-[#241917] md:text-[1.35rem] md:leading-[1.3]">
+                  {item.pregunta}
+                </h3>
+              </div>
+
+              <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#eadeda] bg-[#fcf9f8] text-[#3a2c28] transition duration-300 group-open:rotate-180 group-open:bg-[#f5ece8]">
+                <svg
+                  viewBox="0 0 24 24"
+                  class="h-5 w-5"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </span>
+            </summary>
+
+            <div class="px-6 pb-6 md:px-7 md:pb-7">
+              <div class="ml-14 border-t border-[#efe7e4] pt-5">
+                <p class="max-w-[92%] text-[0.98rem] leading-relaxed text-[#554743] md:text-[1.03rem]">
+                  {item.respuesta}
+                </p>
+              </div>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
