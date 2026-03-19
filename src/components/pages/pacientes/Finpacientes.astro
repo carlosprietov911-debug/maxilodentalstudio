@@ -13,39 +13,39 @@ const puntos = [
 
 <section
   id="cta-whatsapp"
-  class="px-6 py-18 md:py-22 lg:px-10 lg:py-28"
+  class="px-4 py-14 sm:px-6 sm:py-18 md:py-22 lg:px-10 lg:py-28"
 >
   <div class="mx-auto max-w-7xl">
-    <div class="grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+    <div class="grid items-center gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16">
       <!-- Texto -->
       <div class="order-2 lg:order-1">
-        <span class="inline-flex items-center gap-2 rounded-full border border-[#e8dfda] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#8a7670]">
+        <span class="inline-flex items-center gap-2 rounded-full border border-[#e8dfda] px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#8a7670] sm:text-[11px]">
           <span class="h-1.5 w-1.5 rounded-full bg-[#25d366]"></span>
           Contacto inmediato
         </span>
 
-        <h2 class="mt-5 max-w-[10ch] text-[2.75rem] font-light leading-[0.92] tracking-[-0.06em] text-[#171414] md:text-[4.2rem] lg:text-[5rem]">
+        <h2 class="mt-5 max-w-[12ch] text-[2.2rem] font-light leading-[0.95] tracking-[-0.05em] text-[#171414] sm:text-[2.8rem] md:text-[3.8rem] lg:max-w-[10ch] lg:text-[5rem]">
           Tu sonrisa
           <span class="block font-medium text-[#2b201e]">
             empieza con un mensaje
           </span>
         </h2>
 
-        <p class="mt-7 max-w-xl text-[1.05rem] leading-relaxed text-[#5a4c48] md:text-[1.14rem] lg:text-[1.2rem]">
+        <p class="mt-6 max-w-xl text-[0.98rem] leading-relaxed text-[#5a4c48] sm:text-[1.04rem] md:text-[1.1rem] lg:text-[1.18rem]">
           Escríbenos por WhatsApp y te ayudamos a entender qué sigue, qué opción
           puede ir mejor contigo y cómo sería tu proceso de forma simple y cercana.
         </p>
 
-        <div class="mt-8 flex flex-wrap gap-3">
+        <div class="mt-7 flex flex-wrap gap-2.5 sm:gap-3">
           {puntos.map((item) => (
-            <span class="inline-flex rounded-full border border-[#ece4e0] px-4 py-2 text-sm font-medium text-[#2a2220] transition duration-300 hover:-translate-y-0.5 hover:border-[#d9ccc6] hover:shadow-[0_10px_22px_rgba(0,0,0,0.05)]">
+            <span class="inline-flex rounded-full border border-[#ece4e0] px-3.5 py-2 text-xs font-medium text-[#2a2220] transition duration-300 hover:-translate-y-0.5 hover:border-[#d9ccc6] hover:shadow-[0_10px_22px_rgba(0,0,0,0.05)] sm:px-4 sm:text-sm">
               {item}
             </span>
           ))}
         </div>
 
-        <div class="mt-10 max-w-lg border-l border-[#e9dfda] pl-5">
-          <p class="text-[0.98rem] leading-relaxed text-[#786964] md:text-[1rem]">
+        <div class="mt-8 max-w-lg border-l border-[#e9dfda] pl-4 sm:pl-5">
+          <p class="text-[0.94rem] leading-relaxed text-[#786964] sm:text-[0.98rem] md:text-[1rem]">
             Sin vueltas raras, sin presión y sin hacerte sentir como un paciente más.
             Solo una conversación clara para ayudarte a dar el primer paso.
           </p>
@@ -54,15 +54,15 @@ const puntos = [
 
       <!-- Imagen -->
       <div class="order-1 lg:order-2">
-        <div class="scene relative mx-auto w-full max-w-[470px] sm:max-w-[620px] lg:max-w-[760px]">
+        <div class="scene relative mx-auto w-full max-w-85 sm:max-w-117.5 md:max-w-155 lg:max-w-190">
           <!-- halo -->
           <div class="pointer-events-none absolute inset-x-[10%] top-[10%] -z-20 h-[76%] rounded-full bg-[radial-gradient(circle,rgba(77,180,191,0.14)_0%,rgba(77,180,191,0.05)_46%,transparent_76%)] blur-[54px]"></div>
 
           <!-- sombra -->
-          <div class="pointer-events-none absolute inset-x-[15%] bottom-4 -z-10 h-12 rounded-full bg-black/10 blur-2xl"></div>
+          <div class="pointer-events-none absolute inset-x-[15%] bottom-8 -z-10 hidden h-12 rounded-full bg-black/10 blur-2xl lg:block"></div>
 
           <!-- note -->
-          <div class="floating-note absolute -left-2 top-6 z-20 hidden rounded-[1.25rem] border border-[#ece5e1] bg-white/96 px-4 py-3 shadow-[0_16px_34px_rgba(0,0,0,0.08)] md:block">
+          <div class="floating-note absolute left-0 top-8 z-20 hidden rounded-[1.25rem] border border-[#ece5e1] bg-white/96 px-4 py-3 shadow-[0_16px_34px_rgba(0,0,0,0.08)] xl:block">
             <p class="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#9b847c]">
               Primer contacto
             </p>
@@ -75,7 +75,7 @@ const puntos = [
           <img
             src={equipoImg}
             alt="Equipo médico de Maxilodental Studio"
-            class="team-image relative z-10 h-auto w-full object-contain [filter:drop-shadow(0_24px_36px_rgba(0,0,0,0.12))_drop-shadow(0_46px_76px_rgba(0,0,0,0.08))]"
+            class="team-image relative z-10 mx-auto h-auto w-full object-contain filter-[drop-shadow(0_24px_36px_rgba(0,0,0,0.12))_drop-shadow(0_46px_76px_rgba(0,0,0,0.08))]"
             loading="lazy"
           />
 
@@ -84,14 +84,14 @@ const puntos = [
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            class="wa-dock absolute bottom-[4%] left-1/2 z-30 flex w-[94%] max-w-[460px] -translate-x-1/2 items-center gap-4 rounded-[1.9rem] border border-[#efe8e4] bg-white px-4 py-4 shadow-[0_24px_60px_rgba(0,0,0,0.14)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_32px_72px_rgba(0,0,0,0.18)] md:px-5 md:py-5 lg:left-10 lg:translate-x-0"
+            class="wa-dock relative z-30 mt-4 flex w-full items-center gap-3 rounded-[1.4rem] border border-[#efe8e4] bg-white px-3.5 py-3.5 shadow-[0_18px_38px_rgba(0,0,0,0.12)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_52px_rgba(0,0,0,0.16)] sm:gap-4 sm:rounded-[1.9rem] sm:px-4 sm:py-4 md:px-5 md:py-5 lg:absolute lg:bottom-[4%] lg:left-8 lg:mt-0 lg:max-w-115"
           >
-            <span class="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-[1.15rem] bg-[#25d366] text-white shadow-[0_14px_30px_rgba(37,211,102,0.28)] md:h-16 md:w-16">
+            <span class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#25d366] text-white shadow-[0_14px_30px_rgba(37,211,102,0.28)] sm:h-14 sm:w-14 md:h-16 md:w-16">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 32 32"
                 fill="currentColor"
-                class="h-7 w-7 md:h-8 md:w-8"
+                class="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8"
                 aria-hidden="true"
               >
                 <path
@@ -104,18 +104,18 @@ const puntos = [
             </span>
 
             <span class="min-w-0 flex-1">
-              <span class="block text-[10px] font-semibold uppercase tracking-[0.22em] text-[#8f7e78] md:text-[11px]">
+              <span class="block text-[9px] font-semibold uppercase tracking-[0.22em] text-[#8f7e78] sm:text-[10px] md:text-[11px]">
                 WhatsApp directo
               </span>
-              <span class="mt-1 block text-[1.05rem] font-semibold leading-tight text-[#1f1715] md:text-[1.3rem]">
+              <span class="mt-1 block text-[0.98rem] font-semibold leading-tight text-[#1f1715] sm:text-[1.05rem] md:text-[1.22rem]">
                 Agenda tu valoración
               </span>
-              <span class="mt-1 block text-sm leading-relaxed text-[#726661]">
+              <span class="mt-1 block text-[0.82rem] leading-relaxed text-[#726661] sm:text-sm">
                 Respuesta rápida y orientación clara.
               </span>
             </span>
 
-            <span class="wa-open inline-flex shrink-0 items-center rounded-full bg-[#171414] px-4 py-2.5 text-sm font-medium text-white transition duration-300 md:px-5">
+            <span class="wa-open inline-flex shrink-0 items-center rounded-full bg-[#171414] px-3.5 py-2 text-xs font-medium text-white transition duration-300 sm:px-4 sm:py-2.5 sm:text-sm md:px-5">
               Abrir
             </span>
           </a>
@@ -132,11 +132,6 @@ const puntos = [
 
   .team-image {
     animation: floatSoft 8s ease-in-out infinite;
-    transition: transform 0.45s ease;
-  }
-
-  .scene:hover .team-image {
-    transform: translateY(-4px) scale(1.01);
   }
 
   .floating-note {
@@ -144,12 +139,11 @@ const puntos = [
   }
 
   .wa-dock {
-    animation: dockIn 1.05s ease both;
+    animation: dockFade 0.9s ease both;
   }
 
   .wa-dock:hover .wa-open {
     background: #25d366;
-    transform: translateX(2px);
   }
 
   @keyframes sceneEnter {
@@ -163,14 +157,12 @@ const puntos = [
     }
   }
 
-  @keyframes dockIn {
+  @keyframes dockFade {
     from {
       opacity: 0;
-      transform: translateY(20px) translateX(-50%);
     }
     to {
       opacity: 1;
-      transform: translateY(0) translateX(-50%);
     }
   }
 
@@ -191,19 +183,6 @@ const puntos = [
     }
     50% {
       transform: translateY(-7px);
-    }
-  }
-
-  @media (min-width: 1024px) {
-    @keyframes dockIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
   }
 

@@ -90,15 +90,11 @@ const servicios: Servicio[] = [
     etiqueta: "",
   },
 ];
-
-const enfoque = [
-  "Diagnóstico con criterio",
-  "Planificación personalizada",
-  "Resultados naturales",
-];
 ---
 
-<section id="servicios1" class="px-6 py-14 md:py-16 lg:px-10 lg:py-18">
+<!-- BUG FIX: eliminado array `enfoque` declarado pero nunca usado en el template -->
+
+<section id="servicios1" class="scroll-mt-6 px-6 py-14 md:py-16 lg:px-10 lg:py-18">
   <div class="mx-auto max-w-7xl">
     <nav class="mb-5 flex items-center gap-3 text-sm font-medium text-[#7a7272]">
       <a href="/" class="transition hover:text-[#241717]">Inicio</a>
@@ -112,7 +108,11 @@ const enfoque = [
         Tratamientos
       </p>
 
-      <h2 class="mt-4 max-w-300 text-[2.35rem] font-light leading-[0.96] tracking-[-0.05em] text-[#1f1c1c] md:text-5xl lg:text-[4.7rem]">
+      <!--
+        BUG FIX: eliminado `max-w-300` (sin efecto dentro de max-w-7xl padre)
+        MOBILE: bajado de text-[2.35rem] a text-[1.85rem] en base para pantallas ~375px
+      -->
+      <h2 class="mt-4 text-[1.85rem] font-light leading-[0.96] tracking-[-0.05em] text-[#1f1c1c] md:text-5xl lg:text-[4.7rem]">
         Tratamientos pensados para construir una sonrisa
         <span class="font-medium text-[#241717]">
           equilibrada, natural y bien diseñada para ti
@@ -136,7 +136,7 @@ const enfoque = [
     <div class="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
       {servicios.map((servicio, index) => (
         <article
-          class={`group flex min-h-106 flex-col overflow-hidden rounded-3xl border ${
+          class={`group flex min-h-96 flex-col overflow-hidden rounded-3xl border md:min-h-106 ${
             servicio.activo
               ? "border-[#ece3e3] bg-white shadow-[0_10px_26px_rgba(0,0,0,0.045)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_16px_34px_rgba(0,0,0,0.075)]"
               : "border-dashed border-[#ddd3d3] bg-[#fcf9f9]"
@@ -148,10 +148,14 @@ const enfoque = [
               0{index + 1}
             </span>
 
+            <!--
+              BUG FIX: eliminado `md:h-20` redundante (base ya es h-20, no cambiaba nada)
+              Ajustado a h-16 md:h-20 para que el logo sea más compacto en móvil
+            -->
             <img
               src={brandLogo}
               alt="Logo Maxilodental Studio"
-              class="h-20 w-auto opacity-85 md:h-20"
+              class="h-16 w-auto opacity-85 md:h-20"
             />
           </div>
 
@@ -203,13 +207,17 @@ const enfoque = [
                 </p>
 
                 <div class="mt-auto pt-5">
+                  <!--
+                    MOBILE: botón a ancho completo en móvil para mejor tap target
+                    y sensación más premium
+                  -->
                   <a
                     href={WHATSAPP_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="inline-flex items-center gap-2 rounded-full border border-[#e9dede] px-4 py-2.5 text-sm font-semibold text-[#241717] transition hover:border-[#d8caca] hover:text-[#6d5a5a]"
+                    class="inline-flex w-full items-center justify-center gap-2 rounded-full border border-[#e9dede] px-4 py-2.5 text-sm font-semibold text-[#241717] transition hover:border-[#d8caca] hover:text-[#6d5a5a] sm:w-auto sm:justify-start"
                   >
-                    <svg viewBox="0 0 24 24" class="h-4.5 w-4.5 fill-current" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" class="h-4.5 w-4.5 shrink-0 fill-current" aria-hidden="true">
                       <path d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.16 1.6 5.97L0 24l6.32-1.66a11.82 11.82 0 0 0 5.73 1.46h.01c6.56 0 11.9-5.34 11.9-11.9 0-3.18-1.24-6.17-3.44-8.42ZM12.06 21.8h-.01a9.8 9.8 0 0 1-4.99-1.37l-.36-.21-3.75.98 1-3.65-.24-.37a9.83 9.83 0 0 1-1.51-5.28c0-5.43 4.42-9.85 9.86-9.85 2.63 0 5.1 1.02 6.96 2.89a9.78 9.78 0 0 1 2.88 6.96c0 5.43-4.42 9.85-9.84 9.85Zm5.4-7.35c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.1 4.49.71.31 1.27.5 1.7.64.71.23 1.36.2 1.88.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.08-.12-.28-.2-.57-.35Z" />
                     </svg>
                     <span>Agenda tu valoración</span>
@@ -256,8 +264,12 @@ const enfoque = [
         calma para que el tratamiento tenga sentido, coherencia y belleza real.
       </p>
 
+      <!--
+        MOBILE: agregado `text-left` en móvil a cada card para lectura más natural;
+        en md se mantiene el centrado implícito del contenedor padre
+      -->
       <div class="mt-7 grid gap-4 md:grid-cols-3">
-        <div class="rounded-[1.1rem] border border-[#eee5e5] px-5 py-4">
+        <div class="rounded-[1.1rem] border border-[#eee5e5] px-5 py-4 text-left md:text-center">
           <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#8b7b7b]">
             Escucha
           </p>
@@ -266,7 +278,7 @@ const enfoque = [
           </p>
         </div>
 
-        <div class="rounded-[1.1rem] border border-[#eee5e5] px-5 py-4">
+        <div class="rounded-[1.1rem] border border-[#eee5e5] px-5 py-4 text-left md:text-center">
           <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#8b7b7b]">
             Criterio
           </p>
@@ -275,7 +287,7 @@ const enfoque = [
           </p>
         </div>
 
-        <div class="rounded-[1.1rem] border border-[#eee5e5] px-5 py-4">
+        <div class="rounded-[1.1rem] border border-[#eee5e5] px-5 py-4 text-left md:text-center">
           <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#8b7b7b]">
             Dirección
           </p>

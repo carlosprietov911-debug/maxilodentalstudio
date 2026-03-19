@@ -3,28 +3,45 @@ import logoDesktop from "../../assets/Logotipo.svg?url";
 import logoMobile from "../../assets/logo_tioM.svg?url";
 ---
 
-<header class="relative z-[120] mx-auto max-w-7xl px-4 pt-4 sm:px-6 sm:pt-5 lg:px-15 lg:py-10">
-  <div class="flex min-h-[72px] items-center justify-between gap-4 md:min-h-[84px] lg:min-h-[110px]">
+<header class="relative z-[120] mx-auto max-w-7xl px-4 pt-4 sm:px-6 sm:pt-5 lg:px-[3.75rem] lg:py-10">
+
+  <div class="flex min-h-[4.5rem] items-center justify-between gap-4 md:min-h-[5.25rem] lg:min-h-[6.875rem]">
+
     <!-- Logo -->
-    <a href="/" class="flex shrink-0 items-center">
+    <a href="/" class="flex shrink-0 flex-col items-start">
       <!-- Logo móvil -->
       <img
         src={logoMobile}
-        alt=""
+        alt="MaxiloDental Studio"
         width="300"
         height="160"
-        class="block h-24 w-auto sm:h-28 lg:hidden"
+        class="block h-16 w-auto sm:h-20 lg:hidden"
         loading="eager"
         decoding="async"
       />
+      <!--
+        MEJORA A: tagline debajo del logo móvil.
+        Da contexto de ubicación y llena el espacio vacío del header
+        sin agregar peso visual.
+      -->
+      <!-- Tagline mejorado: dot animado + separador fino + texto -->
+      <span class="mt-1 flex items-center gap-1.5 lg:hidden">
+        <span class="relative flex h-1.5 w-1.5">
+          <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#2AA7B0] opacity-60"></span>
+          <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#2AA7B0]"></span>
+        </span>
+        <span class="text-[10px] font-semibold uppercase tracking-widest text-[#8f7f7f]">
+          Fusagasugá · Cundinamarca
+        </span>
+      </span>
 
       <!-- Logo desktop -->
       <img
         src={logoDesktop}
-        alt=""
+        alt="MaxiloDental Studio"
         width="300"
         height="160"
-        class="hidden h-30 w-auto lg:block"
+        class="hidden h-[7.5rem] w-auto lg:block"
         loading="eager"
         decoding="async"
       />
@@ -38,28 +55,24 @@ import logoMobile from "../../assets/logo_tioM.svg?url";
       >
         Inicio
       </a>
-
       <a
         href="/#nosotros-equipo"
         class="inline-flex h-10 items-center underline-offset-4 transition hover:text-[#2AA7B0] hover:underline"
       >
         Nosotros
       </a>
-
       <a
         href="/servicios"
         class="inline-flex h-10 items-center underline-offset-4 transition hover:text-[#2AA7B0] hover:underline"
       >
         Servicios
       </a>
-
       <a
         href="/pacientes"
         class="inline-flex h-10 items-center underline-offset-4 transition hover:text-[#2AA7B0] hover:underline"
       >
         Pacientes
       </a>
-
       <a
         href="/contacto"
         class="ml-2 inline-flex h-10 items-center justify-center text-[#2AA7B0] transition hover:text-[#111]"
@@ -68,95 +81,160 @@ import logoMobile from "../../assets/logo_tioM.svg?url";
       </a>
     </nav>
 
-    <!-- Menú móvil -->
-    <details class="group lg:hidden">
-      <summary
-        class="relative z-[220] flex h-12 w-12 cursor-pointer list-none items-center justify-center rounded-full border border-black/8 bg-white text-[#111] shadow-sm marker:content-none"
+    <!-- Lado derecho móvil: CTA + hamburger -->
+    <div class="flex items-center gap-2 lg:hidden">
+
+      <!--
+        MEJORA B: botón CTA compacto junto al hamburger.
+        Ocupa el espacio muerto entre el logo y el menú,
+        y convierte el header en una zona de conversión directa.
+      -->
+      <a
+        href="https://wa.link/u29whe"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1.5 rounded-full bg-[#2AA7B0] px-3.5 py-2
+               text-[12px] font-bold text-white shadow-[0_6px_16px_rgba(42,167,176,0.28)]
+               transition duration-300 hover:brightness-110 active:scale-95"
       >
+        Cita
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="h-5 w-5 transition duration-300 group-open:rotate-90"
+          class="h-3.5 w-3.5"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
-          stroke-width="2"
+          stroke-width="2.5"
+          aria-hidden="true"
         >
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-5-5 5 5-5 5" />
         </svg>
-      </summary>
+      </a>
 
-      <!-- Fondo -->
-      <div class="fixed inset-0 z-[200] bg-black/20 backdrop-blur-[2px]"></div>
-
-      <!-- Panel -->
-      <div class="fixed left-4 right-4 top-24 z-[210] overflow-hidden rounded-[24px] border border-black/5 bg-white p-3 shadow-[0_18px_50px_rgba(0,0,0,0.14)]">
-        <nav class="flex flex-col gap-1 text-[#111] font-semibold">
-          <a
-            href="/"
-            class="rounded-[18px] px-4 py-3 transition hover:bg-[#f7f4f2] hover:text-[#2AA7B0]"
+      <!-- Menú móvil hamburger -->
+      <details id="mobile-menu" class="group">
+        <summary
+          class="relative z-[220] flex h-12 w-12 cursor-pointer list-none items-center justify-center rounded-full border border-black/8 bg-white text-[#111] shadow-sm marker:content-none"
+          aria-label="Abrir menú de navegación"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 transition duration-300 group-open:rotate-90"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
           >
-            Inicio
-          </a>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </summary>
 
-          <a
-            href="/#nosotros-equipo"
-            class="rounded-[18px] px-4 py-3 transition hover:bg-[#f7f4f2] hover:text-[#2AA7B0]"
-          >
-            Nosotros
-          </a>
+        <!-- Fondo -->
+        <div class="fixed inset-0 z-[200] bg-black/20 backdrop-blur-[2px]"></div>
 
-          <a
-            href="/servicios"
-            class="rounded-[18px] px-4 py-3 transition hover:bg-[#f7f4f2] hover:text-[#2AA7B0]"
-          >
-            Servicios
-          </a>
+        <!-- Panel -->
+        <div class="fixed left-4 right-4 top-24 z-[210] overflow-hidden rounded-3xl border border-black/5 bg-white p-3 shadow-[0_18px_50px_rgba(0,0,0,0.14)]">
+          <nav class="flex flex-col gap-1 font-semibold text-[#111]">
+            <a href="/" class="rounded-[18px] px-4 py-3 transition hover:bg-[#f7f4f2] hover:text-[#2AA7B0]">
+              Inicio
+            </a>
+            <a href="/#nosotros-equipo" class="rounded-[18px] px-4 py-3 transition hover:bg-[#f7f4f2] hover:text-[#2AA7B0]">
+              Nosotros
+            </a>
+            <a href="/servicios" class="rounded-[18px] px-4 py-3 transition hover:bg-[#f7f4f2] hover:text-[#2AA7B0]">
+              Servicios
+            </a>
+            <a href="/pacientes" class="rounded-[18px] px-4 py-3 transition hover:bg-[#f7f4f2] hover:text-[#2AA7B0]">
+              Pacientes
+            </a>
+            <div class="my-1 h-px bg-[#efe6e2]"></div>
+            <a
+              href="/contacto"
+              class="mt-1 inline-flex items-center justify-center rounded-full bg-[#2AA7B0] px-5 py-3 text-white transition hover:brightness-110"
+            >
+              Contacto
+            </a>
+          </nav>
+        </div>
+      </details>
+    </div>
 
-          <a
-            href="/pacientes"
-            class="rounded-[18px] px-4 py-3 transition hover:bg-[#f7f4f2] hover:text-[#2AA7B0]"
-          >
-            Pacientes
-          </a>
-
-          <div class="my-1 h-px bg-[#efe6e2]"></div>
-
-          <a
-            href="/contacto"
-            class="mt-1 inline-flex items-center justify-center rounded-full bg-[#2AA7B0] px-5 py-3 text-white transition hover:brightness-110"
-          >
-            Contacto
-          </a>
-        </nav>
-      </div>
-    </details>
   </div>
 
+  <!-- CTA ancho completo — inspirado en la referencia, adaptado al estilo premium -->
+  <a
+    href="https://wa.link/u29whe"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="mt-3 flex w-full items-center justify-center gap-2.5 rounded-full
+           bg-[#2AA7B0] py-3.5 text-sm font-bold text-white
+           shadow-[0_8px_22px_rgba(42,167,176,0.28)]
+           transition duration-300 hover:brightness-110 active:scale-[0.98]
+           lg:hidden"
+  >
+    <svg viewBox="0 0 24 24" class="h-4 w-4 shrink-0 fill-white" aria-hidden="true">
+      <path d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.16 1.6 5.97L0 24l6.32-1.66a11.82 11.82 0 0 0 5.73 1.46h.01c6.56 0 11.9-5.34 11.9-11.9 0-3.18-1.24-6.17-3.44-8.42ZM12.06 21.8h-.01a9.8 9.8 0 0 1-4.99-1.37l-.36-.21-3.75.98 1-3.65-.24-.37a9.83 9.83 0 0 1-1.51-5.28c0-5.43 4.42-9.85 9.86-9.85 2.63 0 5.1 1.02 6.96 2.89a9.78 9.78 0 0 1 2.88 6.96c0 5.43-4.42 9.85-9.84 9.85Zm5.4-7.35c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.1 4.49.71.31 1.27.5 1.7.64.71.23 1.36.2 1.88.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.08-.12-.28-.2-.57-.35Z"/>
+    </svg>
+    Agenda tu valoración gratuita
+  </a>
+
   <!-- barra móvil inferior -->
-  <div class="mt-3 lg:hidden">
-    <div class="flex items-center gap-2 overflow-x-auto rounded-full border border-white/80 bg-white/82 p-2 shadow-[0_10px_24px_rgba(20,20,20,0.06)] backdrop-blur">
+  <div class="mt-2 lg:hidden">
+    <!--
+      MEJORA C: ring visible al contenedor + ícono SVG real de WhatsApp
+      en el botón verde para que se reconozca de inmediato.
+    -->
+    <div class="flex items-center gap-2 overflow-x-auto rounded-full
+                border border-white/80 bg-white/82 p-2
+                shadow-[0_10px_24px_rgba(20,20,20,0.06)]
+                ring-1 ring-black/6
+                backdrop-blur
+                [&::-webkit-scrollbar]:hidden">
+
+      <!-- Contacto → #section4 (sección de contacto en la home) -->
       <a
-        href="/contacto"
+        href="#section4"
         class="inline-flex shrink-0 items-center justify-center rounded-full bg-[#171717] px-4 py-2.5 text-[13px] font-semibold text-white"
       >
         Contacto
       </a>
 
+      <!-- Ubicación → página /contacto -->
       <a
-        href="#ubicacion"
-        class="inline-flex shrink-0 items-center justify-center rounded-full border border-[#e7dcd7] bg-[#fcfbfb] px-4 py-2.5 text-[13px] font-semibold text-[#171717]"
+        href="/contacto"
+        class="inline-flex shrink-0 items-center gap-1.5 justify-center rounded-full border border-[#e7dcd7] bg-[#fcfbfb] px-4 py-2.5 text-[13px] font-semibold text-[#171717]"
       >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 21c-4.418 0-8-4.03-8-9a8 8 0 1 1 16 0c0 4.97-3.582 9-8 9Z"/>
+          <circle cx="12" cy="12" r="3" fill="currentColor" stroke="none"/>
+        </svg>
         Ubicación
       </a>
 
+      <!-- Servicios — reemplaza WhatsApp duplicado -->
       <a
-        href="https://wa.link/u29whe"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-flex shrink-0 items-center justify-center rounded-full border border-[#d9efe0] bg-[#effaf3] px-4 py-2.5 text-[13px] font-semibold text-[#15803d]"
+        href="/servicios"
+        class="inline-flex shrink-0 items-center justify-center gap-1.5 rounded-full
+               border border-[#d5eaec] bg-[#f0f9fa]
+               px-4 py-2.5 text-[13px] font-semibold text-[#2AA7B0]"
       >
-        WhatsApp
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/>
+        </svg>
+        Servicios
       </a>
     </div>
   </div>
 </header>
+
+<script>
+  const menu = document.getElementById("mobile-menu") as HTMLDetailsElement | null;
+  if (menu) {
+    menu.querySelectorAll("nav a").forEach((link) => {
+      link.addEventListener("click", () => {
+        menu.removeAttribute("open");
+      });
+    });
+  }
+</script>

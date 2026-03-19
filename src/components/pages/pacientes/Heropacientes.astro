@@ -2,6 +2,8 @@
 import { Picture } from "astro:assets";
 import pacienteHero from "../../../assets/yessica1.png";
 
+const HERO_WIDTHS = [360, 480, 608, 760, 920];
+
 const metricas = [
   {
     titulo: "Confianza",
@@ -25,19 +27,23 @@ const metricas = [
       <!-- Imagen primero en móvil -->
       <div class="group order-1 relative flex justify-center lg:order-2 lg:justify-end">
         <div class="relative w-full max-w-152">
-          <!-- halo detrás -->
           <div class="absolute inset-x-[7%] top-[8%] -z-20 h-[80%] rounded-full bg-[radial-gradient(circle,rgba(77,180,191,0.22)_0%,rgba(77,180,191,0.08)_44%,transparent_74%)] blur-[46px]"></div>
           <div class="absolute inset-x-[14%] bottom-[5%] -z-10 h-[16%] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(26,24,24,0.24)_0%,rgba(26,24,24,0.10)_52%,transparent_80%)] blur-2xl"></div>
 
           <Picture
             src={pacienteHero}
             alt="Paciente sonriendo durante su experiencia odontológica"
-            formats={["avif", "webp"]}
-            sizes="(max-width: 1024px) 100vw, 620px"
+            widths={HERO_WIDTHS}
+            sizes="(max-width: 767px) 92vw, (max-width: 1023px) 78vw, 608px"
+            formats={["avif"]}
+            fallbackFormat="webp"
+            quality={76}
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
             class="relative z-10 h-auto w-full object-contain mask-fade-bottom transition duration-500 ease-out group-hover:-translate-y-0.5 group-hover:scale-[1.01] filter-[drop-shadow(0_18px_30px_rgba(18,16,16,0.18))_drop-shadow(0_42px_72px_rgba(18,16,16,0.14))]"
           />
 
-          <!-- tarjeta flotante -->
           <div class="absolute bottom-4 left-1/2 z-20 hidden w-fit -translate-x-1/2 rounded-2xl border border-white/80 bg-white/88 px-4 py-3 shadow-[0_14px_35px_rgba(0,0,0,0.10)] backdrop-blur-md md:flex lg:left-6 lg:translate-x-0">
             <div class="flex items-center gap-3">
               <span class="h-2.5 w-2.5 rounded-full bg-[#4db4bf]"></span>
@@ -56,8 +62,6 @@ const metricas = [
 
       <!-- Texto -->
       <div class="order-2 max-w-2xl lg:order-1">
-       
-
         <h1 class="max-w-xl text-[2.35rem] font-light leading-[0.98] tracking-[-0.04em] text-[#1f2024] md:text-5xl lg:text-[4.1rem]">
           Experiencias reales que inspiran
           <span class="block font-medium text-[#241717]">

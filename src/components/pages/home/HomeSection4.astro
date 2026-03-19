@@ -59,7 +59,7 @@ const gallery = [
 
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_10%_10%,rgba(77,180,191,0.16),transparent_28%),radial-gradient(circle_at_90%_15%,rgba(243,217,212,0.38),transparent_24%),linear-gradient(180deg,rgba(255,255,255,0.45)_0%,rgba(255,255,255,0.08)_38%,rgba(255,255,255,0.38)_100%)]"></div>
 
-    <div class="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#d9d9d9] via-[#ece8e6] to-transparent sm:h-20 md:h-24"></div>
+    <div class="absolute inset-x-0 top-0 h-16 bg-linear-to-b from-[#d9d9d9] via-[#ece8e6] to-transparent sm:h-20 md:h-24"></div>
 
     <div class="absolute -left-20 top-[6%] h-44 w-44 rounded-full bg-[#4db4bf]/10 blur-3xl sm:-left-24 sm:h-56 sm:w-56 md:h-72 md:w-72"></div>
 
@@ -88,9 +88,9 @@ const gallery = [
 
     <div class="grid items-start gap-8 sm:gap-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:gap-12">
       <!-- Columna izquierda -->
-      <div class="relative min-w-0 overflow-hidden rounded-[2rem] border border-white/70 bg-white/78 p-5 shadow-[0_20px_60px_rgba(15,23,42,0.08)] ring-1 ring-black/5 backdrop-blur-xl sm:rounded-[2.2rem] sm:p-6 md:p-8 lg:rounded-[2.5rem] lg:p-10">
+      <div class="relative min-w-0 overflow-hidden rounded-4xl border border-white/70 bg-white/78 p-5 shadow-[0_20px_60px_rgba(15,23,42,0.08)] ring-1 ring-black/5 backdrop-blur-xl sm:rounded-[2.2rem] sm:p-6 md:p-8 lg:rounded-[2.5rem] lg:p-10">
         <div class="pointer-events-none absolute inset-0">
-          <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#4db4bf]/35 to-transparent"></div>
+          <div class="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-[#4db4bf]/35 to-transparent"></div>
           <div class="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-[#4db4bf]/10 blur-3xl sm:-right-20 sm:-top-20 sm:h-48 sm:w-48"></div>
           <div class="absolute -bottom-20 -left-14 h-36 w-36 rounded-full bg-[#f3d9d4]/25 blur-3xl sm:-bottom-24 sm:-left-20 sm:h-48 sm:w-48"></div>
           <div class="absolute inset-0 bg-[linear-gradient(140deg,rgba(255,255,255,0.48)_0%,rgba(255,255,255,0)_32%,rgba(77,180,191,0.04)_100%)]"></div>
@@ -99,7 +99,7 @@ const gallery = [
         <div class="relative z-10">
           <div class="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
             <div class="min-w-0">
-              <span class="inline-flex rounded-full border border-black/5 bg-black/[0.03] px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6d6262] sm:px-4 sm:text-[11px] sm:tracking-[0.24em]">
+              <span class="inline-flex rounded-full border border-black/5 bg-black/3 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6d6262] sm:px-4 sm:text-[11px] sm:tracking-[0.24em]">
                 Fusagasugá · Cundinamarca
               </span>
 
@@ -146,7 +146,7 @@ const gallery = [
 
                 <a
                   href="tel:3022447789"
-                  class="mt-2 inline-block break-words text-[1.12rem] font-bold leading-none tracking-tight text-[#111] transition hover:text-[#4db4bf] sm:text-[1.3rem] md:text-[1.55rem]"
+                  class="mt-2 inline-block wrap-break-word text-[1.12rem] font-bold leading-none tracking-tight text-[#111] transition hover:text-[#4db4bf] sm:text-[1.3rem] md:text-[1.55rem]"
                 >
                   302 244 7789
                 </a>
@@ -272,18 +272,18 @@ const gallery = [
 
       <!-- Columna derecha: galería -->
       <div class="relative min-w-0">
-        <div class="relative overflow-hidden rounded-[2rem] border border-white/70 bg-white/72 p-3 shadow-[0_20px_60px_rgba(15,23,42,0.10)] ring-1 ring-black/5 backdrop-blur-xl sm:rounded-[2.2rem] sm:p-4 md:p-5 lg:rounded-[2.5rem]">
-          <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#4db4bf]/30 to-transparent"></div>
+        <div class="relative overflow-hidden rounded-4xl border border-white/70 bg-white/72 p-3 shadow-[0_20px_60px_rgba(15,23,42,0.10)] ring-1 ring-black/5 backdrop-blur-xl sm:rounded-[2.2rem] sm:p-4 md:p-5 lg:rounded-[2.5rem]">
+          <div class="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-[#4db4bf]/30 to-transparent"></div>
 
           <!-- Imagen principal -->
           <div class="relative">
             <button
               id="gallery-open"
               type="button"
-              class="group relative block w-full overflow-hidden rounded-[1.6rem] sm:rounded-[2rem]"
+              class="group relative block w-full overflow-hidden rounded-[1.6rem] sm:rounded-4xl"
               aria-label="Abrir galería"
             >
-              <div class="relative h-[360px] sm:h-[480px] md:h-[620px] lg:h-[760px] xl:h-[860px]">
+              <div class="relative h-90 sm:h-120 md:h-155 lg:h-190 xl:h-215">
                 <img
                   id="gallery-main-image"
                   src={gallery[0].src}
@@ -360,7 +360,7 @@ const gallery = [
               <button
                 type="button"
                 class:list={[
-                  "gallery-thumb group relative min-w-[88px] overflow-hidden rounded-2xl ring-1 transition duration-300 sm:min-w-[96px] sm:rounded-[1.25rem] md:min-w-0",
+                  "gallery-thumb group relative min-w-22 overflow-hidden rounded-2xl ring-1 transition duration-300 sm:min-w-24 sm:rounded-[1.25rem] md:min-w-0",
                   index === 0
                     ? "ring-2 ring-[#4db4bf]/70 opacity-100"
                     : "ring-black/5 opacity-70 hover:ring-[#4db4bf]/40 hover:opacity-100",
@@ -396,14 +396,14 @@ const gallery = [
         <!-- Modal -->
         <div
           id="gallery-modal"
-          class="pointer-events-none fixed inset-0 z-[90] flex items-end justify-center bg-black/0 p-3 opacity-0 transition duration-300 md:items-center md:p-4"
+          class="pointer-events-none fixed inset-0 z-90 flex items-end justify-center bg-black/0 p-3 opacity-0 transition duration-300 md:items-center md:p-4"
           aria-hidden="true"
         >
           <div id="gallery-backdrop" class="absolute inset-0"></div>
 
           <div
             id="gallery-modal-panel"
-            class="relative z-10 max-h-[92vh] w-full max-w-6xl translate-y-5 scale-[0.985] overflow-hidden rounded-[1.6rem] border border-white/12 bg-[#111]/88 shadow-[0_34px_100px_rgba(0,0,0,0.45)] backdrop-blur-xl transition duration-300 sm:rounded-[2rem] md:rounded-[2.2rem]"
+            class="relative z-10 max-h-[92vh] w-full max-w-6xl translate-y-5 scale-[0.985] overflow-hidden rounded-[1.6rem] border border-white/12 bg-[#111]/88 shadow-[0_34px_100px_rgba(0,0,0,0.45)] backdrop-blur-xl transition duration-300 sm:rounded-4xl md:rounded-[2.2rem]"
           >
             <button
               id="gallery-close"
@@ -418,7 +418,7 @@ const gallery = [
 
             <div class="grid max-h-[92vh] overflow-y-auto lg:grid-cols-[1.18fr_0.82fr]">
               <!-- Imagen grande -->
-              <div class="relative min-h-[320px] sm:min-h-[420px] lg:min-h-[720px]">
+              <div class="relative min-h-80 sm:min-h-105 lg:min-h-180">
                 <img
                   id="gallery-modal-image"
                   src={gallery[0].src}

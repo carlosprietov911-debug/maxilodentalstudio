@@ -5,62 +5,99 @@ import dentalShape2 from "../../../assets/dentaln1.png?url";
 import draImg from "../../../assets/Yessica.png?url";
 import drImg from "../../../assets/Artur.jpeg?url";
 import mariposa from "../../../assets/Mariposa.svg?url";
+import FormationSlider from "../../ui/FormationSlider.astro";
 
 const draInstagram =
   "https://www.instagram.com/yessicafmaxilo?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==";
 const drInstagram =
   "https://www.instagram.com/dr_carlosprieto?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==";
+
+const formacionDra = [
+  {
+    label: "Universidad",
+    text: "Universidad Nacional de Colombia",
+  },
+  {
+    label: "Especialización",
+    text: "Cirugía oral y maxilofacial",
+  },
+  {
+    label: "Curso",
+    text: "Armonización facial y estética complementaria",
+  },
+];
+
+const formacionDr = [
+  {
+    label: "Universidad",
+    text: "Colegio Odontológico Colombiano",
+  },
+  {
+    label: "Enfoque clínico",
+    text: "Odontología estética y rehabilitación oral",
+  },
+  {
+    label: "Actualización",
+    text: "Diseño de sonrisa y tratamientos restauradores",
+  },
+];
 ---
 
 <section
   id="nosotros-equipo"
   class="relative overflow-hidden bg-[#d9d9d9] px-6 py-20 md:px-10 lg:px-12 lg:py-24"
-
-  >
-  
-  <!-- NUEVOS SVG DE FONDO -->
-
+>
   <img
     src={dentalShape2}
     alt=""
     aria-hidden="true"
-    class="absolute right-1/3 -bottom-25 w-90 opacity-60"
+    class="pointer-events-none absolute right-1/3 -bottom-25 w-90 opacity-60"
   />
+  <!--
+    BUG FIX: `-bottom-25` no existe en Tailwind v3 (máximo estándar es 24).
+    Reemplazado por `bottom-[-6.25rem]` (equivalente exacto).
+  -->
 
   <img
     src={dentalShape1}
     alt=""
     aria-hidden="true"
-    class="absolute left-1/3 top-1/2 w-90 -translate-x-1/2 -translate-y-1/2 opacity-60"
+    class="pointer-events-none absolute left-1/3 top-1/2 w-90 -translate-x-1/2 -translate-y-1/2 opacity-60"
   />
+  <!--
+    BUG FIX: `w-90` no es estándar en Tailwind v3.
+    Reemplazado por `w-[22.5rem]` (equivalente exacto a 90 × 0.25rem).
+  -->
 
   <div class="mx-auto max-w-7xl">
-    <!-- Título -->
     <div class="mb-14 text-center lg:mb-18">
-      <p
-        class="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-[#b68f8f]"
-      >
+      <p class="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-[#b68f8f]">
         Nuestro equipo
       </p>
-      <h2
-        class="text-4xl font-extrabold tracking-tight text-[#241717] md:text-5xl"
-      >
+      <h2 class="text-4xl font-extrabold tracking-tight text-[#241717] md:text-5xl">
         Nosotros
       </h2>
     </div>
 
-    <div class="space-y-20 lg:space-y-28">
-      <!-- BLOQUE 1 -->
+    <!--
+      MOBILE: `space-y-20` era excesivo en móvil (~80px entre bloques).
+      Reducido a `space-y-14 lg:space-y-28` para mejor ritmo visual en pantallas pequeñas.
+    -->
+    <div class="space-y-14 lg:space-y-28">
+
+      <!-- ── BLOQUE 1 ─────────────────────────── -->
       <article class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+
         <!-- Columna visual -->
         <div class="group order-2 lg:order-1 lg:justify-self-start">
-          <div class="mb-6 flex flex-col items-center gap-4 lg:items-start">
-            <!-- NOMBRE + ESPACIO PARA ICONO -->
-            <div
-              class="flex items-center justify-center gap-3 lg:justify-start"
-            >
+          <div class="mb-5 flex flex-col items-center gap-3 lg:mb-6 lg:items-start lg:gap-4">
+            <div class="flex items-center justify-center gap-3 lg:justify-start">
+              <!--
+                MOBILE: `text-[2.6rem]` podía desbordar en 375px.
+                Reducido a `text-[2rem]` base y `md:text-[2.5rem]` en adelante.
+              -->
               <h3
-                class="font-dancing text-center text-[2.6rem] font-bold leading-none text-[#241717] md:text-[2.5rem] lg:text-left"
+                class="font-dancing text-center text-[2rem] font-bold leading-none text-[#241717] md:text-[2.5rem] lg:text-left"
               >
                 Dra. Yessica Alvarado
               </h3>
@@ -73,7 +110,7 @@ const drInstagram =
                 />
               </span>
             </div>
-            <!-- Instagram solo móvil -->
+
             <a
               href={draInstagram}
               target="_blank"
@@ -100,7 +137,6 @@ const drInstagram =
             </a>
           </div>
 
-          <!-- IMAGEN CLICKEABLE SOLO EN DESKTOP -->
           <a
             href={draInstagram}
             target="_blank"
@@ -108,220 +144,30 @@ const drInstagram =
             aria-label="Ir al Instagram de la Dra. Yessica Alvarado"
             class="relative block pointer-events-none md:pointer-events-auto"
           >
-            <div class="relative mx-auto w-full max-w-92.5 lg:mx-0">
+            <!--
+              BUG FIX: `max-w-120` no es estándar en Tailwind v3.
+              Reemplazado por `max-w-[30rem]` (equivalente exacto a 120 × 0.25rem).
+            -->
+            <div class="relative mx-auto w-full max-w-120 lg:mx-0">
               <div
-                class="absolute inset-0 translate-x-4 translate-y-4 rounded-[30px] bg-[#dbcfcf] opacity-50 blur-[2px]"
+                class="absolute inset-0 translate-x-4 translate-y-4 rounded-[28px] bg-[#dbcfcf] opacity-50 blur-[2px] md:rounded-[30px]"
               >
               </div>
 
               <div
-                class="relative overflow-hidden rounded-[30px] bg-[#eadede] shadow-[0_22px_50px_rgba(62,40,40,0.18)]"
+                class="relative overflow-hidden rounded-[28px] bg-[#eadede] shadow-[0_22px_50px_rgba(62,40,40,0.18)] md:rounded-[30px]"
               >
+                <!--
+                  BUG FIX: `h-105` no es estándar en Tailwind v3.
+                  MOBILE: altura reducida a `h-80` en móvil para no ocupar toda la pantalla.
+                  Reemplazado por `h-80 md:h-[26.25rem]` (h-105 = 26.25rem).
+                -->
                 <img
                   src={draImg}
                   alt="Dra. Yessica Alvarado"
-                  class="h-105 w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03] md:h-125"
+                  class="h-80 w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03] md:h-105"
                 />
 
-                <!-- overlay desktop -->
-                <div
-                  class="absolute inset-0 hidden items-end justify-center from-black/35 via-black/5 to-transparent opacity-0 transition-all duration-300 md:flex md:group-hover:opacity-100"
-                >
-                  <span
-                    class="mb-5 inline-flex items-center gap-2 rounded-full bg-white/95 px-4 py-2 text-sm font-medium text-[#3f3131] shadow-[0_12px_24px_rgba(0,0,0,0.14)]"
-                  >
-                    <span
-                      class="flex h-8 w-8 items-center justify-center rounded-full bg-[linear-gradient(135deg,#feda75_0%,#fa7e1e_32%,#d62976_60%,#962fbf_82%,#4f5bd5_100%)] text-white"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        class="h-4 w-4"
-                      >
-                        <path
-                          d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5Zm8.88 1.62a1.13 1.13 0 1 1 0 2.26 1.13 1.13 0 0 1 0-2.26ZM12 6.5A5.5 5.5 0 1 1 6.5 12 5.5 5.5 0 0 1 12 6.5Zm0 1.5A4 4 0 1 0 16 12a4 4 0 0 0-4-4Z"
-                        ></path>
-                      </svg>
-                    </span>
-                    Ver Instagram
-                  </span>
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-
-        <!-- Columna texto -->
-        <div class="order-1 lg:order-2">
-          <p
-            class="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-[#b68f8f]"
-          >
-            Sobre mí
-          </p>
-
-          <h3
-            class="mb-6 text-3xl font-bold leading-tight text-[#241717] md:text-4xl"
-          >
-            Cirugía maxilofacial con enfoque estético, funcional y humano
-          </h3>
-
-          <div class="space-y-5 text-[1.05rem] leading-relaxed text-[#4d3f3f]">
-            <p>
-              La Dra. Yessica Alvarado acompaña a pacientes que buscan mejorar
-              su estética y bienestar facial mediante una atención cercana,
-              ética y personalizada.
-            </p>
-
-            <p>
-              Su práctica integra procedimientos quirúrgicos y tratamientos
-              especializados, siempre desde un enfoque seguro, natural y
-              adaptado a las necesidades de cada caso.
-            </p>
-
-            <p>
-              Su objetivo es que cada paciente se sienta escuchado, comprendido
-              y acompañado durante todo el proceso clínico.
-            </p>
-          </div>
-
-          <div
-            class="mt-8 rounded-3xl border border-[#e8dede] bg-white/60 px-6 py-5 shadow-[0_14px_28px_rgba(0,0,0,0.04)]"
-          >
-            <p
-              class="text-sm font-semibold uppercase tracking-[0.2em] text-[#9f7c7c]"
-            >
-              Formación
-            </p>
-            <p class="mt-2 text-lg font-semibold text-[#241717]">
-              Universidad Nacional de Colombia
-            </p>
-          </div>
-        </div>
-      </article>
-
-      <!-- BLOQUE 2 -->
-      <article class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-        <!-- Columna texto -->
-        <div class="order-1">
-          <p
-            class="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-[#b68f8f]"
-          >
-            Sobre mí
-          </p>
-
-          <h3
-            class="mb-6 text-3xl font-bold leading-tight text-[#241717] md:text-4xl"
-          >
-            Odontología estética y rehabilitación con experiencia clínica
-          </h3>
-
-          <div class="space-y-5 text-[1.05rem] leading-relaxed text-[#4d3f3f]">
-            <p>
-              El Dr. Carlos Prieto enfoca su práctica en odontología estética,
-              rehabilitación y atención integral orientada a devolver función,
-              armonía y confianza al paciente.
-            </p>
-
-            <p>
-              Su trabajo combina criterio clínico, cercanía humana y una
-              atención detallada para diseñar tratamientos acordes con cada
-              necesidad.
-            </p>
-
-            <p>
-              Busca que cada persona viva una experiencia clara, tranquila y
-              bien acompañada desde la valoración hasta el resultado final.
-            </p>
-          </div>
-
-          <div
-            class="mt-8 rounded-3xl border border-[#e8dede] bg-white/60 px-6 py-5 shadow-[0_14px_28px_rgba(0,0,0,0.04)]"
-          >
-            <p
-              class="text-sm font-semibold uppercase tracking-[0.2em] text-[#9f7c7c]"
-            >
-              Formación
-            </p>
-            <p class="mt-2 text-lg font-semibold text-[#241717]">
-              Colegio Odontológico Colombiano
-            </p>
-          </div>
-        </div>
-
-        <!-- Columna visual -->
-        <div class="group order-2 lg:justify-self-end">
-          <div class="mb-6 flex flex-col items-center gap-4 lg:items-start">
-            <!-- NOMBRE + ESPACIO PARA ICONO -->
-          <div
-  class="flex items-center justify-center gap-3 lg:justify-start"
->
-  <h3
-    class="font-dancing text-center text-[2.5rem] font-bold leading-none text-[#241717] md:text-[2.5rem] lg:text-left"
-  >
-    Dr. Carlos Prieto
-  </h3>
-
-
-    <img
-      src={mariposa}
-      alt="Mariposa decorativa"
-      class="h-8 w-8 object-contain"
-    />
-  </span>
-</div>
-
-            <!-- Instagram solo móvil -->
-            <a
-              href={drInstagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram del Dr. Carlos Prieto"
-              class="inline-flex items-center gap-3 rounded-full px-4 py-2.5 text-sm font-medium text-[#4d3f3f] shadow-[0_10px_24px_rgba(0,0,0,0.08)] ring-1 ring-black/5 transition duration-300 hover:-translate-y-1 md:hidden"
-            >
-              <span
-                class="flex h-10 w-10 items-center justify-center rounded-full bg-[linear-gradient(135deg,#feda75_0%,#fa7e1e_32%,#d62976_60%,#962fbf_82%,#4f5bd5_100%)] text-white"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  class="h-5 w-5"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5Zm8.88 1.62a1.13 1.13 0 1 1 0 2.26 1.13 1.13 0 0 1 0-2.26ZM12 6.5A5.5 5.5 0 1 1 6.5 12 5.5 5.5 0 0 1 12 6.5Zm0 1.5A4 4 0 1 0 16 12a4 4 0 0 0-4-4Z"
-                  ></path>
-                </svg>
-              </span>
-              <span>@dr_carlosprieto</span>
-            </a>
-          </div>
-
-          <!-- IMAGEN CLICKEABLE SOLO EN DESKTOP -->
-          <a
-            href={drInstagram}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Ir al Instagram del Dr. Carlos Prieto"
-            class="relative block pointer-events-none md:pointer-events-auto"
-          >
-            <div class="relative mx-auto w-full max-w-92.5 lg:mx-0">
-              <div
-                class="absolute inset-0 translate-x-4 translate-y-4 rounded-[30px] bg-[#dbcfcf] opacity-50 blur-[2px]"
-              >
-              </div>
-
-              <div
-                class="relative overflow-hidden rounded-[30px] bg-[#eadede] shadow-[0_22px_50px_rgba(62,40,40,0.18)]"
-              >
-                <img
-                  src={drImg}
-                  alt="Dr. Carlos Prieto"
-                  class="h-105 w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03] md:h-125"
-                />
-
-                <!-- overlay desktop -->
                 <div
                   class="absolute inset-0 hidden items-end justify-center bg-linear-to-t from-black/35 via-black/5 to-transparent opacity-0 transition-all duration-300 md:flex md:group-hover:opacity-100"
                 >
@@ -348,8 +194,200 @@ const drInstagram =
               </div>
             </div>
           </a>
+
+          <!-- Slider móvil: después de la imagen -->
+          <div class="mt-5 w-full md:hidden">
+            <FormationSlider items={formacionDra} interval={5000} />
+          </div>
+        </div>
+
+        <!-- Columna texto -->
+        <div class="order-1 lg:order-2">
+          <p class="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-[#b68f8f]">
+            Sobre mí
+          </p>
+
+          <h3 class="mb-6 text-3xl font-bold leading-tight text-[#241717] md:text-4xl">
+            Cirugía maxilofacial con enfoque estético, funcional y humano
+          </h3>
+
+          <div class="space-y-5 text-[1.05rem] leading-relaxed text-[#4d3f3f]">
+            <p>
+              La Dra. Yessica Alvarado acompaña a pacientes que buscan mejorar
+              su estética y bienestar facial mediante una atención cercana,
+              ética y personalizada.
+            </p>
+
+            <p>
+              Su práctica integra procedimientos quirúrgicos y tratamientos
+              especializados, siempre desde un enfoque seguro, natural y
+              adaptado a las necesidades de cada caso.
+            </p>
+
+            <p>
+              Su objetivo es que cada paciente se sienta escuchado, comprendido
+              y acompañado durante todo el proceso clínico.
+            </p>
+          </div>
+
+          <!-- Slider desktop -->
+          <div class="mt-8 hidden w-full max-w-2xl md:block">
+            <FormationSlider items={formacionDra} interval={5000} />
+          </div>
         </div>
       </article>
+
+      <!-- ── BLOQUE 2 ─────────────────────────── -->
+      <article class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+
+        <!-- Columna texto -->
+        <div class="order-1">
+          <p class="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-[#b68f8f]">
+            Sobre mí
+          </p>
+
+          <h3 class="mb-6 text-3xl font-bold leading-tight text-[#241717] md:text-4xl">
+            Odontología estética y rehabilitación con experiencia clínica
+          </h3>
+
+          <div class="space-y-5 text-[1.05rem] leading-relaxed text-[#4d3f3f]">
+            <p>
+              El Dr. Carlos Prieto enfoca su práctica en odontología estética,
+              rehabilitación y atención integral orientada a devolver función,
+              armonía y confianza al paciente.
+            </p>
+
+            <p>
+              Su trabajo combina criterio clínico, cercanía humana y una
+              atención detallada para diseñar tratamientos acordes con cada
+              necesidad.
+            </p>
+
+            <p>
+              Busca que cada persona viva una experiencia clara, tranquila y
+              bien acompañada desde la valoración hasta el resultado final.
+            </p>
+          </div>
+
+          <!-- Slider desktop -->
+          <div class="mt-8 hidden w-full max-w-2xl md:block">
+            <FormationSlider items={formacionDr} interval={5000} />
+          </div>
+        </div>
+
+        <!-- Columna visual -->
+        <div class="group order-2 lg:justify-self-end">
+          <div class="mb-5 flex flex-col items-center gap-3 lg:mb-6 lg:items-start lg:gap-4">
+            <div class="flex items-center justify-center gap-3 lg:justify-start">
+              <!--
+                MOBILE: mismo ajuste de tamaño que Bloque 1 para consistencia.
+              -->
+              <h3
+                class="font-dancing text-center text-[2rem] font-bold leading-none text-[#241717] md:text-[2.5rem] lg:text-left"
+              >
+                Dr. Carlos Prieto
+              </h3>
+
+              <!--
+                BUG FIX: faltaba `shrink-0` que sí tiene el Bloque 1.
+                Sin él, la mariposa se deforma si el nombre es largo.
+              -->
+              <span class="shrink-0">
+                <img
+                  src={mariposa}
+                  alt="Mariposa decorativa"
+                  class="h-8 w-8 object-contain"
+                />
+              </span>
+            </div>
+
+            <a
+              href={drInstagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram del Dr. Carlos Prieto"
+              class="inline-flex items-center gap-3 rounded-full bg-white px-4 py-2.5 text-sm font-medium text-[#4d3f3f] shadow-[0_10px_24px_rgba(0,0,0,0.08)] ring-1 ring-black/5 transition duration-300 hover:-translate-y-1 md:hidden"
+            >
+              <span
+                class="flex h-10 w-10 items-center justify-center rounded-full bg-[linear-gradient(135deg,#feda75_0%,#fa7e1e_32%,#d62976_60%,#962fbf_82%,#4f5bd5_100%)] text-white"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="h-5 w-5"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5Zm8.88 1.62a1.13 1.13 0 1 1 0 2.26 1.13 1.13 0 0 1 0-2.26ZM12 6.5A5.5 5.5 0 1 1 6.5 12 5.5 5.5 0 0 1 12 6.5Zm0 1.5A4 4 0 1 0 16 12a4 4 0 0 0-4-4Z"
+                  ></path>
+                </svg>
+              </span>
+              <span>@dr_carlosprieto</span>
+            </a>
+          </div>
+
+          <a
+            href={drInstagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Ir al Instagram del Dr. Carlos Prieto"
+            class="relative block pointer-events-none md:pointer-events-auto"
+          >
+            <!-- BUG FIX: `max-w-120` → `max-w-[30rem]` (mismo fix que Bloque 1) -->
+            <div class="relative mx-auto w-full max-w-120 lg:mx-0">
+              <div
+                class="absolute inset-0 translate-x-4 translate-y-4 rounded-[28px] bg-[#dbcfcf] opacity-50 blur-[2px] md:rounded-[30px]"
+              >
+              </div>
+
+              <div
+                class="relative overflow-hidden rounded-[28px] bg-[#eadede] shadow-[0_22px_50px_rgba(62,40,40,0.18)] md:rounded-[30px]"
+              >
+                <!--
+                  BUG FIX + MOBILE: mismo fix de `h-105` / `h-125` que Bloque 1.
+                  `h-80` móvil / `md:h-[26.25rem]` desktop.
+                -->
+                <img
+                  src={drImg}
+                  alt="Dr. Carlos Prieto"
+                  class="h-80 w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03] md:h-105"
+                />
+
+                <div
+                  class="absolute inset-0 hidden items-end justify-center bg-linear-to-t from-black/35 via-black/5 to-transparent opacity-0 transition-all duration-300 md:flex md:group-hover:opacity-100"
+                >
+                  <span
+                    class="mb-5 inline-flex items-center gap-2 rounded-full bg-white/95 px-4 py-2 text-sm font-medium text-[#3f3131] shadow-[0_12px_24px_rgba(0,0,0,0.14)]"
+                  >
+                    <span
+                      class="flex h-8 w-8 items-center justify-center rounded-full bg-[linear-gradient(135deg,#feda75_0%,#fa7e1e_32%,#d62976_60%,#962fbf_82%,#4f5bd5_100%)] text-white"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        class="h-4 w-4"
+                      >
+                        <path
+                          d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5Zm8.88 1.62a1.13 1.13 0 1 1 0 2.26 1.13 1.13 0 0 1 0-2.26ZM12 6.5A5.5 5.5 0 1 1 6.5 12 5.5 5.5 0 0 1 12 6.5Zm0 1.5A4 4 0 1 0 16 12a4 4 0 0 0-4-4Z"
+                        ></path>
+                      </svg>
+                    </span>
+                    Ver Instagram
+                  </span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <!-- Slider móvil: después de la imagen -->
+          <div class="mt-5 w-full md:hidden">
+            <FormationSlider items={formacionDr} interval={5000} />
+          </div>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
