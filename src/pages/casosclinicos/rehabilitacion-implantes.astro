@@ -44,7 +44,7 @@ const VIDEO_SRC = "/videos/caso1.mp4";
         alt="Resultado del tratamiento"
         width={900}
         height={480}
-        class="w-full h-[320px] object-cover"
+        class="w-full h-80 object-cover"
       />
     </div>
 
@@ -71,14 +71,14 @@ const VIDEO_SRC = "/videos/caso1.mp4";
       <div class="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4">
 
         <!-- ANTES -->
-        <div class="min-w-[260px] snap-center">
+        <div class="min-w-65 snap-center">
           <div class="overflow-hidden rounded-xl">
             <Image
               src={antes}
               alt="Antes"
               width={500}
               height={300}
-              class="h-[220px] w-full object-cover grayscale"
+              class="h-55 w-full object-cover grayscale"
             />
           </div>
           <p class="mt-3 text-[11px] font-semibold uppercase tracking-widest text-[#bbb]">
@@ -90,14 +90,14 @@ const VIDEO_SRC = "/videos/caso1.mp4";
         </div>
 
         <!-- VIDEO -->
-        <div class="min-w-[260px] snap-center">
+        <div class="min-w-65 snap-center">
           <div class="overflow-hidden rounded-xl bg-black">
             <video
               id="casoVideo"
               src={VIDEO_SRC}
               controls
               playsinline
-              class="h-[220px] w-full object-cover"
+              class="h-55 w-full object-cover"
             />
           </div>
           <p class="mt-3 text-[11px] font-semibold uppercase tracking-widest text-[#2AA7B0]">
@@ -109,14 +109,14 @@ const VIDEO_SRC = "/videos/caso1.mp4";
         </div>
 
         <!-- DESPUÉS -->
-        <div class="min-w-[260px] snap-center">
+        <div class="min-w-65 snap-center">
           <div class="overflow-hidden rounded-xl">
             <Image
               src={despues}
               alt="Después"
               width={500}
               height={300}
-              class="h-[220px] w-full object-cover"
+              class="h-55 w-full object-cover"
             />
           </div>
           <p class="mt-3 text-[11px] font-semibold uppercase tracking-widest text-[#2AA7B0]">
