@@ -1,0 +1,110 @@
+---
+import { Image } from "astro:assets";
+import caso1 from "../../../assets/casos/caso1.jpeg";
+
+const casos = [
+  {
+    titulo: "Rehabilitación completa con implantes",
+    categoria: "Implantes",
+    descripcion:
+      "Paciente con pérdida dental avanzada. Se realizó rehabilitación fija sobre implantes, recuperando función y estética.",
+    imagen: caso1,
+    href: "/casosclinicos/rehabilitacion-implantes",
+    estado: "real" as const,
+  },
+  {
+    titulo: "Nuevo caso en proceso",
+    descripcion:
+      "Estamos documentando nuevos tratamientos para compartir resultados reales muy pronto.",
+    estado: "proximamente" as const,
+  },
+  {
+    titulo: "Nuevo caso en proceso",
+    descripcion:
+      "Próximamente podrás ver más transformaciones y resultados clínicos.",
+    estado: "proximamente" as const,
+  },
+];
+---
+
+<section id="casos" class="mt-6 md:mt-10">
+  <div class="mx-auto max-w-7xl px-6 pb-24 md:pb-28 lg:px-10 lg:pb-32">
+
+    <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 list-none p-0 m-0">
+
+      {casos.map((caso) => (
+        <li class="flex">
+
+          {caso.estado === "real" ? (
+
+            <!-- ✅ CARD REAL -->
+            <a
+              href={caso.href}
+              class="group flex w-full flex-col overflow-hidden rounded-[1.6rem] border border-white/70 bg-white/80 shadow-[0_14px_35px_rgba(0,0,0,0.06)] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(0,0,0,0.08)]"
+            >
+              <div class="relative overflow-hidden shrink-0">
+                
+                <Image
+                  src={caso.imagen}
+                  alt={caso.titulo}
+                  width={800}
+                  height={224}
+                  loading="lazy"
+                  class="h-56 w-full object-cover transition duration-500 group-hover:scale-[1.04]"
+                />
+
+                <!-- overlay corregido -->
+                <div class="absolute inset-0 bg-gradient-to-t from-black/25 via-black/0 to-transparent opacity-70"></div>
+
+                <span class="absolute top-3 left-3 rounded-full bg-white/90 px-3 py-1 text-[11px] font-semibold text-[#2AA7B0] backdrop-blur">
+                  {caso.categoria}
+                </span>
+              </div>
+
+              <div class="flex flex-1 flex-col p-5">
+                <h3 class="text-[1.05rem] font-semibold text-[#2b2020]">
+                  {caso.titulo}
+                </h3>
+
+                <p class="mt-2 flex-1 text-sm leading-relaxed text-[#5c5f66]">
+                  {caso.descripcion}
+                </p>
+
+                <div class="mt-4 flex items-center gap-1.5 text-sm font-medium text-[#2AA7B0]">
+                  Ver caso
+                  <span class="transition duration-300 group-hover:translate-x-1">
+                    →
+                  </span>
+                </div>
+              </div>
+            </a>
+
+          ) : (
+
+            <!-- ⏳ CARD PROXIMAMENTE -->
+            <div class="flex w-full flex-col rounded-[1.6rem] border border-dashed border-[#dcdcdc] bg-white/50 p-5 opacity-75">
+              <span class="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#9a8f8f]">
+                Próximamente
+              </span>
+
+              <h3 class="mt-2 text-[1.05rem] font-semibold text-[#2b2020]">
+                {caso.titulo}
+              </h3>
+
+              <p class="mt-2 flex-1 text-sm leading-relaxed text-[#7a7a7a]">
+                {caso.descripcion}
+              </p>
+
+              <div class="mt-4 text-xs text-[#b0a7a7]">
+                En preparación
+              </div>
+            </div>
+
+          )}
+
+        </li>
+      ))}
+
+    </ul>
+  </div>
+</section>

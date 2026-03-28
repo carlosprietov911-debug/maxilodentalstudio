@@ -1,0 +1,118 @@
+---
+import { Picture } from "astro:assets";
+import pacienteHero from "../../../assets/casoshero.jpg";
+
+const HERO_WIDTHS = [360, 480, 608, 760, 920];
+
+const metricas = [
+  {
+    titulo: "Diagnóstico",
+    texto: "Cada caso parte de un análisis detallado para definir el mejor tratamiento.",
+  },
+  {
+    titulo: "Precisión",
+    texto: "Procesos clínicos planificados para lograr resultados funcionales y estéticos.",
+  },
+  {
+    titulo: "Resultados",
+    texto: "Transformaciones reales que reflejan salud, armonía y naturalidad.",
+  },
+];
+---
+
+<section class="relative overflow-hidden">
+  <div class="mx-auto max-w-7xl px-6 pt-2 pb-12 md:pt-4 md:pb-14 lg:px-10 lg:pt-4 lg:pb-16">
+    <div class="grid items-center gap-8 lg:grid-cols-[1.02fr_.98fr] lg:gap-12">
+      
+      <!-- Imagen -->
+      <div class="group order-1 relative flex justify-center lg:order-2 lg:justify-end">
+        <div class="relative w-full max-w-152">
+
+          <!-- Glow -->
+          <div class="absolute inset-x-[7%] top-[8%] -z-20 h-[80%] rounded-full bg-[radial-gradient(circle,rgba(77,180,191,0.22)_0%,rgba(77,180,191,0.08)_44%,transparent_74%)] blur-[46px]"></div>
+
+          <!-- Contenedor imagen -->
+          <div class="relative overflow-hidden rounded-4xl shadow-[0_25px_70px_rgba(0,0,0,0.12)]">
+
+            <Picture
+              src={pacienteHero}
+              alt="Resultado de tratamiento odontológico"
+              widths={HERO_WIDTHS}
+              sizes="(max-width: 767px) 92vw, (max-width: 1023px) 78vw, 608px"
+              formats={["avif"]}
+              fallbackFormat="webp"
+              quality={76}
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+              class="h-180 w-full object-cover transition duration-500 ease-out group-hover:scale-[1.03]"
+            />
+
+            <!-- Overlay sutil -->
+            <div class="pointer-events-none absolute inset-0 bg-linear-to-t from-black/10 to-transparent"></div>
+
+          </div>
+
+        
+
+        </div>
+      </div>
+
+      <!-- Texto -->
+      <div class="order-2 max-w-2xl lg:order-1">
+        <h1 class="max-w-xl text-[2.35rem] font-light leading-[0.98] tracking-[-0.04em] text-[#1f2024] md:text-5xl lg:text-[4.1rem]">
+          Casos clínicos que muestran
+          <span class="block font-medium text-[#241717]">
+            resultados reales en cada sonrisa
+          </span>
+        </h1>
+
+        <p class="mt-5 max-w-xl text-[1.02rem] leading-relaxed text-[#5c5f66] md:text-[1.14rem] lg:text-[1.2rem]">
+          Aquí podrás conocer tratamientos realizados a pacientes reales,
+          donde se evidencia el proceso, el enfoque clínico y los resultados
+          obtenidos. Cada caso refleja nuestro compromiso con la precisión,
+          la estética y el bienestar.
+        </p>
+
+        <div class="mt-7 flex flex-col gap-3 sm:flex-row">
+          <a
+            href="#casos"
+            class="inline-flex w-fit items-center justify-center rounded-full bg-[#241717] px-7 py-3.5 text-base font-semibold text-white shadow-[0_12px_28px_rgba(36,23,23,0.16)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#352525]"
+          >
+            Ver casos
+          </a>
+
+          <a
+            href="/contacto"
+            class="inline-flex w-fit items-center justify-center rounded-full border border-[#dddede] bg-white/92 px-7 py-3.5 text-base font-medium text-[#2f3035] transition duration-300 hover:-translate-y-0.5 hover:bg-[#faf9f9]"
+          >
+            Agenda tu valoración
+          </a>
+        </div>
+
+        <!-- Métricas -->
+        <div class="mt-8 grid gap-3 sm:grid-cols-3">
+          {metricas.map((item) => (
+            <div class="rounded-2xl border border-white/80 bg-white/80 p-4 shadow-[0_10px_24px_rgba(0,0,0,0.05)] backdrop-blur-sm">
+              <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#8a7a7a]">
+                {item.titulo}
+              </p>
+              <p class="mt-2 text-sm leading-relaxed text-[#403636]">
+                {item.texto}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <!-- Tags -->
+        <div class="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3 text-sm font-medium text-[#605a5a] md:text-[15px]">
+          <span>Casos reales</span>
+          <span class="h-1.5 w-1.5 rounded-full bg-[#d7c2c2]"></span>
+          <span>Antes y después</span>
+          <span class="h-1.5 w-1.5 rounded-full bg-[#d7c2c2]"></span>
+          <span>Resultados documentados</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
