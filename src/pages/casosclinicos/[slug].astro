@@ -1,0 +1,577 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+interface CasoRaw {
+  slug: string;
+  title: { rendered: string };
+  acf?: {
+    imagen_antes: number | null;
+    imagen_despues: number | null;
+    descripcion: string;
+    categoria?: string;
+    tiempo_tratamiento?: string;
+    paciente?: string;
+    video_proceso?: string;
+    problema?: string;
+    tratamiento?: string;
+  };
+}
+
+interface Caso {
+  slug: string;
+  title: { rendered: string };
+  descripcion: string;
+  categoria?: string;
+  tiempo?: string;
+  paciente?: string;
+  video?: string;
+  problema?: string;
+  tratamiento?: string;
+  imagenAntes: string | null;
+  imagenDespues: string | null;
+}
+
+export async function getStaticPaths() {
+  const credentials = btoa(`${import.meta.env.WP_USER}:${import.meta.env.WP_PASSWORD}`);
+  const headers = { Authorization: `Basic ${credentials}` };
+
+  const getImageUrl = async (id: number | null): Promise<string | null> => {
+    if (!id) return null;
+    try {
+      const res = await fetch(
+        `https://cms.maxilodentalstudio.com/wp-json/wp/v2/media/${id}`,
+        { headers }
+      );
+      if (!res.ok) return null;
+      const data = await res.json();
+      return data.source_url ?? null;
+    } catch {
+      return null;
+    }
+  };
+
+  const res = await fetch(
+    "https://cms.maxilodentalstudio.com/wp-json/wp/v2/casos",
+    { headers }
+  );
+  const casosRaw: CasoRaw[] = await res.json();
+
+  const paths = await Promise.all(
+    casosRaw.map(async (caso) => ({
+      params: { slug: caso.slug },
+      props: {
+        caso: {
+          slug: caso.slug,
+          title: caso.title,
+          descripcion: caso.acf?.descripcion ?? "",
+          categoria: caso.acf?.categoria,
+          tiempo: caso.acf?.tiempo_tratamiento,
+          paciente: caso.acf?.paciente,
+          video: caso.acf?.video_proceso,
+          problema: caso.acf?.problema,
+          tratamiento: caso.acf?.tratamiento,
+          imagenAntes: await getImageUrl(caso.acf?.imagen_antes ?? null),
+          imagenDespues: await getImageUrl(caso.acf?.imagen_despues ?? null),
+        } satisfies Caso,
+      },
+    }))
+  );
+
+  return paths;
+}
+
+interface Props { caso: Caso; }
+const { caso } = Astro.props;
+
+const url = caso.video || "";
+const isYouTube = url.includes("youtube") || url.includes("youtu.be");
+const isInstagram = url.includes("instagram.com");
+
+const getYouTubeEmbed = (u: string) => {
+  const m = u.match(/(?:v=|youtu\.be\/)([^&]+)/);
+  return m ? `https://www.youtube.com/embed/${m[1]}` : null;
+};
+const getInstagramEmbed = (u: string) =>
+  u.endsWith("/") ? `${u}embed` : `${u}/embed`;
+---
+
+<Layout>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap');
+
+  :root {
+    --teal: #2AA7B0;
+    --teal-light: #e8f7f8;
+    --ink: #0f0f0f;
+    --stone: #6b6b6b;
+    --mist: #f5f4f1;
+    --border: #e8e6e1;
+  }
+
+  .cp {
+    font-family: 'Outfit', sans-serif;
+    background: var(--mist);
+    min-height: 100vh;
+    color: var(--ink);
+  }
+
+  /* ── TOPBAR ── */
+  .cp-topbar {
+    padding: 28px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 52px;
+  }
+
+  .cp-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #999;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .cp-back:hover { color: var(--teal); }
+  .cp-back-arrow {
+    width: 32px; height: 32px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: grid; place-items: center;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .cp-back:hover .cp-back-arrow {
+    border-color: var(--teal);
+    background: var(--teal-light);
+  }
+
+  .cp-cat-tag {
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--teal);
+    background: var(--teal-light);
+    border: 1px solid #b8e6ea;
+    padding: 5px 14px;
+    border-radius: 100px;
+  }
+
+  /* ── HERO ── */
+  .cp-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    background: #fff;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 40px rgba(0,0,0,0.04);
+    margin-bottom: 32px;
+  }
+
+  /* IMAGE SIDE */
+  .cp-img-side {
+    position: relative;
+    min-height: 520px;
+  }
+  .cp-img-side img {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1);
+  }
+  .cp-img-antes { opacity: 1; z-index: 1; }
+  .cp-img-despues { opacity: 0; z-index: 2; }
+  .cp-img-side:hover .cp-img-antes { opacity: 0; }
+  .cp-img-side:hover .cp-img-despues { opacity: 1; }
+
+  .cp-img-pills {
+    position: absolute;
+    bottom: 16px; left: 16px; right: 16px;
+    display: flex; justify-content: space-between;
+    z-index: 10; pointer-events: none;
+  }
+  .cp-pill {
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
+    background: rgba(255,255,255,0.94);
+    color: #333;
+    padding: 5px 13px;
+    border-radius: 100px;
+    backdrop-filter: blur(10px);
+    transition: opacity 0.5s;
+  }
+  .cp-pill-antes { opacity: 1; }
+  .cp-pill-despues { opacity: 0; }
+  .cp-img-side:hover .cp-pill-antes { opacity: 0; }
+  .cp-img-side:hover .cp-pill-despues { opacity: 1; }
+
+  .cp-hover-hint {
+    position: absolute;
+    top: 16px; left: 50%; transform: translateX(-50%);
+    z-index: 10;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: rgba(0,0,0,0.55);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 100px;
+    backdrop-filter: blur(6px);
+    white-space: nowrap;
+  }
+
+  /* INFO SIDE */
+  .cp-info-side {
+    padding: 52px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-left: 1px solid var(--border);
+    position: relative;
+  }
+
+  .cp-case-number {
+    position: absolute;
+    top: 28px; right: 36px;
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    font-weight: 400;
+    color: #f0ede8;
+    line-height: 1;
+    user-select: none;
+    letter-spacing: -0.04em;
+  }
+
+  .cp-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.7rem, 3vw, 2.6rem);
+    font-weight: 500;
+    line-height: 1.18;
+    color: var(--ink);
+    margin: 0 0 20px;
+  }
+
+  .cp-meta {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+  }
+  .cp-meta-item { display: flex; flex-direction: column; gap: 3px; }
+  .cp-meta-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #bbb;
+    font-weight: 500;
+  }
+  .cp-meta-val {
+    font-size: 0.85rem;
+    color: #444;
+    font-weight: 400;
+  }
+
+  .cp-desc {
+    font-size: 0.95rem;
+    line-height: 1.85;
+    color: var(--stone);
+    font-weight: 300;
+  }
+
+  /* ── INFO CARDS ── */
+  .cp-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .cp-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 28px 28px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cp-card::after {
+    content: '';
+    position: absolute;
+    top: 20px; bottom: 20px; left: 0;
+    width: 2px;
+    background: var(--teal);
+    border-radius: 0 2px 2px 0;
+  }
+  .cp-card-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .cp-card-text {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--stone);
+    font-weight: 300;
+  }
+
+  /* ── VIDEO ── */
+  .cp-video-wrap {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 32px;
+  }
+  .cp-video-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 28px;
+    border-bottom: 1px solid var(--border);
+  }
+  .cp-video-eyebrow {
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #bbb;
+    font-weight: 500;
+  }
+  .cp-video-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: var(--ink);
+    font-weight: 400;
+    margin-top: 2px;
+  }
+
+  /* YouTube / generic video: 16:9 */
+  .cp-video-yt {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+  }
+  .cp-video-yt iframe,
+  .cp-video-yt video {
+    position: absolute;
+    inset: 0; width: 100%; height: 100%;
+    border: 0;
+  }
+
+  /* Instagram: fixed height, centered */
+  .cp-video-ig {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    background: #000;
+    max-height: 600px;
+    overflow: hidden;
+  }
+  .cp-video-ig iframe {
+    width: 100%;
+    max-width: 400px;
+    height: 560px;
+    border: 0;
+    display: block;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .cp-hero {
+      grid-template-columns: 1fr;
+    }
+    .cp-img-side {
+      min-height: 320px;
+    }
+    .cp-info-side {
+      padding: 32px 24px;
+      border-left: none;
+      border-top: 1px solid var(--border);
+    }
+    .cp-case-number { display: none; }
+    .cp-cards {
+      grid-template-columns: 1fr;
+    }
+    .cp-video-ig iframe {
+      max-width: 100%;
+      height: 480px;
+    }
+  }
+
+  /* ── ANIMATIONS ── */
+  .fu {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fu 0.65s cubic-bezier(0.22,1,0.36,1) forwards;
+  }
+  @keyframes fu { to { opacity:1; transform:none; } }
+  .d1 { animation-delay: 0.05s; }
+  .d2 { animation-delay: 0.15s; }
+  .d3 { animation-delay: 0.28s; }
+  .d4 { animation-delay: 0.4s; }
+  .d5 { animation-delay: 0.52s; }
+</style>
+
+<div class="cp">
+  <div class="mx-auto max-w-5xl px-5">
+
+    <!-- TOPBAR -->
+    <div class="cp-topbar fu d1">
+      <a href="/casosclinicos" class="cp-back">
+        <span class="cp-back-arrow">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+          </svg>
+        </span>
+        Casos clínicos
+      </a>
+      {caso.categoria && (
+        <span class="cp-cat-tag">{caso.categoria}</span>
+      )}
+    </div>
+
+    <!-- HERO -->
+    <div class="cp-hero fu d2">
+
+      <!-- IMAGEN -->
+      <div class="cp-img-side">
+        {caso.imagenAntes && (
+          <img src={caso.imagenAntes} alt="Antes" class="cp-img-antes" />
+        )}
+        {caso.imagenDespues && (
+          <img src={caso.imagenDespues} alt="Después" class="cp-img-despues" />
+        )}
+        {(caso.imagenAntes && caso.imagenDespues) && (
+          <span class="cp-hover-hint">Pasa el cursor</span>
+        )}
+        <div class="cp-img-pills">
+          <span class="cp-pill cp-pill-antes">Antes</span>
+          <span class="cp-pill cp-pill-despues">Después</span>
+        </div>
+      </div>
+
+      <!-- INFO -->
+      <div class="cp-info-side">
+        <span class="cp-case-number">01</span>
+
+        <h1 class="cp-title">{caso.title.rendered}</h1>
+
+        {(caso.paciente || caso.tiempo) && (
+          <div class="cp-meta">
+            {caso.paciente && (
+              <div class="cp-meta-item">
+                <span class="cp-meta-label">Paciente</span>
+                <span class="cp-meta-val">{caso.paciente}</span>
+              </div>
+            )}
+            {caso.tiempo && (
+              <div class="cp-meta-item">
+                <span class="cp-meta-label">Duración</span>
+                <span class="cp-meta-val">{caso.tiempo}</span>
+              </div>
+            )}
+          </div>
+        )}
+
+        {caso.descripcion && (
+          <p class="cp-desc">{caso.descripcion}</p>
+        )}
+      </div>
+    </div>
+
+    <!-- PROBLEMA / TRATAMIENTO -->
+    {(caso.problema || caso.tratamiento) && (
+      <div class="cp-cards fu d3">
+        {caso.problema && (
+          <div class="cp-card">
+            <p class="cp-card-label">Problema</p>
+            <p class="cp-card-text">{caso.problema}</p>
+          </div>
+        )}
+        {caso.tratamiento && (
+          <div class="cp-card">
+            <p class="cp-card-label">Tratamiento</p>
+            <p class="cp-card-text">{caso.tratamiento}</p>
+          </div>
+        )}
+      </div>
+    )}
+
+    <!-- VIDEO -->
+   {url && (
+  <div class="fu d4 bg-white rounded-2xl border border-gray-100 overflow-hidden mb-10">
+    
+    {/* HEADER */}
+    <div class="flex items-start justify-between px-7 py-5 border-b border-gray-100">
+      <div>
+        <p class="text-[0.62rem] tracking-[0.18em] uppercase text-gray-300 font-medium">
+          Proceso
+        </p>
+        <p class="cp-video-title text-[1.1rem] text-gray-800 font-normal mt-0.5">
+          Video del procedimiento clínico
+        </p>
+      </div>
+    </div>
+
+    {/* CONTENIDO VIDEO */}
+    <div class="p-6 flex justify-center bg-[#f5f4f1]">
+
+      {/* YOUTUBE */}
+      {isYouTube && (
+        <div class="relative w-full max-w-3xl aspect-video rounded-xl overflow-hidden shadow-md">
+          <iframe
+            src={getYouTubeEmbed(url) ?? ""}
+            class="absolute inset-0 w-full h-full border-0"
+            allowfullscreen
+          />
+        </div>
+      )}
+
+      {/* INSTAGRAM (ARREGLADO) */}
+      {isInstagram && (
+        <div class="w-full max-w-[420px]">
+          <div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden shadow-md bg-black">
+            <iframe
+              src={getInstagramEmbed(url)}
+              loading="lazy"
+              class="absolute inset-0 w-full h-full border-0"
+            />
+          </div>
+        </div>
+      )}
+
+      {/* MP4 */}
+      {!isYouTube && !isInstagram && (
+        <div class="relative w-full max-w-3xl aspect-video rounded-xl overflow-hidden shadow-md">
+          <video
+            src={url}
+            controls
+            class="absolute inset-0 w-full h-full object-cover"
+          />
+        </div>
+      )}
+
+    </div>
+  </div>
+)}
+
+    <div class="fu d5" style="height: 80px;"></div>
+
+  </div>
+</div>
+
+</Layout>
