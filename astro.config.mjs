@@ -5,12 +5,9 @@ import vercel from '@astrojs/vercel';
 export default defineConfig({
   site: 'https://maxilodentalstudio.com/',
   output: 'server',
-  adapter: vercel(),
-  image: {
-    service: {
-      entrypoint: 'astro/assets/services/noop'
-    }
-  },
+  adapter: vercel({
+    imageService: true
+  }),
   vite: {
     plugins: [tailwindcss()]
   }
