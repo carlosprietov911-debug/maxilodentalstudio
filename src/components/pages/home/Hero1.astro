@@ -46,13 +46,21 @@ import { Picture } from "astro:assets";
           <div
             class="will-change-transform motion-safe:animate-[heroFloat_6s_ease-in-out_infinite] mask-fade-bottom"
           >
-            <img
-  src="/assets/Imagen_Hero.png"
-  alt="Especialista de Maxilodental Studio"
-  loading="eager"
-  decoding="async"
-  class="h-auto w-full object-contain transition-transform duration-500 ease-out group-hover:scale-[1.02] group-hover:-translate-y-1"
-/>
+            <Picture
+              src={portada}
+              alt="Especialista de Maxilodental Studio"
+              widths={[420, 520, 760, 960]}
+              sizes="(min-width: 1024px) 520px, (min-width: 768px) 44vw, 92vw"
+              formats={["avif", "webp"]}
+              quality={58}
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+              class="h-auto w-full object-contain
+                     transition-transform duration-500 ease-out
+                     filter-[drop-shadow(0_12px_18px_rgba(0,0,0,0.18))_drop-shadow(0_28px_45px_rgba(0,0,0,0.14))]
+                     group-hover:scale-[1.02] group-hover:-translate-y-1"
+            />
           </div>
 
           <div
