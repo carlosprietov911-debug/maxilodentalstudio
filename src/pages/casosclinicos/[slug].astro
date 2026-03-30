@@ -1,5 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+export const prerender = true;
+export const revalidate = 60; // se regenera cada 60 segundos
 
 interface CasoRaw {
   slug: string;
@@ -543,8 +545,8 @@ const getInstagramEmbed = (u: string) =>
 
       {/* INSTAGRAM (ARREGLADO) */}
       {isInstagram && (
-        <div class="w-full max-w-[420px]">
-          <div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden shadow-md bg-black">
+        <div class="w-full max-w-105">
+          <div class="relative w-full aspect-4/5 rounded-xl overflow-hidden shadow-md bg-black">
             <iframe
               src={getInstagramEmbed(url)}
               loading="lazy"
