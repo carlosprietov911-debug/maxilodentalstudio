@@ -39,34 +39,21 @@ const { slug } = Astro.params;
 const credentials = btoa(`${import.meta.env.WP_USER}:${import.meta.env.WP_PASSWORD}`);
 const headers = { Authorization: `Basic ${credentials}` };
 
-// 🔥 FUNCIÓN CORREGIDA Y ESTABLE
 const getImageUrl = async (id: number | null): Promise<string | null> => {
   if (!id) return null;
-
   try {
     const res = await fetch(
       `https://cms.maxilodentalstudio.com/wp-json/wp/v2/media/${id}`,
-      {
-        // 🔥 NO AUTH aquí (clave)
-        cache: "force-cache"
-      }
+      { cache: "force-cache" }
     );
-
-    if (!res.ok) {
-      console.log("Error media:", id);
-      return null;
-    }
-
+    if (!res.ok) return null;
     const data = await res.json();
     return data?.source_url ?? null;
-
-  } catch (err) {
-    console.log("Fetch media falló:", id);
+  } catch {
     return null;
   }
 };
 
-// 🔹 FETCH DEL CASO
 const res = await fetch(
   `https://cms.maxilodentalstudio.com/wp-json/wp/v2/casos?slug=${slug}`,
   { headers, cache: "no-store" }
@@ -75,18 +62,15 @@ const res = await fetch(
 const data: CasoRaw[] = await res.json();
 const raw = data[0];
 
-// 🔴 PROTECCIÓN
 if (!raw) {
   return Astro.redirect("/404");
 }
 
-// 🔥 FETCH IMÁGENES EN PARALELO (mejor rendimiento)
 const [imagenAntes, imagenDespues] = await Promise.all([
   getImageUrl(raw.acf?.imagen_antes ?? null),
   getImageUrl(raw.acf?.imagen_despues ?? null),
 ]);
 
-// 🔹 OBJETO FINAL
 const caso: Caso = {
   slug: raw.slug,
   title: raw.title,
@@ -101,7 +85,6 @@ const caso: Caso = {
   imagenDespues,
 };
 
-// 🔹 VIDEO
 const url = caso.video ?? "";
 const isYouTube = url.includes("youtube") || url.includes("youtu.be");
 const isInstagram = url.includes("instagram.com");
@@ -114,6 +97,7 @@ const getYouTubeEmbed = (u: string) => {
 const getInstagramEmbed = (u: string) =>
   u.endsWith("/") ? `${u}embed` : `${u}/embed`;
 ---
+
 <Layout>
 
 <style>
@@ -135,7 +119,6 @@ const getInstagramEmbed = (u: string) =>
     color: var(--ink);
   }
 
-  /* ── TOPBAR ── */
   .cp-topbar {
     padding: 28px 0 0;
     display: flex;
@@ -181,7 +164,6 @@ const getInstagramEmbed = (u: string) =>
     border-radius: 100px;
   }
 
-  /* ── HERO ── */
   .cp-hero {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -194,7 +176,6 @@ const getInstagramEmbed = (u: string) =>
     margin-bottom: 32px;
   }
 
-  /* IMAGE SIDE */
   .cp-img-side {
     position: relative;
     min-height: 520px;
@@ -249,7 +230,6 @@ const getInstagramEmbed = (u: string) =>
     white-space: nowrap;
   }
 
-  /* INFO SIDE */
   .cp-info-side {
     padding: 52px 48px;
     display: flex;
@@ -309,7 +289,6 @@ const getInstagramEmbed = (u: string) =>
     font-weight: 300;
   }
 
-  /* ── INFO CARDS ── */
   .cp-cards {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -347,28 +326,6 @@ const getInstagramEmbed = (u: string) =>
     font-weight: 300;
   }
 
-  /* ── VIDEO ── */
-  .cp-video-wrap {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    overflow: hidden;
-    margin-bottom: 32px;
-  }
-  .cp-video-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 18px 28px;
-    border-bottom: 1px solid var(--border);
-  }
-  .cp-video-eyebrow {
-    font-size: 0.62rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: #bbb;
-    font-weight: 500;
-  }
   .cp-video-title {
     font-family: 'Playfair Display', serif;
     font-size: 1.15rem;
@@ -377,61 +334,33 @@ const getInstagramEmbed = (u: string) =>
     margin-top: 2px;
   }
 
-  /* YouTube / generic video: 16:9 */
-  .cp-video-yt {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-  }
-  .cp-video-yt iframe,
-  .cp-video-yt video {
-    position: absolute;
-    inset: 0; width: 100%; height: 100%;
-    border: 0;
-  }
-
-  /* Instagram: fixed height, centered */
-  .cp-video-ig {
-    display: flex;
+  /* Instagram fallback */
+  .ig-fallback {
+    display: none;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    padding: 0;
-    background: #000;
-    max-height: 600px;
-    overflow: hidden;
+    gap: 20px;
+    position: absolute;
+    inset: 0;
+    background: #0f0f0f;
   }
-  .cp-video-ig iframe {
-    width: 100%;
-    max-width: 400px;
-    height: 560px;
-    border: 0;
-    display: block;
+  .ig-fallback.visible {
+    display: flex;
   }
 
-  /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
-    .cp-hero {
-      grid-template-columns: 1fr;
-    }
-    .cp-img-side {
-      min-height: 320px;
-    }
+    .cp-hero { grid-template-columns: 1fr; }
+    .cp-img-side { min-height: 320px; }
     .cp-info-side {
       padding: 32px 24px;
       border-left: none;
       border-top: 1px solid var(--border);
     }
     .cp-case-number { display: none; }
-    .cp-cards {
-      grid-template-columns: 1fr;
-    }
-    .cp-video-ig iframe {
-      max-width: 100%;
-      height: 480px;
-    }
+    .cp-cards { grid-template-columns: 1fr; }
   }
 
-  /* ── ANIMATIONS ── */
   .fu {
     opacity: 0;
     transform: translateY(20px);
@@ -465,8 +394,6 @@ const getInstagramEmbed = (u: string) =>
 
     <!-- HERO -->
     <div class="cp-hero fu d2">
-
-      <!-- IMAGEN -->
       <div class="cp-img-side">
         {caso.imagenAntes && (
           <img src={caso.imagenAntes} alt="Antes" class="cp-img-antes" />
@@ -483,12 +410,9 @@ const getInstagramEmbed = (u: string) =>
         </div>
       </div>
 
-      <!-- INFO -->
       <div class="cp-info-side">
         <span class="cp-case-number">01</span>
-
         <h1 class="cp-title">{caso.title.rendered}</h1>
-
         {(caso.paciente || caso.tiempo) && (
           <div class="cp-meta">
             {caso.paciente && (
@@ -505,7 +429,6 @@ const getInstagramEmbed = (u: string) =>
             )}
           </div>
         )}
-
         {caso.descripcion && (
           <p class="cp-desc">{caso.descripcion}</p>
         )}
@@ -530,26 +453,24 @@ const getInstagramEmbed = (u: string) =>
       </div>
     )}
 
-    <!-- VIDEO -->
-   {url && (
+ <!-- VIDEO -->
+{url && (
   <div class="fu d4 bg-white rounded-2xl border border-gray-100 overflow-hidden mb-10">
-    
-    {/* HEADER */}
+
+    <!-- HEADER -->
     <div class="flex items-start justify-between px-7 py-5 border-b border-gray-100">
       <div>
         <p class="text-[0.62rem] tracking-[0.18em] uppercase text-gray-300 font-medium">
           Proceso
         </p>
-        <p class="cp-video-title text-[1.1rem] text-gray-800 font-normal mt-0.5">
-          Video del procedimiento clínico
-        </p>
+        <p class="cp-video-title">Video del procedimiento clínico</p>
       </div>
     </div>
 
-    {/* CONTENIDO VIDEO */}
+    <!-- CONTENIDO -->
     <div class="p-6 flex justify-center bg-[#f5f4f1]">
 
-      {/* YOUTUBE */}
+      <!-- YOUTUBE -->
       {isYouTube && (
         <div class="relative w-full max-w-3xl aspect-video rounded-xl overflow-hidden shadow-md">
           <iframe
@@ -560,27 +481,70 @@ const getInstagramEmbed = (u: string) =>
         </div>
       )}
 
-      {/* INSTAGRAM (ARREGLADO) */}
+      <!-- INSTAGRAM -->
       {isInstagram && (
-        <div class="w-full max-w-105">
-          <div class="relative w-full aspect-4/5 rounded-xl overflow-hidden shadow-md bg-black">
+        <div class="w-full max-w-sm flex flex-col items-center">
+          <div class="relative w-full rounded-xl overflow-hidden shadow-md bg-black" style="aspect-ratio: 4/5;">
+
+            <!-- iframe -->
             <iframe
+              id="ig-frame"
               src={getInstagramEmbed(url)}
               loading="lazy"
               class="absolute inset-0 w-full h-full border-0"
             />
+
+            <!-- fallback -->
+            <div id="ig-fallback" class="ig-fallback hidden absolute inset-0 flex flex-col items-center justify-center gap-4 bg-black">
+              
+              <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+                <rect width="52" height="52" rx="14" fill="url(#ig-grad)" />
+                <rect x="14" y="14" width="24" height="24" rx="7" stroke="white" stroke-width="2.2" fill="none" />
+                <circle cx="26" cy="26" r="6" stroke="white" stroke-width="2.2" fill="none" />
+                <circle cx="34" cy="18" r="1.8" fill="white" />
+                <defs>
+                  <linearGradient id="ig-grad" x1="0" y1="52" x2="52" y2="0">
+                    <stop offset="0%" stop-color="#f09433" />
+                    <stop offset="25%" stop-color="#e6683c" />
+                    <stop offset="50%" stop-color="#dc2743" />
+                    <stop offset="75%" stop-color="#cc2366" />
+                    <stop offset="100%" stop-color="#bc1888" />
+                  </linearGradient>
+                </defs>
+              </svg>
+
+              <div class="text-center px-8">
+                <p class="text-white font-medium text-sm mb-1">
+                  Publicación no disponible
+                </p>
+                <p class="text-gray-400 text-xs leading-relaxed">
+                  Esta publicación es privada,<br />
+                  fue eliminada o no permite embeds
+                </p>
+              </div>
+
+              <a
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center gap-2 bg-white/10 hover:bg-white/20 transition-all text-white text-xs font-medium px-5 py-2.5 rounded-full border border-white/20"
+              >
+                Ver en Instagram
+                <svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+
+            </div>
+
           </div>
         </div>
       )}
 
-      {/* MP4 */}
+      <!-- MP4 -->
       {!isYouTube && !isInstagram && (
         <div class="relative w-full max-w-3xl aspect-video rounded-xl overflow-hidden shadow-md">
-          <video
-            src={url}
-            controls
-            class="absolute inset-0 w-full h-full object-cover"
-          />
+          <video src={url} controls class="absolute inset-0 w-full h-full object-cover" />
         </div>
       )}
 
@@ -588,9 +552,40 @@ const getInstagramEmbed = (u: string) =>
   </div>
 )}
 
-    <div class="fu d5" style="height: 80px;"></div>
-
-  </div>
+<div class="fu d5" style="height: 80px;"></div>
 </div>
+
+<script>
+  const frame = document.getElementById("ig-frame") as HTMLIFrameElement | null;
+  const fallback = document.getElementById("ig-fallback") as HTMLElement | null;
+
+  if (frame && fallback) {
+    // Timeout de 5s — si Instagram no responde, mostramos fallback
+    const timer = setTimeout(() => {
+      showFallback();
+    }, 5000);
+
+    frame.addEventListener("load", () => {
+      try {
+        // Intentamos leer el body — si está vacío, el embed no funcionó
+        const body = frame.contentDocument?.body;
+        if (!body || body.innerHTML.trim() === "") {
+          showFallback();
+        } else {
+          clearTimeout(timer);
+        }
+      } catch {
+        // Cross-origin block — asumimos que cargó correctamente
+        clearTimeout(timer);
+      }
+    });
+
+    function showFallback() {
+      if (!frame || !fallback) return;
+      frame.style.display = "none";
+      fallback.classList.add("visible");
+    }
+  }
+</script>
 
 </Layout>
