@@ -1,5 +1,15 @@
 ---
-import equipoImg from "../../../assets/equipo.png?url";
+import { getImage } from "astro:assets";
+import _equipoImg from "../../../assets/equipo.png";
+
+const equipoImg = await getImage({
+  src: _equipoImg,
+  format: "webp",
+  widths: [340, 480, 640, 750],
+  sizes: "(max-width: 640px) 85vw, (max-width: 768px) 90vw, (max-width: 1024px) 620px, 760px",
+  quality: 78,
+});
+
 
 const WHATSAPP_URL = "https://wa.link/u29whe";
 
@@ -72,13 +82,16 @@ const puntos = [
           </div>
 
           <!-- imagen -->
-          <img
-            src={equipoImg}
-            alt="Equipo médico de Maxilodental Studio"
-            class="team-image relative z-10 mx-auto h-auto w-full object-contain filter-[drop-shadow(0_24px_36px_rgba(0,0,0,0.12))_drop-shadow(0_46px_76px_rgba(0,0,0,0.08))]"
-            loading="lazy"
-          />
-
+           <img
+  src={equipoImg.src}
+  alt="Equipo médico de Maxilodental Studio"
+  width={equipoImg.attributes.width}
+  height={equipoImg.attributes.height}
+  loading="lazy"
+  decoding="async"
+  class="team-image ..."
+/>
+          
           <!-- WhatsApp dock -->
           <a
             href={WHATSAPP_URL}
